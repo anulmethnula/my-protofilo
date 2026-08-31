@@ -363,22 +363,35 @@
     display:flex; align-items:center; justify-content:center;
     font-size:0.7rem; font-weight:700; color:#1a1204;
   }
-  .certifications-section{ position:relative; isolation:isolate; overflow:hidden; min-height:560px; padding:74px clamp(24px,7vw,120px) 70px !important; background:linear-gradient(rgba(9,13,12,.88),rgba(9,13,12,.92)),url("cer1.png") center/cover !important; }
-  .certifications-section::before,.certifications-section::after{ content:""; position:absolute; z-index:-1; width:43%; height:68%; top:18%; background-size:cover; background-position:center; border:1px solid rgba(255,255,255,.18); border-radius:18px; opacity:.2; filter:saturate(.72) contrast(.9); box-shadow:0 18px 40px rgba(0,0,0,.3); }
-  .certifications-section::before{ left:-5%; transform:rotate(-7deg); background-image:url("cer2.png"); }
-  .certifications-section::after{ right:-5%; transform:rotate(7deg); background-image:url("cer3.png"); }
-  .certifications-section .sec-title{ position:relative; z-index:1; max-width:1080px; text-align:center !important; margin:0 auto 34px !important; }
-  .certifications-section .sec-title h2{ font-size:clamp(2.2rem,5vw,4.2rem) !important; }
-  .certifications-section .ach-grid{ position:relative; z-index:1; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:24px; padding-inline:0; max-width:1000px; margin:0 auto; }
+  .certifications-section{ position:relative; isolation:isolate; overflow:hidden; min-height:600px; padding:82px clamp(24px,6vw,104px) 86px !important; background-image:linear-gradient(110deg,rgba(5,10,13,.94),rgba(6,12,15,.78) 48%,rgba(5,10,13,.92)),url("cer1.png") !important; background-size:cover,108%; background-position:center; animation:certBackdrop 16s ease-in-out infinite alternate; }
+  .certifications-section::before,.certifications-section::after{ content:""; position:absolute; z-index:-1; top:20%; width:min(43vw,650px); height:68%; border:1px solid rgba(255,255,255,.13); border-radius:20px; background-repeat:no-repeat; background-position:center; background-size:cover; opacity:.2; filter:saturate(.76) contrast(1.05) brightness(.68); box-shadow:0 24px 60px rgba(0,0,0,.4); will-change:transform; }
+  .certifications-section::before{ left:-8%; background-image:linear-gradient(rgba(5,10,13,.24),rgba(5,10,13,.58)),url("cer2.png"); transform:rotate(-7deg); animation:certFloatLeft 9s ease-in-out infinite; }
+  .certifications-section::after{ right:-8%; background-image:linear-gradient(rgba(5,10,13,.24),rgba(5,10,13,.58)),url("cer3.png"); transform:rotate(7deg); animation:certFloatRight 10s ease-in-out infinite; }
+  @keyframes certBackdrop{ from{ background-size:cover,108%; background-position:center,50% 48%; } to{ background-size:cover,114%; background-position:center,50% 54%; } }
+  @keyframes certFloatLeft{ 0%,100%{ transform:translate3d(0,0,0) rotate(-7deg) scale(1); } 50%{ transform:translate3d(28px,-18px,0) rotate(-4deg) scale(1.035); } }
+  @keyframes certFloatRight{ 0%,100%{ transform:translate3d(0,0,0) rotate(7deg) scale(1); } 50%{ transform:translate3d(-28px,20px,0) rotate(4deg) scale(1.035); } }
+  .certifications-section .sec-title{ position:relative; z-index:1; max-width:none; text-align:center !important; margin:0 auto 44px !important; }
+  .certifications-section .sec-title h2{ font-size:clamp(2.7rem,5vw,4.8rem) !important; letter-spacing:-.065em; }
+  .certifications-section .ach-grid{ position:relative; z-index:1; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:20px; width:100%; max-width:1220px; margin:0 auto; padding-inline:0; counter-reset:credential; }
   .certifications-section .ach-grid .ach{ grid-column:span 2; }
   .certifications-section .ach-grid .ach:nth-child(4){ grid-column:2 / span 2; }
   .certifications-section .ach-grid .ach:nth-child(5){ grid-column:4 / span 2; }
-  .certifications-section .ach{ min-height:104px; width:100%; max-width:none; padding:18px 20px; align-items:flex-start; background:rgba(15,20,18,.78); border:1px solid rgba(232,240,233,.18); border-radius:16px; backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); box-shadow:0 14px 30px rgba(0,0,0,.23),inset 0 1px 0 rgba(255,255,255,.08); line-height:1.45; transition:transform .25s ease,border-color .25s ease; }
-  .certifications-section .ach:hover{ transform:translateY(-5px); border-color:rgba(232,176,123,.55); }
-  .certifications-section .ach .badge{ flex-shrink:0; width:30px; height:30px; margin-top:1px; background:linear-gradient(135deg,#f5b06d,#bb7137); }
-  .certifications-section .ach strong{ display:block; margin-bottom:4px; font-size:.86rem; color:#f5f7f2; }
-  .certifications-section .ach small{ display:block; color:#b6c0bd; font-size:.74rem; }
-  @media (max-width:800px){ .certifications-section{ min-height:unset; padding-block:58px 52px !important; } .certifications-section::before,.certifications-section::after{ width:60%; height:42%; top:30%; } .certifications-section .sec-title{ text-align:center !important; } .certifications-section .ach-grid{ grid-template-columns:1fr; max-width:460px; gap:18px; } .certifications-section .ach-grid .ach,.certifications-section .ach-grid .ach:nth-child(4),.certifications-section .ach-grid .ach:nth-child(5){ grid-column:auto; } }
+  .certifications-section .ach{ counter-increment:credential; position:relative; overflow:hidden; min-height:132px; width:100%; max-width:none; padding:24px 52px 22px 22px; align-items:flex-start; background:rgba(10,17,21,.88); border:1px solid rgba(163,200,194,.2); border-radius:16px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); box-shadow:0 18px 42px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.055); line-height:1.45; transition:transform .28s ease,border-color .28s ease,background .28s ease,box-shadow .28s ease; }
+  .certifications-section .ach::before{ content:""; position:absolute; inset:0 0 auto; height:2px; background:linear-gradient(90deg,#62d79a,#65c8df 52%,#e8b07b); transform:scaleX(.28); transform-origin:left; transition:transform .35s ease; }
+  .certifications-section .ach::after{ content:"0" counter(credential); position:absolute; top:17px; right:17px; color:rgba(232,176,123,.28); font:700 .72rem/1 'Share Tech Mono',monospace; letter-spacing:.06em; }
+  .certifications-section .ach:hover{ transform:translateY(-6px); border-color:rgba(232,176,123,.5); background:rgba(14,24,28,.95); box-shadow:0 24px 52px rgba(0,0,0,.34),0 0 26px rgba(98,215,154,.06); }
+  .certifications-section .ach:hover::before{ transform:scaleX(1); }
+  .certifications-section .ach .badge{ flex-shrink:0; width:34px; height:34px; margin-top:0; background:#e8a45f; box-shadow:0 0 0 5px rgba(232,164,95,.08); }
+  .certifications-section .ach strong{ display:block; margin-bottom:7px; font-size:.92rem; color:#f5f7f2; }
+  .certifications-section .ach small{ display:block; color:#aebbb9; font-size:.76rem; line-height:1.55; }
+  .certifications-section .ach-grid.in .ach{ animation:certCardIn .65s cubic-bezier(.2,.75,.25,1) both; }
+  .certifications-section .ach-grid.in .ach:nth-child(2){ animation-delay:.08s; }
+  .certifications-section .ach-grid.in .ach:nth-child(3){ animation-delay:.16s; }
+  .certifications-section .ach-grid.in .ach:nth-child(4){ animation-delay:.24s; }
+  .certifications-section .ach-grid.in .ach:nth-child(5){ animation-delay:.32s; }
+  @keyframes certCardIn{ from{ opacity:0; transform:translateY(24px) scale(.985); } to{ opacity:1; transform:translateY(0) scale(1); } }
+  @media (max-width:800px){ .certifications-section{ min-height:unset; padding:62px 18px 58px !important; background-size:cover,cover; } .certifications-section::before,.certifications-section::after{ top:26%; width:76vw; height:42%; opacity:.13; } .certifications-section::before{ left:-36%; } .certifications-section::after{ right:-36%; } .certifications-section .sec-title{ margin-bottom:32px !important; } .certifications-section .ach-grid{ grid-template-columns:1fr; max-width:520px; gap:14px; } .certifications-section .ach-grid .ach,.certifications-section .ach-grid .ach:nth-child(4),.certifications-section .ach-grid .ach:nth-child(5){ grid-column:auto; } .certifications-section .ach{ min-height:112px; padding:20px 46px 18px 18px; } }
+  @media (prefers-reduced-motion:reduce){ .certifications-section,.certifications-section::before,.certifications-section::after{ animation:none; } .certifications-section .ach-grid.in .ach{ animation:none; } .certifications-section .ach{ transition:none; } }
 
   /* impact dashboard */
   .impact-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
@@ -744,6 +757,116 @@
     .avatar-frame img{ object-position:66% center; filter:contrast(1.03) saturate(.86) brightness(.68); }
     .connect-rail.is-idle{ transform:translate(-50%,14px); }
   }
+
+  /* Final contact / CTA */
+  .contact-final{ position:relative; isolation:isolate; overflow:hidden; width:100%; margin:0 !important; padding:clamp(58px,7vw,96px) clamp(24px,6vw,104px) !important; border-top:1px solid rgba(255,255,255,.1); border-bottom:1px solid rgba(255,255,255,.08); background:#080c10 !important; }
+  .contact-final::before{ content:""; position:absolute; z-index:-1; right:8%; bottom:4%; width:min(46vw,680px); aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,rgba(232,176,123,.075),transparent 68%); pointer-events:none; }
+  .contact-final-inner{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr); align-items:center; gap:clamp(38px,5vw,82px); width:100%; max-width:1280px; min-height:620px; margin:0 auto; }
+  .contact-final-copy{ min-width:0; max-width:700px; }
+  .contact-final-eyebrow{ display:flex; align-items:center; gap:11px; margin-bottom:24px; color:#e8b07b; font:750 .75rem/1 'Manrope',sans-serif; letter-spacing:.16em; }
+  .contact-final-eyebrow::before{ content:""; width:36px; height:1px; background:#e8b07b; }
+  .contact-final h2{ margin:0 0 28px; font-family:'Manrope',sans-serif; font-size:clamp(4rem,6vw,6.5rem); font-weight:800; line-height:.88; letter-spacing:-.075em; }
+  .contact-final h2 span{ display:block; }
+  .contact-final h2 span:first-child{ color:#f4f6f7; }
+  .contact-final h2 .contact-final-accent{ margin-top:.04em; color:#e5a053; }
+  .contact-final-description{ max-width:600px; margin:0 0 28px; color:#c3c9cf; font-size:clamp(1.08rem,1.25vw,1.28rem); line-height:1.68; }
+  .contact-final-description span{ display:block; }
+  .contact-final-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:17px; }
+  .contact-final-btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:50px; padding:0 20px; border:1px solid rgba(255,255,255,.16); border-radius:11px; color:#f1f3f4; font:750 .82rem/1 'Manrope',sans-serif; text-decoration:none; transition:transform .24s ease,filter .24s ease,border-color .24s ease,color .24s ease,background .24s ease; }
+  .contact-final-btn.primary{ border-color:#e8b07b; background:#e8b07b; color:#17120d; }
+  .contact-final-btn.primary:hover{ transform:translateY(-2px); filter:brightness(1.08); }
+  .contact-final-btn.secondary{ background:rgba(255,255,255,.025); }
+  .contact-final-btn.secondary:hover{ transform:translateY(-2px); border-color:#e8b07b; color:#efba81; }
+  .contact-final-note{ margin:0 0 28px; color:#89939d; font:600 .7rem/1.5 'Manrope',sans-serif; letter-spacing:.035em; }
+  .contact-final-details{ display:flex; flex-wrap:wrap; max-width:600px; border-top:1px solid rgba(255,255,255,.1); border-bottom:1px solid rgba(255,255,255,.1); }
+  .contact-final-detail{ min-width:220px; flex:1; padding:16px 20px 16px 0; }
+  .contact-final-detail + .contact-final-detail{ padding-left:24px; border-left:1px solid rgba(255,255,255,.1); }
+  .contact-final-detail small{ display:block; margin-bottom:6px; color:#7f8992; font:700 .62rem/1 'Share Tech Mono',monospace; letter-spacing:.13em; }
+  .contact-final-detail a,.contact-final-detail span{ color:#dce1e5; font:650 .82rem/1.4 'Manrope',sans-serif; text-decoration:none; }
+  .contact-final-detail a:hover{ color:#e8b07b; }
+  .contact-final-portrait{ position:relative; align-self:stretch; min-height:560px; margin:0; overflow:hidden; }
+  .contact-final-portrait img{ display:block; width:100%; height:100%; min-height:560px; object-fit:cover; object-position:64% center; filter:contrast(1.025) saturate(.88) brightness(.9); }
+  .contact-final-portrait::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,#080c10 0%,rgba(8,12,16,.62) 13%,transparent 38%),linear-gradient(0deg,#080c10 0%,transparent 24%); pointer-events:none; }
+  .contact-final.in .contact-final-copy{ animation:contactCopyIn .7s cubic-bezier(.2,.75,.25,1) both; }
+  .contact-final.in .contact-final-portrait{ animation:contactPortraitIn .8s .08s ease both; }
+  @keyframes contactCopyIn{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:translateY(0); } }
+  @keyframes contactPortraitIn{ from{ opacity:0; } to{ opacity:1; } }
+  @media (max-width:1050px){ .contact-final-inner{ grid-template-columns:minmax(0,1fr) minmax(320px,.85fr); gap:34px; } .contact-final h2{ font-size:clamp(3.7rem,6.8vw,5.5rem); } .contact-final-portrait,.contact-final-portrait img{ min-height:520px; } }
+  @media (max-width:760px){ .contact-final{ padding:58px 20px 0 !important; } .contact-final-inner{ grid-template-columns:1fr; gap:34px; min-height:0; } .contact-final-copy{ max-width:100%; } .contact-final h2{ font-size:clamp(3.35rem,14vw,4.8rem); } .contact-final-description span{ display:inline; } .contact-final-actions{ flex-direction:column; } .contact-final-btn{ width:100%; min-height:52px; } .contact-final-note{ margin-bottom:24px; } .contact-final-details{ flex-direction:column; } .contact-final-detail{ width:100%; min-width:0; padding:15px 0; } .contact-final-detail + .contact-final-detail{ padding-left:0; border-top:1px solid rgba(255,255,255,.1); border-left:0; } .contact-final-portrait{ width:calc(100% + 40px); height:clamp(420px,122vw,500px); min-height:0; margin-left:-20px; } .contact-final-portrait img{ min-height:0; object-position:66% center; } .contact-final-portrait::after{ background:linear-gradient(0deg,#080c10 0%,transparent 22%),linear-gradient(180deg,#080c10 0%,transparent 16%); } }
+  @media (prefers-reduced-motion:reduce){ .contact-final.in .contact-final-copy,.contact-final.in .contact-final-portrait{ animation:none; } .contact-final-btn{ transition:none; } }
+
+  /* Free, browser-based portfolio assistant */
+  .sr-only{ position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden !important; clip:rect(0,0,0,0) !important; white-space:nowrap !important; border:0 !important; }
+  .portfolio-chat{ position:fixed; z-index:130; right:24px; bottom:24px; font-family:'Manrope',sans-serif; }
+  .chat-toggle{ --look-x:0px; --look-y:0px; --head-x:0deg; --head-y:0deg; position:relative; isolation:isolate; display:grid; place-items:center; width:80px; height:84px; margin-left:auto; padding:0; border:0; border-radius:50%; background:transparent; color:#f2b56f; cursor:pointer; transition:filter .22s ease; }
+  .chat-toggle::before{ content:""; position:absolute; z-index:-1; inset:4px 1px 0; border-radius:50%; background:conic-gradient(from 0deg,rgba(98,215,154,.08),rgba(101,200,223,.72),rgba(232,176,123,.7),rgba(98,215,154,.08)); filter:blur(8px); opacity:.78; animation:chatHaloSpin 4s linear infinite; }
+  .chat-toggle:hover{ filter:brightness(1.12); }
+  .chat-toggle::after{ content:""; position:absolute; z-index:5; top:9px; right:5px; width:11px; height:11px; border:2px solid #0d1217; border-radius:50%; background:#62d79a; box-shadow:0 0 12px rgba(98,215,154,.95); }
+  .chat-callout{ position:absolute; right:72px; bottom:44px; width:max-content; max-width:210px; padding:11px 15px; border:1px solid rgba(101,200,223,.24); border-radius:16px 16px 5px 16px; background:#f7f8fa; color:#15202a; box-shadow:0 10px 34px rgba(0,0,0,.28),0 0 22px rgba(101,200,223,.15); font:750 .74rem/1.25 'Manrope',sans-serif; opacity:0; visibility:hidden; transform:translateY(8px) scale(.96); pointer-events:none; }
+  .chat-callout::after{ content:""; position:absolute; right:-7px; bottom:7px; width:14px; height:14px; background:#f7f8fa; clip-path:polygon(0 0,100% 100%,0 100%); }
+  .portfolio-chat.is-open .chat-callout{ opacity:0; animation:none; }
+  .portfolio-chat:not(.is-open) .chat-toggle:hover .chat-callout,.portfolio-chat:not(.is-open) .chat-toggle:focus-visible .chat-callout{ visibility:visible; animation:chatCalloutPeek 2.7s ease both; }
+  .bot-face{ position:relative; z-index:2; display:block; width:59px; height:62px; border:1px solid rgba(214,237,244,.8); border-radius:48% 48% 43% 43% / 42% 42% 54% 54%; background:linear-gradient(145deg,#f5fbfd 0%,#a9c2cc 45%,#e8f1f4 72%,#7d98a4 100%); box-shadow:inset 7px 3px 10px rgba(255,255,255,.72),inset -7px -5px 11px rgba(42,65,76,.35),0 12px 25px rgba(0,0,0,.38),0 0 23px rgba(101,200,223,.35); transform-style:preserve-3d; animation:botFaceHover 3.1s ease-in-out infinite; }
+  .bot-antenna{ position:absolute; top:-13px; left:50%; width:3px; height:15px; border-radius:3px; background:#bcd1d8; transform:translateX(-50%); box-shadow:0 -2px 0 2px #65c8df,0 -2px 10px #65c8df; }
+  .bot-ear{ position:absolute; z-index:-1; top:24px; width:9px; height:22px; border:1px solid #9fb8c1; background:linear-gradient(#dcecef,#708b96); box-shadow:0 0 10px rgba(101,200,223,.25); }
+  .bot-ear-left{ left:-7px; border-radius:8px 2px 2px 8px; }
+  .bot-ear-right{ right:-7px; border-radius:2px 8px 8px 2px; }
+  .bot-visor{ position:absolute; top:16px; left:7px; display:flex; align-items:center; justify-content:space-around; width:43px; height:22px; padding:0 4px; border:1px solid rgba(101,200,223,.55); border-radius:11px; background:radial-gradient(circle at 50% 20%,#244653,#071218 72%); box-shadow:inset 0 0 9px #02080b,0 0 9px rgba(101,200,223,.34); }
+  .bot-eye{ position:relative; width:10px; height:9px; border-radius:50%; background:#8ff7ff; box-shadow:inset 0 0 0 2px #36bdd1,0 0 8px #4feaff,0 0 13px #3ccfe3; animation:botBlink 4.6s ease-in-out infinite; }
+  .bot-eye::after{ content:""; position:absolute; top:2px; left:3px; width:3px; height:3px; border-radius:50%; background:#fff; }
+  .bot-eye-right{ animation-delay:.04s; }
+  .bot-mouth{ position:absolute; bottom:10px; left:50%; display:flex; align-items:end; justify-content:center; gap:2px; width:24px; height:8px; transform:translateX(-50%); }
+  .bot-mouth span{ width:3px; border-radius:3px; background:#287f91; box-shadow:0 0 5px rgba(101,200,223,.65); animation:botTalk 1.8s ease-in-out infinite; }
+  .bot-mouth span:nth-child(1),.bot-mouth span:nth-child(3){ height:3px; }
+  .bot-mouth span:nth-child(2){ height:6px; animation-delay:.16s; }
+  .portfolio-chat.is-thinking .bot-face{ box-shadow:inset 7px 3px 10px rgba(255,255,255,.72),inset -7px -5px 11px rgba(42,65,76,.35),0 12px 25px rgba(0,0,0,.38),0 0 34px rgba(101,200,223,.72); }
+  .portfolio-chat.is-thinking .bot-mouth span{ animation-duration:.48s; }
+  .chat-panel{ position:absolute; right:0; bottom:102px; display:flex; flex-direction:column; width:min(400px,calc(100vw - 32px)); height:min(570px,calc(100svh - 120px)); overflow:hidden; border:1px solid rgba(255,255,255,.14); border-radius:20px; background:#0d1217; box-shadow:0 26px 75px rgba(0,0,0,.55),0 0 50px rgba(98,215,154,.06); opacity:0; visibility:hidden; transform:translateY(18px) scale(.97); transform-origin:bottom right; transition:opacity .24s ease,transform .24s ease,visibility 0s linear .24s; }
+  .chat-panel::before{ content:""; position:absolute; z-index:3; top:0; left:-45%; width:38%; height:2px; background:linear-gradient(90deg,transparent,#62d79a,#65c8df,#e8b07b,transparent); animation:chatPanelScan 4.5s ease-in-out infinite; pointer-events:none; }
+  .portfolio-chat.is-open .chat-panel{ opacity:1; visibility:visible; transform:translateY(0) scale(1); transition-delay:0s; }
+  .portfolio-chat.is-open .chat-toggle{ background:transparent; color:#f2b56f; }
+  .chat-header{ display:flex; align-items:center; gap:12px; flex:0 0 auto; padding:17px 18px; border-bottom:1px solid rgba(255,255,255,.1); background:#11171c; }
+  .chat-avatar{ display:grid; place-items:center; width:42px; height:42px; flex:0 0 auto; border:1px solid rgba(232,176,123,.45); border-radius:13px; background:#1a2025; color:#f0b773; font:800 .78rem/1 'Manrope',sans-serif; box-shadow:inset 0 0 18px rgba(232,176,123,.08),0 0 18px rgba(98,215,154,.06); animation:chatAvatarGlow 3.2s ease-in-out infinite; }
+  .chat-identity{ min-width:0; flex:1; }
+  .chat-identity strong{ display:block; color:#f5f6f7; font-size:.95rem; }
+  .chat-status{ display:flex; align-items:center; gap:6px; margin-top:3px; color:#72d9a2; font-size:.7rem; }
+  .chat-status::before{ content:""; width:7px; height:7px; border-radius:50%; background:#62d79a; box-shadow:0 0 8px rgba(98,215,154,.7); }
+  .chat-close{ display:grid; place-items:center; width:34px; height:34px; border:0; border-radius:9px; background:transparent; color:#aeb6bf; cursor:pointer; transition:background .2s ease,color .2s ease; }
+  .chat-close:hover{ background:rgba(255,255,255,.07); color:#fff; }
+  .chat-messages{ flex:1; min-height:0; overflow-y:auto; padding:18px 16px; scrollbar-width:thin; scrollbar-color:#3d4852 transparent; }
+  .chat-message{ display:flex; align-items:flex-end; gap:8px; margin-bottom:13px; animation:chatMessageIn .28s ease both; }
+  .chat-message.user{ justify-content:flex-end; }
+  .chat-message-avatar{ display:grid; place-items:center; width:27px; height:27px; flex:0 0 auto; border-radius:8px; background:#1b242b; color:#e8b07b; font-size:.65rem; font-weight:800; }
+  .chat-bubble{ max-width:82%; padding:11px 13px; border:1px solid rgba(255,255,255,.1); border-radius:14px 14px 14px 4px; background:#171e24; color:#dbe0e4; font-size:.82rem; line-height:1.55; }
+  .chat-message.user .chat-bubble{ border-color:rgba(232,176,123,.34); border-radius:14px 14px 4px 14px; background:#2a2018; color:#f6e4d1; }
+  .chat-bubble a{ color:#79dba8; font-weight:700; text-decoration:none; }
+  .chat-bubble a:hover{ text-decoration:underline; }
+  .chat-typing{ display:flex; align-items:center; gap:4px; height:18px; }
+  .chat-typing span{ width:5px; height:5px; border-radius:50%; background:#9ba6af; animation:chatDot 1s ease-in-out infinite; }
+  .chat-typing span:nth-child(2){ animation-delay:.14s; }
+  .chat-typing span:nth-child(3){ animation-delay:.28s; }
+  .chat-suggestions{ display:flex; gap:7px; flex:0 0 auto; overflow-x:auto; padding:11px 12px; border-top:1px solid rgba(255,255,255,.08); scrollbar-width:none; }
+  .chat-suggestions::-webkit-scrollbar{ display:none; }
+  .chat-suggestion{ flex:0 0 auto; padding:8px 11px; border:1px solid rgba(255,255,255,.11); border-radius:999px; background:#151b20; color:#d7dde1; font:700 .7rem/1 'Manrope',sans-serif; cursor:pointer; transition:border-color .2s ease,color .2s ease; }
+  .chat-suggestion:hover{ border-color:rgba(232,176,123,.5); color:#efb777; }
+  .chat-form{ display:flex; align-items:center; gap:9px; flex:0 0 auto; padding:12px; border-top:1px solid rgba(255,255,255,.08); background:#10161a; }
+  .chat-input{ min-width:0; flex:1; height:44px; padding:0 14px; border:1px solid rgba(255,255,255,.11); border-radius:12px; outline:none; background:#181f25; color:#f1f3f4; font:500 .8rem 'Manrope',sans-serif; }
+  .chat-input::placeholder{ color:#7f8a94; }
+  .chat-input:focus{ border-color:rgba(232,176,123,.55); }
+  .chat-send{ display:grid; place-items:center; width:44px; height:44px; flex:0 0 auto; border:0; border-radius:12px; background:#e8b07b; color:#18110b; cursor:pointer; transition:filter .2s ease,transform .2s ease; }
+  .chat-send:hover{ filter:brightness(1.08); transform:translateY(-1px); }
+  @keyframes chatMessageIn{ from{ opacity:0; transform:translateY(7px); } to{ opacity:1; transform:translateY(0); } }
+  @keyframes chatDot{ 0%,60%,100%{ transform:translateY(0); opacity:.45; } 30%{ transform:translateY(-4px); opacity:1; } }
+  @keyframes chatHaloSpin{ to{ transform:rotate(360deg); } }
+  @keyframes chatBotFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-2px); } }
+  @keyframes chatPanelScan{ 0%,12%{ transform:translateX(0); opacity:0; } 35%,65%{ opacity:1; } 88%,100%{ transform:translateX(390%); opacity:0; } }
+  @keyframes chatAvatarGlow{ 0%,100%{ border-color:rgba(232,176,123,.42); } 50%{ border-color:rgba(98,215,154,.58); } }
+  @keyframes botFaceHover{ 0%,100%{ transform:translateY(0) perspective(130px) rotateX(var(--head-y)) rotateY(var(--head-x)); } 50%{ transform:translateY(-5px) perspective(130px) rotateX(var(--head-y)) rotateY(var(--head-x)); } }
+  @keyframes botBlink{ 0%,43%,47%,100%{ transform:translate(var(--look-x),var(--look-y)) scaleY(1); } 45%{ transform:translate(var(--look-x),var(--look-y)) scaleY(.12); } }
+  @keyframes botTalk{ 0%,100%{ transform:scaleY(.65); opacity:.62; } 50%{ transform:scaleY(1.2); opacity:1; } }
+  @keyframes chatCalloutPeek{ 0%{ opacity:0; transform:translateY(8px) scale(.96); } 14%,72%{ opacity:1; transform:translateY(0) scale(1); } 100%{ opacity:0; transform:translateY(-4px) scale(.98); } }
+  @media (max-width:720px){ .portfolio-chat{ right:12px; bottom:calc(92px + env(safe-area-inset-bottom)); } .chat-toggle{ width:68px; height:72px; } .chat-callout{ display:none; } .bot-face{ width:54px; height:57px; } .bot-visor{ top:15px; left:6px; width:40px; } .chat-panel{ position:fixed; right:10px; bottom:calc(176px + env(safe-area-inset-bottom)); width:calc(100vw - 20px); height:min(560px,calc(100svh - 198px)); border-radius:18px; } }
+  @media (prefers-reduced-motion:reduce){ .chat-panel,.chat-panel::before,.chat-toggle,.chat-toggle::before,.bot-face,.bot-eye,.bot-mouth span,.chat-callout,.chat-avatar,.chat-message,.chat-typing span{ animation:none; transition:none; } .portfolio-chat:not(.is-open) .chat-toggle:hover .chat-callout,.portfolio-chat:not(.is-open) .chat-toggle:focus-visible .chat-callout{ opacity:1; visibility:visible; transform:none; } }
 </style>
 </head>
 <body>
@@ -796,6 +919,38 @@
     <a class="connect-link cv" id="connectCv" href="Anul_Methnula_PM_Resume.pdf" download aria-label="Download PM CV" title="Download PM CV" data-tooltip="Download PM CV"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i></a>
     <a class="connect-link phone" href="tel:+94740529061" aria-label="Call Me" title="Call Me" data-tooltip="Call Me"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
   </nav>
+
+  <aside class="portfolio-chat" id="portfolioChat" aria-label="Anul portfolio assistant">
+    <section class="chat-panel" id="chatPanel" aria-hidden="true" aria-label="Chat with Anul AI">
+      <header class="chat-header">
+        <div class="chat-avatar" aria-hidden="true">AM</div>
+        <div class="chat-identity"><strong>Anul AI</strong><span class="chat-status">Online &amp; ready to help</span></div>
+        <button class="chat-close" id="chatClose" type="button" aria-label="Close chat"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </header>
+      <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions"></div>
+      <div class="chat-suggestions" aria-label="Suggested questions">
+        <button class="chat-suggestion" type="button" data-chat-question="Tell me about Anul">About Anul</button>
+        <button class="chat-suggestion" type="button" data-chat-question="What are Anul's skills?">Skills</button>
+        <button class="chat-suggestion" type="button" data-chat-question="Show me Anul's projects">Projects</button>
+        <button class="chat-suggestion" type="button" data-chat-question="How can I contact Anul?">Contact</button>
+        <button class="chat-suggestion" type="button" data-chat-question="Can I download Anul's CV?">Download CV</button>
+      </div>
+      <form class="chat-form" id="chatForm">
+        <label class="sr-only" for="chatInput">Ask about Anul</label>
+        <input class="chat-input" id="chatInput" type="text" maxlength="240" autocomplete="off" placeholder="Ask about Anul...">
+        <button class="chat-send" type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+      </form>
+    </section>
+    <button class="chat-toggle" id="chatToggle" type="button" aria-label="Open Anul AI chat" aria-expanded="false" aria-controls="chatPanel">
+      <span class="chat-callout" aria-hidden="true">Ask anything from Anul</span>
+      <span class="bot-face" id="botFace" aria-hidden="true">
+        <span class="bot-antenna"></span>
+        <span class="bot-ear bot-ear-left"></span><span class="bot-ear bot-ear-right"></span>
+        <span class="bot-visor"><span class="bot-eye bot-eye-left"></span><span class="bot-eye bot-eye-right"></span></span>
+        <span class="bot-mouth"><span></span><span></span><span></span></span>
+      </span>
+    </button>
+  </aside>
 
   <!-- ================= PM PAGE ================= -->
   <div class="page active" id="page-pm">
@@ -950,6 +1105,26 @@
         <div class="ach"><span class="badge">&#9733;</span><span><strong>LeanPM Yellow Belt Certified</strong><small>Lean Project Management Foundation - Issued Apr 2026</small></span></div>
         <div class="ach"><span class="badge">&#9733;</span><span><strong>45-Day English Course - Diplomat's Mun</strong><small>Aug 2024 - Feb 2025</small></span></div>
         <div class="ach"><span class="badge">&#9733;</span><span><strong>British Council English Course - Level A2 (Spoken English)</strong><small>Aug 2024 - Feb 2025</small></span></div>
+      </div>
+    </section>
+
+    <section class="contact-final reveal" aria-labelledby="contact-final-pm-title">
+      <div class="contact-final-inner">
+        <div class="contact-final-copy">
+          <div class="contact-final-eyebrow">LET&rsquo;S CONNECT</div>
+          <h2 id="contact-final-pm-title"><span>LET&rsquo;S</span><span class="contact-final-accent">WORK TOGETHER.</span></h2>
+          <p class="contact-final-description"><span>Have an opportunity, project, or idea in mind?</span> <span>I&rsquo;m always open to discussing Business Analysis, Project Management, and digital transformation opportunities.</span></p>
+          <div class="contact-final-actions">
+            <a class="contact-final-btn primary" href="https://wa.me/94740529061?text=Hi%20Anul%2C%20I%27d%20like%20to%20connect%20with%20you." target="_blank" rel="noopener noreferrer" aria-label="Get in touch with Anul on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>Get In Touch <span aria-hidden="true">&rarr;</span></a>
+            <a class="contact-final-btn secondary" href="https://www.linkedin.com/in/anul-methnula/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>LinkedIn <span aria-hidden="true">&nearr;</span></a>
+          </div>
+          <p class="contact-final-note">Open to opportunities &bull; Collaboration &bull; New ideas</p>
+          <div class="contact-final-details">
+            <div class="contact-final-detail"><small>EMAIL</small><a href="mailto:anulmethnula@gmail.com">anulmethnula@gmail.com</a></div>
+            <div class="contact-final-detail"><small>LOCATION</small><span>Sri Lanka</span></div>
+          </div>
+        </div>
+        <figure class="contact-final-portrait"><img src="assets/images/contact-portrait-gold.png" alt="Anul Methnula wearing gold-frame glasses and holding a laptop in a modern office" loading="lazy"></figure>
       </div>
     </section>
 
@@ -1116,6 +1291,26 @@
       </div>
     </section>
 
+    <section class="contact-final reveal" aria-labelledby="contact-final-ba-title">
+      <div class="contact-final-inner">
+        <div class="contact-final-copy">
+          <div class="contact-final-eyebrow">LET&rsquo;S CONNECT</div>
+          <h2 id="contact-final-ba-title"><span>LET&rsquo;S</span><span class="contact-final-accent">WORK TOGETHER.</span></h2>
+          <p class="contact-final-description"><span>Have an opportunity, project, or idea in mind?</span> <span>I&rsquo;m always open to discussing Business Analysis, Project Management, and digital transformation opportunities.</span></p>
+          <div class="contact-final-actions">
+            <a class="contact-final-btn primary" href="https://wa.me/94740529061?text=Hi%20Anul%2C%20I%27d%20like%20to%20connect%20with%20you." target="_blank" rel="noopener noreferrer" aria-label="Get in touch with Anul on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>Get In Touch <span aria-hidden="true">&rarr;</span></a>
+            <a class="contact-final-btn secondary" href="https://www.linkedin.com/in/anul-methnula/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>LinkedIn <span aria-hidden="true">&nearr;</span></a>
+          </div>
+          <p class="contact-final-note">Open to opportunities &bull; Collaboration &bull; New ideas</p>
+          <div class="contact-final-details">
+            <div class="contact-final-detail"><small>EMAIL</small><a href="mailto:anulmethnula@gmail.com">anulmethnula@gmail.com</a></div>
+            <div class="contact-final-detail"><small>LOCATION</small><span>Sri Lanka</span></div>
+          </div>
+        </div>
+        <figure class="contact-final-portrait"><img src="assets/images/contact-portrait-gold.png" alt="Anul Methnula wearing gold-frame glasses and holding a laptop in a modern office" loading="lazy"></figure>
+      </div>
+    </section>
+
     <div class="contact-cta">
       <h2>READY TO ADD A BA TO YOUR PARTY?</h2>
       <a class="big-btn" href="mailto:anulmethnula@gmail.com">SEND MESSAGE â†’</a>
@@ -1125,6 +1320,7 @@
 
 </div>
 
+<script src="https://js.puter.com/v2/"></script>
 <script>
   // particles
   const pWrap = document.getElementById('particles');
@@ -1359,6 +1555,204 @@
   visibleTextNodes.forEach(node=>{
     textFixes.forEach(([bad,replacement])=>{ node.nodeValue = node.nodeValue.split(bad).join(replacement); });
   });
+
+  // ---- free local portfolio assistant (no API key or usage fees) ----
+  const portfolioChat = document.getElementById('portfolioChat');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatToggle = document.getElementById('chatToggle');
+  const chatClose = document.getElementById('chatClose');
+  const chatMessages = document.getElementById('chatMessages');
+  const chatForm = document.getElementById('chatForm');
+  const chatInput = document.getElementById('chatInput');
+  const botFace = document.getElementById('botFace');
+  let chatStarted = false;
+  let chatReplying = false;
+  let aiChatHistory = [];
+  const portfolioSystemPrompt = `You are Anul AI, the helpful assistant on Anul Methnula's professional portfolio.
+Answer portfolio questions using only the verified facts below. Never invent achievements, dates, employers, qualifications, contact details, or project results. If a requested portfolio fact is not listed, say that it is not available and suggest contacting Anul. For general questions unrelated to the portfolio, answer helpfully and accurately in plain language. Keep answers concise unless the visitor asks for detail. If uncertain, say so clearly.
+
+VERIFIED PORTFOLIO FACTS:
+- Name: Anul Methnula.
+- Current positioning: Business Analyst Intern and aspiring Project Manager.
+- Professional statement: He turns business needs into clear requirements, practical plans, and well-coordinated digital solutions.
+- Current experience: Business Analyst Intern at Supun Group of Companies, Sri Lanka, August 2026 to Present.
+- Experience duties: gathering and analyzing requirements across departments; reviewing processes and identifying digital improvements; documenting requirements, workflows, process maps, and functional needs; supporting ERP planning and communication between business and technical teams.
+- Skills: Business Analysis, Requirements Gathering, Process Mapping, Stakeholder Communication, ERP Systems, Project Planning and Coordination, Agile and Scrum, Requirements Analysis, Process Modeling, BA and PM Documentation, Jira, Trello, Microsoft Project, Excel, Figma, Draw.io, UAT and Delivery Support.
+- Projects: QR-Based E-Ticketing System; Online Gas Delivery System; Queue Management System; Guest and Resident Feedback System; Hotel Management System; Advanced Enterprise Resource Planning analysis.
+- Education: BSc (Hons) IT for Business, Coventry University via NIBM, 2026 to Present; HND in Information Systems, NIBM, Apr 2025 to Apr 2026; Diploma in Software Engineering, NIBM, Sep 2023 to Sep 2024; Certificate in Computer Science, NIBM, Dec 2022 to May 2023.
+- Certifications: Cloud 101 Powered by AWS; LeanPM Yellow Belt; Certificate in Computer Science; Diplomat's Mun 45-Day English Course; British Council Spoken English Level A2.
+- Email: anulmethnula@gmail.com. Phone and WhatsApp: +94 740 529 061. LinkedIn: linkedin.com/in/anul-methnula/.
+- Two downloadable resumes exist on the site: Anul_Methnula_PM_Resume.pdf and Anul_Methnula_BA_Resume.pdf.`;
+
+  function setChatOpen(open, focusInput = false){
+    portfolioChat.classList.toggle('is-open', open);
+    chatPanel.setAttribute('aria-hidden', String(!open));
+    chatToggle.setAttribute('aria-expanded', String(open));
+    chatToggle.setAttribute('aria-label', open ? 'Close Anul AI chat' : 'Open Anul AI chat');
+    if(open && !chatStarted){
+      chatStarted = true;
+      addChatMessage('Hi! I\'m <strong>Anul AI</strong>. Ask me about Anul\'s experience, skills, projects, education, certifications, contact details, or CV.', 'bot', true);
+    }
+    if(open && focusInput) setTimeout(()=>chatInput.focus(), 120);
+  }
+
+  let botLookFrame;
+  window.addEventListener('pointermove', event=>{
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || !botFace) return;
+    cancelAnimationFrame(botLookFrame);
+    botLookFrame = requestAnimationFrame(()=>{
+      const rect = botFace.getBoundingClientRect();
+      const dx = Math.max(-1,Math.min(1,(event.clientX - (rect.left + rect.width / 2)) / 240));
+      const dy = Math.max(-1,Math.min(1,(event.clientY - (rect.top + rect.height / 2)) / 200));
+      chatToggle.style.setProperty('--look-x',`${(dx * 3).toFixed(2)}px`);
+      chatToggle.style.setProperty('--look-y',`${(dy * 2).toFixed(2)}px`);
+      chatToggle.style.setProperty('--head-x',`${(dx * 8).toFixed(2)}deg`);
+      chatToggle.style.setProperty('--head-y',`${(-dy * 6).toFixed(2)}deg`);
+    });
+  }, {passive:true});
+
+  function addChatMessage(content, sender = 'bot', allowHTML = false){
+    const row = document.createElement('div');
+    row.className = `chat-message ${sender}`;
+    if(sender === 'bot'){
+      const avatar = document.createElement('span');
+      avatar.className = 'chat-message-avatar';
+      avatar.textContent = 'AM';
+      avatar.setAttribute('aria-hidden','true');
+      row.appendChild(avatar);
+    }
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    if(allowHTML) bubble.innerHTML = content;
+    else bubble.textContent = content;
+    row.appendChild(bubble);
+    chatMessages.appendChild(row);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return row;
+  }
+
+  function getPortfolioReply(question){
+    const q = question.toLowerCase().replace(/[^a-z0-9+.# ]/g,' ');
+    const projectLink = current === 'pm' ? '#projects-pm' : '#projects-ba';
+    const cvFile = current === 'pm' ? 'Anul_Methnula_PM_Resume.pdf' : 'Anul_Methnula_BA_Resume.pdf';
+    const cvName = current === 'pm' ? 'Project Manager CV' : 'Business Analyst CV';
+
+    if(/\b(hello|hi|hey|good morning|good evening)\b/.test(q)) return 'Hello! How can I help you learn more about Anul? You can ask about his skills, projects, experience, education, or contact details.';
+    if(/\b(who|about|profile|tell me)\b/.test(q) && /\b(anul|him|candidate|you)\b/.test(q) && !/\b(skill|project|experience|education|degree|certificate|certification|cv|resume|contact|available|availability|hire)\b/.test(q)) return 'Anul Methnula is a <strong>Business Analyst Intern</strong> and aspiring <strong>Project Manager</strong>. He turns business needs into clear requirements, practical plans, and well-coordinated digital solutions.';
+    if(/\b(skill|expertise|technology|technologies|tool|tools)\b/.test(q)) return 'Anul\'s core strengths include <strong>business analysis, requirements gathering, process mapping, stakeholder communication, Agile/Scrum, project coordination, BA/PM documentation, ERP systems, UAT, and delivery support</strong>. His tools include Jira, Trello, Microsoft Project, Excel, Figma, and Draw.io.';
+    if(/\b(project|portfolio|built|work sample)\b/.test(q)) return `Featured work includes a <strong>QR-Based E-Ticketing System, Online Gas Delivery System, Queue Management System, Guest &amp; Resident Feedback System, Hotel Management System</strong>, and an <strong>ERP analysis project</strong>. <a href="${projectLink}">View the projects</a>.`;
+    if(/\b(experience|intern|supun|employment|industry|job)\b/.test(q)) return 'Anul is a <strong>Business Analyst Intern at Supun Group of Companies, Sri Lanka</strong> (August 2026 - Present). He gathers requirements, reviews processes, documents workflows and functional needs, and supports ERP planning and communication between business and technical teams.';
+    if(/\b(education|degree|study|academic|university|nibm|coventry)\b/.test(q)) return 'Anul is studying a <strong>BSc (Hons) in IT for Business</strong> from Coventry University through NIBM. He has also completed an HND in Information Systems, a Diploma in Software Engineering, and a Certificate in Computer Science.';
+    if(/\b(certification|certificate|aws|leanpm|english course)\b/.test(q)) return 'His certifications include <strong>Cloud 101: Powered by AWS, LeanPM Yellow Belt, Certificate in Computer Science</strong>, the Diplomat\'s Mun 45-Day English Course, and British Council Spoken English Level A2.';
+    if(/\b(cv|resume|download)\b/.test(q)) return `You can download Anul\'s current <a href="${cvFile}" download>${cvName}</a>. Use the Project Manager / Business Analyst switch at the top to select the other version.`;
+    if(/\b(available|availability|start|opportunity|hire)\b/.test(q)) return 'Yes—Anul is open to suitable <strong>Business Analyst, Project Coordinator, and junior Project Management opportunities</strong>. Use the contact options here to discuss a role.';
+    if(/\b(contact|email|phone|call|whatsapp|linkedin|reach)\b/.test(q)) return 'You can contact Anul by <a href="mailto:anulmethnula@gmail.com">email</a>, <a href="tel:+94740529061">phone</a>, <a href="https://wa.me/94740529061" target="_blank" rel="noopener noreferrer">WhatsApp</a>, or <a href="https://www.linkedin.com/in/anul-methnula/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.';
+    if(/\b(ai|bot|human|real person)\b/.test(q)) return 'I\'m a free browser-based portfolio assistant trained on the information displayed on this website. I can answer questions about Anul, but contacting him directly is best for anything not covered here.';
+    if(/\b(thank|thanks)\b/.test(q)) return 'You\'re welcome! If you are considering Anul for an opportunity, I can also show you his CV or contact details.';
+    return 'I can help with questions about <strong>Anul\'s profile, skills, projects, experience, education, certifications, CV, or contact details</strong>. Try asking “What are Anul\'s skills?”';
+  }
+
+  function isPortfolioQuestion(question){
+    return /\b(anul|portfolio|profile|skill|project|experience|intern|supun|education|degree|academic|nibm|coventry|certification|certificate|cv|resume|contact|email|phone|whatsapp|linkedin|hire|available|availability)\b/i.test(question);
+  }
+
+  async function streamAIReply(question, typingRow){
+    if(!window.puter?.ai?.chat) throw new Error('AI service unavailable');
+    const conversation = [
+      { role:'system', content:portfolioSystemPrompt },
+      ...aiChatHistory,
+      { role:'user', content:question }
+    ];
+    const response = await puter.ai.chat(conversation, {
+      model:'gpt-5-nano',
+      stream:true,
+      max_tokens:500,
+      temperature:.3
+    });
+    typingRow.remove();
+    const responseRow = addChatMessage('', 'bot');
+    const bubble = responseRow.querySelector('.chat-bubble');
+    let answer = '';
+    try{
+      for await (const part of response){
+        if(part?.text){
+          answer += part.text;
+          bubble.textContent = answer;
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      }
+    } catch(error){
+      if(!answer.trim()) responseRow.remove();
+      throw error;
+    }
+    if(!answer.trim()){
+      responseRow.remove();
+      throw new Error('Empty AI response');
+    }
+    aiChatHistory.push({role:'user',content:question},{role:'assistant',content:answer});
+    aiChatHistory = aiChatHistory.slice(-10);
+  }
+
+  function showChatTyping(){
+    const row = document.createElement('div');
+    row.className = 'chat-message bot';
+    row.innerHTML = '<span class="chat-message-avatar" aria-hidden="true">AM</span><div class="chat-bubble"><span class="chat-typing" aria-label="Anul AI is typing"><span></span><span></span><span></span></span></div>';
+    chatMessages.appendChild(row);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return row;
+  }
+
+  async function askPortfolioChat(question){
+    const cleanQuestion = question.trim();
+    if(!cleanQuestion || chatReplying) return;
+    setChatOpen(true);
+    addChatMessage(cleanQuestion, 'user');
+    chatInput.value = '';
+    chatReplying = true;
+    portfolioChat.classList.add('is-thinking');
+    const typing = showChatTyping();
+    if(isPortfolioQuestion(cleanQuestion)){
+      setTimeout(()=>{
+        typing.remove();
+        addChatMessage(getPortfolioReply(cleanQuestion), 'bot', true);
+        chatReplying = false;
+        portfolioChat.classList.remove('is-thinking');
+        chatInput.focus();
+      }, 260);
+      return;
+    }
+    try{
+      await streamAIReply(cleanQuestion, typing);
+    } catch(error){
+      if(typing.isConnected) typing.remove();
+      addChatMessage('The live AI service is temporarily unavailable. I can still answer questions about Anul\'s portfolio, skills, projects, experience, education, CV, and contact details.', 'bot');
+    } finally {
+      chatReplying = false;
+      portfolioChat.classList.remove('is-thinking');
+      chatInput.focus();
+    }
+  }
+
+  chatToggle.addEventListener('click', ()=>setChatOpen(!portfolioChat.classList.contains('is-open'), true));
+  chatClose.addEventListener('click', ()=>setChatOpen(false));
+  chatForm.addEventListener('submit', event=>{
+    event.preventDefault();
+    askPortfolioChat(chatInput.value);
+  });
+  document.querySelectorAll('[data-chat-question]').forEach(button=>{
+    button.addEventListener('click', ()=>askPortfolioChat(button.dataset.chatQuestion));
+  });
+  document.addEventListener('keydown', event=>{
+    if(event.key === 'Escape' && portfolioChat.classList.contains('is-open')) setChatOpen(false);
+  });
+  setTimeout(()=>{
+    try{
+      if(!sessionStorage.getItem('anul-chat-seen')){
+        setChatOpen(true);
+        sessionStorage.setItem('anul-chat-seen','1');
+      }
+    } catch(error){ /* Storage may be unavailable in privacy mode. */ }
+  }, 4200);
 
   // ---- sticky cta ----
   const stickyCta = document.getElementById('stickyCta');
