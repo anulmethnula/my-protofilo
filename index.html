@@ -1,28 +1,15 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anul Methnula â€” Select Class</title>
+<title>Anul Methnula &mdash; Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
-  :root{
-    --accent:#4F8FE8;
-    --accent-soft:#4F8FE833;
-    --accent-glow:#4F8FE8aa;
-    --gold:#F0BE5A;
-    --gold-soft:#F0BE5A26;
-    --gold-glow:#F0BE5Aaa;
-    --bg:#080A12;
-    --bg2:#0D1220;
-    --panel:#0F1524;
-    --panel-line:#242B44;
-    --text:#EEF1FB;
-    --text-dim:#8791AE;
-    --pm:#4F8FE8;
-    --ba:#B183F0;
-  }
   *{margin:0;padding:0;box-sizing:border-box;}
   html,body{height:100%;}
   body{
@@ -128,25 +115,31 @@
   .class-btn.active.ba-btn{ background:linear-gradient(135deg,var(--ba),#6b3fb0); color:#0f0620; box-shadow:0 0 18px var(--ba); }
 
   /* ---------------- hero ---------------- */
-  .hero{ padding:56px 0 40px; display:grid; grid-template-columns:1fr 320px; gap:44px; align-items:center; }
-  @media (max-width:820px){ .hero{ grid-template-columns:1fr; } }
+  .hero{ position:relative; isolation:isolate; min-height:650px; padding:68px clamp(24px,7vw,112px) 64px; display:grid; grid-template-columns:minmax(0,.95fr) minmax(380px,.85fr); gap:32px; align-items:center; overflow:hidden; border-block:1px solid rgba(132,153,184,.25); background:linear-gradient(90deg,#050911 0%,#060a11 43%,rgba(6,10,17,.72) 62%,rgba(6,10,17,.08) 100%); }
+  .hero::before{ content:""; position:absolute; inset:0; z-index:-2; background:radial-gradient(circle at 0 0,rgba(240,190,90,.25),transparent 18%),linear-gradient(90deg,transparent 64%,rgba(79,143,232,.13)); }
+  .hero::after{ content:""; position:absolute; width:610px; height:610px; right:-150px; top:50%; transform:translateY(-50%); z-index:-1; border:1px solid rgba(79,143,232,.23); border-radius:50%; box-shadow:0 0 0 76px rgba(79,143,232,.035),0 0 0 152px rgba(79,143,232,.02); }
+  @media (max-width:820px){ .hero{ min-height:unset; grid-template-columns:1fr; padding:52px 24px 0; } }
 
   .rank-tag{
     display:inline-flex; align-items:center; gap:8px;
     font-family:'Share Tech Mono', monospace; font-size:0.75rem;
-    color:var(--gold); border:1px solid var(--gold-soft);
-    padding:6px 12px; border-radius:999px; margin-bottom:20px;
-    background:var(--gold-soft);
+    color:#f6bd88; border:1px solid rgba(213,125,67,.35);
+    padding:10px 14px; border-radius:9px; margin-bottom:32px; font-weight:700;
+    background:rgba(54,28,18,.45);
   }
   .rank-tag .pulse{ width:7px; height:7px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px var(--gold); animation:pulse 1.6s infinite; }
   @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 
-  .hero h1{ font-size:clamp(2.2rem,5vw,3.3rem); font-weight:900; line-height:1.05; margin-bottom:10px; letter-spacing:0.01em; }
-  .hero h1 .glow{ color:var(--gold); text-shadow:0 0 22px var(--gold-glow); }
-  .class-name{ font-family:'Orbitron', sans-serif; font-size:1.05rem; color:var(--text-dim); margin-bottom:22px; letter-spacing:0.04em; }
+  .hero h1{ font-family:Arial,sans-serif; font-size:clamp(3.8rem,7vw,6.8rem); font-weight:800; line-height:.9; margin-bottom:18px; letter-spacing:-.075em; color:#f5f7fb; }
+  .hero h1 .glow{ display:block; margin-top:5px; text-shadow:none; background:linear-gradient(105deg,#b85f09,#f2a731 68%,#ffdb71); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .class-name{ font-family:'Orbitron', sans-serif; font-size:.83rem; color:var(--accent); margin-bottom:20px; letter-spacing:.08em; text-transform:uppercase; }
   .class-name strong{ color:var(--accent); }
 
-  .hero p.blurb{ color:var(--text-dim); font-size:1rem; max-width:52ch; margin-bottom:26px; }
+  .hero p.blurb{ color:#d1d4dc; font-size:clamp(1.05rem,1.4vw,1.28rem); line-height:1.55; max-width:55ch; margin-bottom:28px; }
+  .hero-stats{ display:flex; gap:14px; margin:30px 0 8px; flex-wrap:wrap; }
+  .hero-stat{ min-width:152px; padding:14px 18px; border:1px solid rgba(151,165,190,.45); border-radius:17px; background:rgba(9,14,24,.55); }
+  .hero-stat strong{ display:inline-block; margin-right:8px; color:#f7f8fc; font-family:'Orbitron',sans-serif; font-size:1.7rem; letter-spacing:-.08em; }
+  .hero-stat span{ color:#d9dce5; font-size:.67rem; font-family:'Orbitron',sans-serif; font-weight:700; letter-spacing:.05em; }
 
   .xp-bar-wrap{ margin-bottom:26px; max-width:420px; }
   .xp-label{ display:flex; justify-content:space-between; font-family:'Share Tech Mono',monospace; font-size:0.72rem; color:var(--text-dim); margin-bottom:6px; }
@@ -177,11 +170,13 @@
   .pill svg{ width:13px; height:13px; stroke:var(--accent); flex-shrink:0; }
 
   .avatar-frame{
-    position:relative; border-radius:18px; overflow:hidden;
-    border:2px solid var(--gold); box-shadow:0 0 30px var(--gold-glow), inset 0 0 30px rgba(0,0,0,0.4);
+    position:relative; align-self:stretch; min-height:650px; margin:-68px clamp(-112px,-7vw,-24px) -64px 0; border-radius:0; overflow:hidden;
+    border:0; box-shadow:none;
     transform-style:preserve-3d; transition:transform .15s ease-out;
   }
-  .avatar-frame img{ display:block; width:100%; height:auto; filter:contrast(1.05) saturate(1.05); }
+  .avatar-frame::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(5,9,17,.98) 0%,rgba(5,9,17,.55) 18%,transparent 56%),linear-gradient(0deg,rgba(5,9,17,.58),transparent 35%); pointer-events:none; }
+  .avatar-frame img{ display:block; width:100%; height:100%; object-fit:cover; object-position:center; filter:contrast(1.08) saturate(.85) brightness(.8); }
+  @media (max-width:820px){ .avatar-frame{ min-height:380px; margin:8px -24px 0; } .avatar-frame::after{ background:linear-gradient(0deg,rgba(5,9,17,.88),transparent 64%); } .hero h1{ font-size:clamp(3.3rem,16vw,5rem); } }
   .avatar-hud{
     position:absolute; top:10px; left:10px; right:10px;
     display:flex; justify-content:space-between;
@@ -204,7 +199,6 @@
   /* stat bars */
   .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px 40px; }
   @media (max-width:700px){ .stat-grid{ grid-template-columns:1fr; } }
-  .stat{ }
   .stat-top{ display:flex; justify-content:space-between; font-size:0.9rem; margin-bottom:7px; }
   .stat-top .lvl{ font-family:'Share Tech Mono',monospace; font-size:0.72rem; color:var(--accent); }
   .stat-track{ height:9px; background:var(--panel); border:1px solid var(--panel-line); border-radius:5px; overflow:hidden; }
@@ -229,12 +223,54 @@
     font-family:'Share Tech Mono',monospace; font-size:0.65rem; color:var(--accent);
     margin-bottom:10px; letter-spacing:0.05em;
   }
-  .quest-status::before{ content:"âœ“"; }
+  .quest-status::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); }
   .quest-card h3{ font-size:1.02rem; margin-bottom:8px; font-family:'Orbitron',sans-serif; font-weight:700; }
   .quest-meta{ font-family:'Share Tech Mono',monospace; font-size:0.68rem; color:var(--text-dim); margin-bottom:14px; line-height:1.6; }
   .quest-card ul{ list-style:none; display:flex; flex-direction:column; gap:7px; }
-  .quest-card li{ font-size:0.87rem; color:#C4CBE3; padding-left:16px; position:relative; }
-  .quest-card li::before{ content:"â€º"; position:absolute; left:0; color:var(--accent); }
+  .quest-card li{ font-size:0.87rem; color:#C4CBE3; padding-left:18px; position:relative; }
+  .quest-card li::before{ content:""; position:absolute; left:0; top:.7em; width:7px; height:7px; border-top:1px solid var(--accent); border-right:1px solid var(--accent); transform:rotate(45deg); }
+  .projects-section{ width:100%; max-width:none; margin:0; padding-inline:clamp(24px,5vw,72px); }
+  .projects-section .sec-title{ display:block; text-align:center; margin-bottom:12px; }
+  .projects-section .sec-title .bracket{ display:block; margin-bottom:10px; font-size:.72rem; }
+  .projects-section .sec-title h2{ font-size:clamp(2rem,4vw,3.6rem); letter-spacing:-.06em; }
+  .projects-intro{ max-width:620px; margin:0 auto 34px; text-align:center; color:#aeb7c1; font-size:.92rem; line-height:1.65; }
+  .projects-section .quest-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:start; }
+  .projects-section .quest-card{ display:flex; flex-direction:column; padding:0 0 22px; background-color:#111b19 !important; background-image:none !important; border-color:rgba(255,255,255,.12) !important; border-radius:18px; box-shadow:0 14px 36px rgba(0,0,0,.18); }
+  .projects-section .quest-card::before{ display:none; }
+  .project-media{ height:clamp(220px,22vw,310px); flex:0 0 auto; background-image:linear-gradient(135deg,rgba(4,19,27,.2),rgba(4,10,16,.5)),url("it.png"); background-size:cover; background-position:center; border-bottom:1px solid rgba(255,255,255,.12); }
+  .projects-section .quest-card:nth-child(1) .project-media{ background-image:linear-gradient(135deg,rgba(4,19,27,.14),rgba(4,10,16,.3)),url("qr.png"); background-position:center; }
+  .projects-section .quest-card:nth-child(2) .project-media{ background-image:linear-gradient(135deg,rgba(4,19,27,.12),rgba(4,10,16,.3)),url("gas.png"); background-position:center; filter:none; }
+  .projects-section .quest-card:nth-child(3) .project-media{ background-image:linear-gradient(135deg,rgba(4,19,27,.2),rgba(4,10,16,.38)),url("queue.png"); background-position:center; filter:none; }
+  .projects-section .quest-card:nth-child(4) .project-media{ background-image:linear-gradient(135deg,rgba(4,19,27,.12),rgba(4,10,16,.3)),url("hotel.png"); background-position:center; filter:none; }
+  .projects-section .quest-card:nth-child(5) .project-media{ background-image:linear-gradient(135deg,rgba(4,19,27,.14),rgba(4,10,16,.3)),url("erp.png"); background-position:center; filter:none; }
+  .projects-section .quest-card > :not(.project-media){ margin-inline:22px; }
+  .projects-section .quest-card h3{ margin-top:16px; margin-bottom:8px; font-family:'Manrope',sans-serif; font-size:1.24rem; line-height:1.3; letter-spacing:-.02em; color:#f5f7f8; }
+  .projects-section .quest-meta{ margin-bottom:0; font-family:'Manrope',sans-serif; font-size:.76rem; color:#e8b07b; font-weight:800; line-height:1.55; }
+  .projects-section .quest-card ul{ gap:10px; margin-top:14px; }
+  .projects-section .quest-card li{ font-size:.9rem; line-height:1.65; color:#cbd4d8; }
+  .projects-section .quest-card li:not(:first-child){ display:list-item; }
+  @media (max-width:900px){ .projects-section .quest-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:650px){ .projects-section{ padding-inline:18px; } .projects-section .quest-grid{ grid-template-columns:1fr; } .project-media{ height:220px; } }
+
+  .experience-section{ padding:86px clamp(24px,8vw,120px); background:linear-gradient(135deg,#111613,#0b1110); }
+  .experience-section .sec-title{ display:block; max-width:1050px; margin:0 auto 34px; text-align:center; }
+  .experience-section .sec-title .bracket{ display:inline-block; margin-bottom:12px; font-size:.75rem; }
+  .experience-section .sec-title h2{ font-family:'Manrope',sans-serif; font-size:clamp(2.2rem,5vw,4.5rem); letter-spacing:-.06em; }
+  .experience-intro{ max-width:650px; margin:0 auto 34px; color:#aeb7b1; text-align:center; line-height:1.7; }
+  .experience-card{ display:grid; grid-template-columns:150px 1fr; gap:30px; max-width:990px; margin:0 auto; padding:24px; border:1px solid rgba(255,255,255,.14); border-radius:18px; background:rgba(22,29,25,.72); box-shadow:0 18px 45px rgba(0,0,0,.2); }
+  .experience-mark{ display:grid; place-items:center; min-height:150px; padding:18px; border-radius:14px; background:#f4f1e8; }
+  .experience-mark img{ display:block; width:100%; height:100%; min-height:114px; object-fit:contain; object-position:center; }
+  .experience-content{ position:relative; }
+  .experience-label{ margin-bottom:10px; color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:.7rem; letter-spacing:.08em; }
+  .experience-content h3{ margin-bottom:8px; font-family:'Manrope',sans-serif; font-size:clamp(1.35rem,2.5vw,1.8rem); color:#f5f7f0; }
+  .experience-company{ margin-bottom:18px; color:#aeb7b1; font-size:.9rem; }
+  .experience-date{ position:absolute; top:0; right:0; padding:8px 12px; border:1px solid rgba(123,227,170,.3); border-radius:20px; color:#a9d4c0; font-size:.75rem; }
+  .experience-card ul{ display:flex; flex-direction:column; gap:10px; margin:0 0 18px; padding:0; list-style:none; }
+  .experience-card li{ position:relative; padding-left:17px; color:#cbd4ce; font-size:.9rem; line-height:1.55; }
+  .experience-card li::before{ content:""; position:absolute; left:0; top:.65em; width:6px; height:6px; border-top:1px solid var(--gold); border-right:1px solid var(--gold); transform:rotate(45deg); }
+  .experience-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .experience-tags span{ padding:7px 10px; border:1px solid rgba(255,255,255,.12); border-radius:6px; color:#d9e1da; font-size:.72rem; }
+  @media (max-width:650px){ .experience-section{ padding:64px 18px; } .experience-card{ grid-template-columns:1fr; gap:18px; padding:18px; } .experience-mark{ min-height:100px; } .experience-date{ position:static; display:inline-block; margin-bottom:14px; } }
 
   /* guild / leadership */
   .guild-list{ display:flex; flex-direction:column; gap:16px; }
@@ -245,22 +281,60 @@
   @media (max-width:640px){ .guild-item{ grid-template-columns:1fr; } }
   .guild-rank{ font-family:'Orbitron',sans-serif; font-size:0.72rem; color:var(--accent); }
   .guild-item p{ font-size:0.88rem; color:#C4CBE3; }
+  .leadership-section{ position:relative; isolation:isolate; width:100%; padding-inline:clamp(24px,5vw,72px); background:#080d11 !important; }
+  .leadership-photo{ display:block; width:100%; max-width:1080px; aspect-ratio:16/8; object-fit:cover; object-position:center; margin:0 auto 18px; border:1px solid rgba(255,255,255,.16); border-radius:18px; box-shadow:0 22px 55px rgba(0,0,0,.3); opacity:1; transition:opacity .28s ease,transform .42s cubic-bezier(.22,.75,.25,1); }
+  .leadership-photo.is-changing{ opacity:0; transform:translateX(20px) scale(1.015); }
+  .leadership-section .sec-title{ display:block; margin:0 auto 28px; text-align:center; }
+  .leadership-section .sec-title .bracket{ display:block; margin-bottom:10px; font-size:.78rem; }
+  .leadership-section .sec-title h2{ font-family:'Manrope',sans-serif; font-size:clamp(2rem,4.5vw,3.8rem); letter-spacing:-.06em; }
+  .leadership-section > *{ position:relative; z-index:1; }
+  .leadership-section .guild-list{ position:relative; z-index:2; display:grid; width:90%; max-width:900px; margin:0 auto; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; transform:translateY(-340px); margin-bottom:-340px; }
+  .leadership-section .guild-item{ min-height:104px; grid-template-columns:1fr; gap:7px; padding:15px 17px; background:rgba(7,17,24,.24); border:1px solid rgba(177,231,226,.3); border-radius:12px; position:relative; overflow:hidden; backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px); box-shadow:0 12px 28px rgba(0,0,0,.17),inset 0 1px 0 rgba(255,255,255,.1); transition:transform .3s ease,border-color .3s ease,background .3s ease,box-shadow .3s ease; }
+  .leadership-section .guild-item::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(var(--accent),#65c8df); }
+  .leadership-section .guild-item::after{ content:""; position:absolute; top:-30%; left:-35%; width:35%; height:180%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.17),transparent); transform:rotate(18deg); animation:leadershipShine 6s ease-in-out infinite; pointer-events:none; }
+  .leadership-section .guild-item:hover{ transform:translateY(-6px); border-color:rgba(123,227,170,.8); background:linear-gradient(135deg,rgba(23,54,55,.68),rgba(7,18,25,.48)); box-shadow:0 22px 44px rgba(0,0,0,.3),0 0 24px rgba(98,215,154,.12); }
+  @keyframes leadershipShine{ 0%,55%{ transform:translateX(-30%) rotate(18deg); opacity:0; } 70%{ opacity:1; } 100%{ transform:translateX(390%) rotate(18deg); opacity:0; } }
+  .leadership-section .guild-rank{ font-family:'Manrope',sans-serif; font-size:.74rem; line-height:1.35; letter-spacing:.03em; color:#7ce6b0; text-align:center; text-shadow:0 2px 10px rgba(0,0,0,.85); }
+  .leadership-section .guild-item p{ position:relative; padding-left:15px; color:#f0f4f2; font-size:.82rem; line-height:1.45; text-shadow:0 2px 10px rgba(0,0,0,.9); }
+  .leadership-section .guild-item p::before{ content:""; position:absolute; left:2px; top:.7em; width:7px; height:7px; border-top:1px solid var(--gold); border-right:1px solid var(--gold); transform:rotate(45deg); }
+  @media (max-width:650px){ .leadership-section{ padding-inline:18px; } .leadership-section .guild-list{ width:100%; grid-template-columns:1fr; transform:translateY(-90px); margin-bottom:-90px; } .leadership-section .guild-item{ min-height:112px; padding:18px; } }
 
   /* level progression / education */
-  .level-list{ display:flex; flex-direction:column; gap:0; }
-  .level-item{ display:flex; gap:18px; padding:16px 0; border-bottom:1px dashed var(--panel-line); }
-  .level-item:last-child{ border-bottom:none; }
-  .level-badge{
-    flex-shrink:0; width:46px; height:46px; border-radius:10px;
-    background:var(--panel); border:1px solid var(--gold);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Orbitron',sans-serif; font-weight:700; color:var(--gold);
-    box-shadow:0 0 12px var(--gold-glow);
-  }
-  .level-item h3{ font-size:1rem; margin-bottom:3px; }
-  .level-item .lv-org{ font-size:0.85rem; color:var(--text-dim); margin-bottom:6px; }
-  .level-item .lv-date{ font-family:'Share Tech Mono',monospace; font-size:0.68rem; color:var(--gold); margin-bottom:6px; display:block; }
-  .level-item .lv-mods{ font-size:0.83rem; color:#9AA3C4; }
+  .level-list{ display:flex; flex-direction:column; gap:18px; position:relative; padding:0 0 0 78px; }
+  .level-list::before{ content:""; display:block; position:absolute; left:39px; top:30px; bottom:30px; width:2px; background:linear-gradient(var(--accent),var(--gold),#b66f8d,var(--gold)); opacity:.8; }
+  .level-item{ display:flex; align-items:center; gap:24px; min-height:128px; padding:22px 24px 22px 112px; position:relative; isolation:isolate; background:rgba(22,29,25,.58); border:1px solid rgba(255,255,255,.16); border-radius:18px; box-shadow:0 12px 26px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.05); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+  .level-item::before{ display:none; }
+  .level-item:last-child{ border-bottom:1px solid rgba(255,255,255,.12); }
+  .level-badge{ position:absolute; left:-69px; top:50%; transform:translateY(-50%); z-index:2; flex-shrink:0; width:58px; height:58px; border-radius:16px; background:#11151b; border:1px solid var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Share Tech Mono',monospace; font-size:.9rem; font-weight:700; color:var(--accent); box-shadow:0 0 0 8px var(--bg),0 0 18px rgba(98,215,154,.12); }
+  .level-item:nth-child(2) .level-badge{ border-color:var(--gold); color:var(--gold); }
+  .level-item:nth-child(3) .level-badge{ border-color:#b66f8d; color:#b66f8d; }
+  .level-item:nth-child(4) .level-badge{ border-color:#c4774d; color:#c4774d; }
+  .level-logo{ position:absolute; left:24px; top:50%; transform:translateY(-50%); width:68px; height:58px; display:grid; place-items:center; overflow:hidden; border:1px solid rgba(255,255,255,.12); border-radius:16px; background:#242720; box-shadow:0 8px 18px rgba(0,0,0,.22); }
+  .level-logo img{ display:block; width:62px; height:50px; object-fit:cover; object-position:center; border-radius:7px; background:#fff; }
+  .level-item > div:last-child{ align-self:center; max-width:calc(100% - 34px); }
+  .level-item h3{ font-family:'Manrope',sans-serif; font-size:1.32rem; font-weight:800; margin:7px 0 7px; line-height:1.2; }
+  .level-item h3::before{ content:"CURRENT STUDIES"; display:block; width:max-content; margin-bottom:10px; padding:7px 11px; border:1px solid rgba(98,215,154,.24); border-radius:999px; background:rgba(98,215,154,.1); color:var(--accent); font-family:'Manrope',sans-serif; font-size:.61rem; letter-spacing:.08em; line-height:1; }
+  .level-item:nth-child(2) h3::before{ content:"COMPLETED"; border-color:rgba(232,176,123,.25); background:rgba(232,176,123,.1); color:var(--gold); }
+  .level-item:nth-child(3) h3::before{ content:"COMPLETED"; border-color:rgba(232,176,123,.25); background:rgba(232,176,123,.1); color:var(--gold); }
+  .level-item:nth-child(4) h3::before{ content:"COMPLETED"; border-color:rgba(232,176,123,.25); background:rgba(232,176,123,.1); color:var(--gold); }
+  .level-item .lv-org{ font-size:.82rem; color:#b4b1aa; margin-bottom:0; }
+  .level-item .lv-org::before{ content:"\f19c"; margin-right:9px; color:var(--accent); font-family:'Font Awesome 6 Free'; font-weight:900; }
+  .level-item .lv-date{ position:absolute; top:50%; right:28px; transform:translateY(-50%); display:flex; align-items:center; gap:8px; white-space:nowrap; font-family:'Manrope',sans-serif; font-size:.76rem; color:#bdbdb5; letter-spacing:0; font-weight:600; line-height:1.4; }
+  .level-item .lv-date::before{ content:"\f073"; color:var(--accent); font-family:'Font Awesome 6 Free'; font-weight:900; }
+  .level-item .lv-mods{ font-size:.82rem; color:#aab4bd; margin-top:12px; line-height:1.5; }
+  .education-section{ max-width:1160px; margin:0 auto; padding:64px clamp(24px,6vw,72px) 44px; }
+  .education-section .sec-title{ max-width:1120px; margin-inline:auto; justify-content:center; text-align:center; }
+  .education-section .sec-title h2{ font-size:clamp(1.6rem,3vw,2.5rem); }
+  .education-section .level-list{ max-width:960px; margin-inline:auto; }
+  .education-section .level-item{ background:rgba(22,29,25,.5); border-color:rgba(232,240,233,.18); box-shadow:0 18px 38px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.06); transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+  .education-section .level-item:hover{ transform:translateY(-3px); border-color:rgba(98,215,154,.38); box-shadow:0 22px 42px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.08); }
+  .level-list.in .level-item{ animation:educationCardIn .65s cubic-bezier(.2,.75,.25,1) both; }
+  .level-list.in .level-item:nth-child(2){ animation-delay:.1s; }
+  .level-list.in .level-item:nth-child(3){ animation-delay:.2s; }
+  .level-list.in .level-item:nth-child(4){ animation-delay:.3s; }
+  @keyframes educationCardIn{ from{ opacity:0; transform:translateY(22px) scale(.985); } to{ opacity:1; transform:translateY(0) scale(1); } }
+  @media (max-width:700px){ .level-list{ padding-left:50px; gap:16px; } .level-list::before{ left:24px; } .level-item{ min-height:150px; padding:24px 20px 24px 70px; border-radius:16px; } .level-badge{ left:-50px; width:50px; height:50px; border-radius:14px; box-shadow:0 0 0 6px var(--bg); } .level-logo{ left:20px; width:54px; height:50px; border-radius:14px; } .level-logo img{ width:48px; height:40px; } .level-item > div:last-child{ max-width:calc(100% - 8px); padding-top:24px; } .level-item h3{ font-size:1.08rem; } .level-item .lv-date{ top:50%; right:20px; transform:translateY(-50%); font-size:.64rem; } .level-item .lv-mods{ font-size:.75rem; } }
+  @media (max-width:700px){ .education-section{ padding:54px 18px 44px; } .education-section .level-list{ max-width:none; } }
 
   /* achievements */
   .ach-grid{ display:flex; flex-wrap:wrap; gap:12px; }
@@ -276,6 +350,22 @@
     display:flex; align-items:center; justify-content:center;
     font-size:0.7rem; font-weight:700; color:#1a1204;
   }
+  .certifications-section{ position:relative; isolation:isolate; overflow:hidden; min-height:560px; padding:74px clamp(24px,7vw,120px) 70px !important; background:linear-gradient(rgba(9,13,12,.88),rgba(9,13,12,.92)),url("cer1.png") center/cover !important; }
+  .certifications-section::before,.certifications-section::after{ content:""; position:absolute; z-index:-1; width:43%; height:68%; top:18%; background-size:cover; background-position:center; border:1px solid rgba(255,255,255,.18); border-radius:18px; opacity:.2; filter:saturate(.72) contrast(.9); box-shadow:0 18px 40px rgba(0,0,0,.3); }
+  .certifications-section::before{ left:-5%; transform:rotate(-7deg); background-image:url("cer2.png"); }
+  .certifications-section::after{ right:-5%; transform:rotate(7deg); background-image:url("cer3.png"); }
+  .certifications-section .sec-title{ position:relative; z-index:1; max-width:1080px; text-align:center !important; margin:0 auto 34px !important; }
+  .certifications-section .sec-title h2{ font-size:clamp(2.2rem,5vw,4.2rem) !important; }
+  .certifications-section .ach-grid{ position:relative; z-index:1; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:24px; padding-inline:0; max-width:1000px; margin:0 auto; }
+  .certifications-section .ach-grid .ach{ grid-column:span 2; }
+  .certifications-section .ach-grid .ach:nth-child(4){ grid-column:2 / span 2; }
+  .certifications-section .ach-grid .ach:nth-child(5){ grid-column:4 / span 2; }
+  .certifications-section .ach{ min-height:104px; width:100%; max-width:none; padding:18px 20px; align-items:flex-start; background:rgba(15,20,18,.78); border:1px solid rgba(232,240,233,.18); border-radius:16px; backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); box-shadow:0 14px 30px rgba(0,0,0,.23),inset 0 1px 0 rgba(255,255,255,.08); line-height:1.45; transition:transform .25s ease,border-color .25s ease; }
+  .certifications-section .ach:hover{ transform:translateY(-5px); border-color:rgba(232,176,123,.55); }
+  .certifications-section .ach .badge{ flex-shrink:0; width:30px; height:30px; margin-top:1px; background:linear-gradient(135deg,#f5b06d,#bb7137); }
+  .certifications-section .ach strong{ display:block; margin-bottom:4px; font-size:.86rem; color:#f5f7f2; }
+  .certifications-section .ach small{ display:block; color:#b6c0bd; font-size:.74rem; }
+  @media (max-width:800px){ .certifications-section{ min-height:unset; padding-block:58px 52px !important; } .certifications-section::before,.certifications-section::after{ width:60%; height:42%; top:30%; } .certifications-section .sec-title{ text-align:center !important; } .certifications-section .ach-grid{ grid-template-columns:1fr; max-width:460px; gap:18px; } .certifications-section .ach-grid .ach,.certifications-section .ach-grid .ach:nth-child(4),.certifications-section .ach-grid .ach:nth-child(5){ grid-column:auto; } }
 
   /* impact dashboard */
   .impact-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
@@ -374,6 +464,120 @@
 
   .page{ display:none; }
   .page.active{ display:block; }
+  /* Clean professional hero override */
+  .hero{
+    min-height:0; padding:clamp(36px,5vw,68px) clamp(28px,6vw,86px) !important;
+    grid-template-columns:minmax(0,1.08fr) minmax(300px,.72fr); gap:clamp(36px,6vw,90px);
+    overflow:visible; border:1px solid rgba(117,143,177,.24); border-radius:24px;
+    background:linear-gradient(135deg,#111a2a 0%,#0b1220 58%,#101b29 100%);
+    box-shadow:0 24px 60px rgba(0,0,0,.22);
+  }
+  .hero::before{ background:radial-gradient(circle at 0 0,rgba(79,143,232,.18),transparent 30%),radial-gradient(circle at 100% 100%,rgba(240,190,90,.12),transparent 32%); border-radius:24px; }
+  .hero::after{ width:260px; height:260px; right:-100px; top:20px; transform:none; border-color:rgba(240,190,90,.16); box-shadow:0 0 0 44px rgba(240,190,90,.025); }
+  .rank-tag{ margin-bottom:22px; padding:8px 12px; border-radius:999px; font-size:.68rem; color:#bcd4ff; border-color:rgba(79,143,232,.34); background:rgba(79,143,232,.1); }
+  .rank-tag .pulse{ background:var(--accent); box-shadow:0 0 8px var(--accent); }
+  .hero h1{ font-family:'Orbitron',sans-serif; font-size:clamp(2.7rem,5vw,4.7rem); line-height:1.02; letter-spacing:-.045em; margin-bottom:14px; }
+  .hero h1 .glow{ display:inline; margin:0; color:var(--accent); background:none; -webkit-text-fill-color:currentColor; }
+  .class-name{ display:flex; align-items:center; gap:9px; margin-bottom:18px; color:#aebbd0; font-size:.78rem; }
+  .class-name::before{ content:""; width:27px; height:2px; background:var(--gold); }
+  .hero p.blurb{ max-width:54ch; margin-bottom:24px; color:#c7d0de; font-size:1.04rem; line-height:1.7; }
+  .download-row{ margin-bottom:18px; }
+  .dl-btn{ padding:12px 16px; border-color:var(--accent); background:var(--accent); color:#071321; }
+  .dl-btn:hover{ background:#f0be5a; border-color:#f0be5a; box-shadow:none; }
+  .contact-row{ gap:8px; }
+  .pill{ padding:7px 10px; background:rgba(5,10,18,.34); border-color:rgba(160,181,211,.24); font-size:.78rem; }
+  .avatar-frame{ align-self:center; justify-self:end; width:min(100%,390px); min-height:480px; aspect-ratio:4/5; margin:0; border:1px solid rgba(185,205,235,.28); border-radius:20px; background:#172234; box-shadow:18px 18px 0 rgba(79,143,232,.12); }
+  .avatar-frame::after{ background:linear-gradient(0deg,rgba(5,10,18,.58),transparent 38%); }
+  .avatar-frame img{ object-position:center top; filter:contrast(1.02) saturate(.94) brightness(.96); }
+  .avatar-hud{ z-index:1; top:auto; bottom:12px; color:#fff; text-shadow:0 1px 4px #000; }
+  .avatar-corner{ z-index:1; border-color:var(--accent); }
+  @media (max-width:820px){ .hero{ padding:34px 24px 0 !important; grid-template-columns:1fr; border-radius:18px; } .hero::before{ border-radius:18px; } .avatar-frame{ width:min(100%,420px); min-height:400px; justify-self:center; margin:8px 0 0; border-radius:18px 18px 0 0; box-shadow:none; } .hero h1{ font-size:clamp(2.55rem,12vw,4rem); } }
+
+  /* Full-bleed landing hero */
+  .shell{ max-width:none; padding:0 0 80px; }
+  .topbar{ max-width:1400px; margin:0 auto; padding:22px 44px; }
+  .hero{
+    width:100%; min-height:calc(100vh - 82px); padding:clamp(54px,8vh,110px) clamp(32px,9vw,176px) 58px !important;
+    grid-template-columns:minmax(0,590px) 1fr; grid-template-rows:1fr; align-items:start; gap:0;
+    border:0; border-radius:0; box-shadow:none; overflow:hidden;
+    background:linear-gradient(90deg,#040810 0%,#040810 47%,rgba(4,8,16,.78) 62%,rgba(4,8,16,.1) 100%);
+  }
+  .hero::before{ border-radius:0; background:radial-gradient(circle at 0 0,rgba(79,143,232,.14),transparent 24%),linear-gradient(90deg,transparent 55%,rgba(3,11,19,.25)); }
+  .hero::after{ width:760px; height:760px; right:-250px; top:52%; transform:translateY(-50%); border-color:rgba(79,143,232,.2); box-shadow:0 0 0 105px rgba(79,143,232,.035),0 0 0 210px rgba(79,143,232,.018); }
+  .hero > div:first-child{ position:relative; z-index:2; padding-top:0; }
+  .rank-tag{ margin-bottom:42px; color:#efb685; border-color:rgba(213,125,67,.35); background:rgba(54,28,18,.44); }
+  .rank-tag .pulse{ background:var(--gold); box-shadow:0 0 8px var(--gold); }
+  .hero h1{ font-family:Arial,sans-serif; font-size:clamp(4rem,7.2vw,7rem); line-height:.9; letter-spacing:-.08em; margin-bottom:20px; }
+  .hero h1 .glow{ display:block; margin-top:5px; background:linear-gradient(105deg,#bd6509,#e99720 58%,#f4c04e); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .class-name{ display:none; }
+  .hero p.blurb{ margin-top:28px; margin-bottom:28px; max-width:58ch; color:#d8d4ce; font-family:Arial,sans-serif; font-size:clamp(1rem,1.35vw,1.25rem); line-height:1.55; }
+  .download-row{ margin-bottom:16px; }
+  .dl-btn{ border-color:rgba(240,190,90,.35); background:rgba(240,190,90,.14); color:#f7c457; }
+  .avatar-frame{ position:absolute; inset:0 0 0 auto; z-index:0; width:57%; height:100%; min-height:0; aspect-ratio:auto; margin:0; border:0; border-radius:0; box-shadow:none; background:#050911; }
+  .avatar-frame::after{ background:linear-gradient(90deg,#040810 0%,rgba(4,8,16,.62) 18%,transparent 52%),linear-gradient(0deg,rgba(4,8,16,.5),transparent 34%); }
+  .avatar-frame img{ width:100%; height:100%; object-fit:cover; object-position:center 18%; filter:contrast(1.05) saturate(.78) brightness(.8); }
+  .avatar-hud,.avatar-corner{ display:none; }
+  .hero + section{ max-width:1040px; margin:0 auto; padding-inline:26px; }
+  @media (max-width:820px){ .topbar{ padding:18px 20px; } .hero{ min-height:unset; grid-template-columns:1fr; padding:48px 24px 0 !important; } .hero h1{ font-size:clamp(3.35rem,16vw,5rem); } .avatar-frame{ position:relative; width:calc(100% + 48px); height:420px; margin:32px -24px 0; } .avatar-frame::after{ background:linear-gradient(0deg,rgba(4,8,16,.72),transparent 60%); } .hero p.blurb{ font-size:1rem; } }
+
+  /* Portfolio visual system: neutral, content-led, no AI/neon effects */
+  :root{ --accent:#62d79a; --accent-soft:rgba(98,215,154,.12); --accent-glow:rgba(98,215,154,.2); --gold:#e8b07b; --gold-soft:rgba(232,176,123,.12); --gold-glow:rgba(232,176,123,.2); --bg:#080a0d; --bg2:#0e1116; --panel:#11151b; --panel-line:rgba(255,255,255,.12); --text:#f5f7f8; --text-dim:#aeb7c1; --pm:#62d79a; --ba:#62d79a; }
+  body{ font-family:'Manrope',sans-serif; background:var(--bg); }
+  .bg-layer,.boot,.toast-wrap,.sticky-cta{ display:none !important; }
+  .shell{ padding-top:76px; }
+  .topbar{ position:fixed; inset:0 0 auto; z-index:100; max-width:none; min-height:76px; padding:0 clamp(22px,4vw,62px); background:rgba(8,10,13,.82); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.1); }
+  .logo{ font-family:'Manrope',sans-serif; font-size:1rem; letter-spacing:-.04em; }
+  .logo span{ color:var(--accent); }
+  .crest{ width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 13px rgba(98,215,154,.6); font-size:0; }
+  .class-select{ background:transparent; border:0; padding:0; gap:4px; }
+  .class-btn{ font-family:'Manrope',sans-serif; font-size:.78rem; padding:10px 13px; color:#aeb7c1; }
+  .class-btn.active.pm-btn,.class-btn.active.ba-btn{ background:rgba(255,255,255,.08); box-shadow:none; color:#fff; }
+  .hero{ min-height:calc(100vh - 76px); padding:clamp(64px,10vh,132px) clamp(24px,9vw,176px) 70px !important; background:linear-gradient(90deg,#080a0d 0%,#080a0d 50%,rgba(8,10,13,.72) 68%,rgba(8,10,13,.1) 100%); }
+  .hero::before{ background:linear-gradient(90deg,transparent 58%,rgba(98,215,154,.04)); }
+  .hero::after{ display:none; }
+  .rank-tag{ font-family:'Manrope',sans-serif; color:#e8b07b; border-color:rgba(232,176,123,.28); background:rgba(232,176,123,.08); letter-spacing:.02em; }
+  .hero h1{ font-family:'Manrope',sans-serif; font-size:clamp(3.8rem,7vw,6.7rem); font-weight:800; letter-spacing:-.09em; }
+  .hero h1 .glow{ background:linear-gradient(110deg,#c77a32,#f0c061); -webkit-background-clip:text; background-clip:text; }
+  .hero p.blurb{ color:#c5cbd3; font-family:'Manrope',sans-serif; font-weight:500; }
+  .avatar-frame{ width:58%; background:#111; }
+  .avatar-frame img{ filter:contrast(1.03) saturate(.72) brightness(.78); }
+  .dl-btn{ font-family:'Manrope',sans-serif; border-radius:10px; background:#e8b07b; border-color:#e8b07b; color:#17120d; font-weight:800; }
+  .contact-row .pill{ font-family:'Manrope',sans-serif; border-radius:10px; background:rgba(255,255,255,.045); border-color:rgba(255,255,255,.12); color:#d9dee4; }
+  .contact-row .pill svg{ stroke:var(--accent); }
+  .page > section:not(.hero){ background:#0c0f14; border-top:1px solid rgba(255,255,255,.08); }
+  .sec-title h2,.impact-num{ font-family:'Manrope',sans-serif; }
+  .impact-card,.skill-card,.quest-card,.timeline-item,.ally-card{ box-shadow:none !important; border-color:rgba(255,255,255,.11) !important; background:#11151b !important; }
+  @media (max-width:820px){ .shell{ padding-top:68px; } .topbar{ min-height:68px; padding:0 18px; } .logo{ font-size:.85rem; } .class-btn{ font-size:.65rem; padding:8px; } .hero{ min-height:calc(100vh - 68px); } .avatar-frame{ width:100%; } }
+  .skill-showcase{ position:relative; isolation:isolate; width:100%; max-width:none; margin:0; padding:clamp(42px,5vw,68px) clamp(24px,6vw,86px) 58px; border-top:1px solid rgba(255,255,255,.08); overflow:hidden; background:#091018; }
+  .skill-showcase-video{ position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; object-position:center; opacity:.52; filter:saturate(.8) contrast(1.08) brightness(.75); }
+  .skill-showcase::before{ content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,rgba(3,8,14,.83),rgba(4,10,16,.42) 52%,rgba(3,8,14,.72)),linear-gradient(0deg,rgba(3,8,14,.75),transparent 45%); pointer-events:none; }
+  .skill-showcase::after{ content:""; position:absolute; inset:-120% 0 0; z-index:0; opacity:0; pointer-events:none; background:repeating-linear-gradient(104deg,transparent 0 18px,rgba(126,222,222,.2) 19px,transparent 20px 47px),repeating-linear-gradient(102deg,transparent 0 72px,rgba(232,176,123,.14) 73px,transparent 74px 126px); transform:translateY(-18%); mix-blend-mode:screen; }
+  .skill-showcase:has(.skill-showcase-grid.in)::after{ animation:skillRain 1.35s ease-out forwards; }
+  @keyframes skillRain{ 0%{ opacity:0; transform:translateY(-22%); } 18%{ opacity:.72; } 68%{ opacity:.35; } 100%{ opacity:0; transform:translateY(18%); } }
+  .skill-showcase > *:not(.skill-showcase-video){ position:relative; z-index:1; }
+  .skill-showcase .sec-title{ display:block; max-width:1180px; margin:0 auto 20px; }
+  .skill-showcase .sec-title .bracket{ display:block; margin-bottom:12px; font-size:.78rem; color:#e8b07b; }
+  .skill-showcase .sec-title h2{ font-size:clamp(2.4rem,5vw,4.8rem); letter-spacing:-.07em; }
+  .skill-showcase-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; max-width:1180px; margin:0 auto; }
+  .skill-tile{ min-height:150px; padding:20px 18px; background:rgba(8,16,25,.48); border:1px solid rgba(194,221,238,.34); border-radius:14px; backdrop-filter:blur(10px); transition:transform .25s ease,border-color .25s ease,background .25s ease; }
+  .skill-tile:nth-child(3n+1){ border-top-color:#e8b07b; }
+  .skill-tile:nth-child(3n+2){ border-top-color:#62d79a; }
+  .skill-tile:nth-child(3n){ border-top-color:#65c8df; }
+  .skill-tile:hover{ transform:translateY(-4px); border-color:var(--accent); background:rgba(18,38,48,.68); }
+  .skill-tile i{ display:grid; place-items:center; width:30px; height:30px; margin-bottom:12px; color:#07131a; background:linear-gradient(135deg,#7be3aa,#55c1d7); border-radius:8px; font-size:.9rem; }
+  .skill-tile h3{ margin-bottom:10px; font-family:'Manrope',sans-serif; font-size:1rem; font-weight:800; }
+  .skill-tile p{ color:#c2ccd1; font-size:.8rem; line-height:1.6; }
+  @media (max-width:1000px){ .skill-showcase-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+  @media (max-width:760px){ .skill-showcase-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:650px){ .skill-showcase{ padding-inline:18px; } .skill-showcase-grid{ grid-template-columns:1fr; } }
+  @media (prefers-reduced-motion:reduce){ .skill-showcase:has(.skill-showcase-grid.in)::after{ animation:none; opacity:0; } }
+  .page > section:not(.hero) .sec-title{ display:block; text-align:center; margin:0 auto 28px; }
+  .page > section:not(.hero) .sec-title .bracket{ display:none; }
+  .page > section:not(.hero) .sec-title h2{ font-family:'Manrope',sans-serif; font-size:clamp(2rem,4.5vw,3.8rem); letter-spacing:-.06em; text-align:center; }
+  .page > section:not(.hero){ margin-top:34px; border-top:1px solid rgba(255,255,255,.1); box-shadow:0 -18px 34px rgba(0,0,0,.08); }
+  .page > section.hero + section{ margin-top:0; }
+  .reveal{ opacity:1; transform:none; }
+  .reveal.in .level-item{ animation:none; }
 </style>
 </head>
 <body>
@@ -422,7 +626,7 @@
   <div class="page active" id="page-pm">
     <section class="hero" style="border-top:none; padding-top:10px;">
       <div>
-        <div class="rank-tag"><span class="pulse"></span>CLASS SELECTED â€” READY FOR DEPLOYMENT</div>
+        <div class="rank-tag"><span class="pulse"></span>PROJECT MANAGER &mdash; AVAILABLE FOR OPPORTUNITIES</div>
         <h1>ANUL <span class="glow">METHNULA</span></h1>
         <div class="class-name">CLASS: <strong>Junior Project Manager</strong></div>
         <p class="blurb">Aspiring Project Manager with expertise in information systems, Agile methodologies, and project coordination. Experienced leading multi-stakeholder projects, managing documentation, tracking progress, and driving collaboration through academic, community, and AIESEC leadership roles.</p>
@@ -458,25 +662,30 @@
       </div>
     </section>
 
-    <section>
-      <div class="sec-title"><span class="bracket">[02]</span><h2>Stat Sheet</h2></div>
-      <div class="stat-grid reveal">
-        <div class="stat"><div class="stat-top"><span>Project Planning & Coordination</span><span class="lvl">ADVANCED</span></div><div class="stat-track"><div class="stat-fill" data-fill="90"></div></div></div>
-        <div class="stat"><div class="stat-top"><span>Agile & Scrum Facilitation</span><span class="lvl">ADVANCED</span></div><div class="stat-track"><div class="stat-fill" data-fill="90"></div></div></div>
-        <div class="stat"><div class="stat-top"><span>Stakeholder Communication</span><span class="lvl">ADVANCED</span></div><div class="stat-track"><div class="stat-fill" data-fill="88"></div></div></div>
-        <div class="stat"><div class="stat-top"><span>Progress Tracking & Reporting</span><span class="lvl">ADVANCED</span></div><div class="stat-track"><div class="stat-fill" data-fill="85"></div></div></div>
-        <div class="stat"><div class="stat-top"><span>Jira, Trello & MS Project</span><span class="lvl">ADVANCED</span></div><div class="stat-track"><div class="stat-fill" data-fill="82"></div></div></div>
-        <div class="stat"><div class="stat-top"><span>Business Process Modeling (UML/BPMN)</span><span class="lvl">INTERMEDIATE</span></div><div class="stat-track"><div class="stat-fill" data-fill="65"></div></div></div>
+    <section class="skill-showcase">
+      <video class="skill-showcase-video" autoplay muted loop playsinline aria-hidden="true"><source src="video.mp4" type="video/mp4"></video>
+      <div class="sec-title"><span class="bracket">[03]</span><h2>Skills &amp; Expertise</h2></div>
+      <div class="skill-showcase-grid reveal">
+        <article class="skill-tile"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i><h3>Project Planning</h3><p>Planning activities, coordinating tasks and tracking project progress.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><h3>Agile &amp; Scrum</h3><p>Sprint planning, daily stand-ups, reviews and retrospectives.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-users" aria-hidden="true"></i><h3>Stakeholder Management</h3><p>Collaborating and communicating with stakeholders and project teams.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-chart-column" aria-hidden="true"></i><h3>Progress Tracking</h3><p>Tracking milestones, blockers and project deliverables.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-folder-open" aria-hidden="true"></i><h3>Jira &amp; Trello</h3><p>Managing backlogs, tasks and team workflows using project tools.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><h3>Requirements Gathering</h3><p>Understanding business needs and translating them into requirements.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><h3>Business Analysis</h3><p>SWOT, PESTAL and business process analysis.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><h3>BPMN &amp; UML</h3><p>Business process modeling and system documentation.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i><h3>Figma &amp; Draw.io</h3><p>Wireframing, diagrams and visual project documentation.</p></article>
       </div>
     </section>
 
-    <section>
-      <div class="sec-title"><span class="bracket">[03]</span><h2>Quest Log â€” Completed Projects</h2></div>
+    <section class="projects-section">
+      <div class="sec-title"><span class="bracket">[03] PORTFOLIO</span><h2>Featured Projects</h2></div>
+      <p class="projects-intro">A selection of academic, software and business projects delivered through planning, analysis and team coordination.</p>
       <div class="quest-grid reveal">
         <div class="quest-card">
-          <div class="quest-status">QUEST COMPLETE</div>
+          <div class="project-media" role="img" aria-label="Technology project visual"></div>
           <h3>QR-Based E-Ticketing System</h3>
-          <div class="quest-meta">LOADOUT: React PWA Â· Flutter Â· Node.js Â· Firebase<br>PARTY SIZE: 4</div>
+          <div class="quest-meta">TECHNOLOGY: React PWA | Flutter | Node.js | Firebase<br>TEAM SIZE: 4</div>
           <ul>
             <li>Coordinated the full lifecycle from requirements to deployment, on time across all sprints.</li>
             <li>Facilitated sprint planning, stand-ups, reviews & retrospectives.</li>
@@ -484,78 +693,97 @@
           </ul>
         </div>
         <div class="quest-card">
-          <div class="quest-status">QUEST COMPLETE</div>
+          <div class="project-media" role="img" aria-label="Technology project visual"></div>
           <h3>Online Gas Delivery System</h3>
-          <div class="quest-meta">LOADOUT: Figma Â· Draw.io<br>PARTY SIZE: 5</div>
+          <div class="quest-meta">TOOLS: Figma | Draw.io<br>TEAM SIZE: 5</div>
           <ul>
             <li>Led coordination, task allocation, and timeline management for full delivery.</li>
             <li>Ran stakeholder workshops, translating business needs into project scope.</li>
           </ul>
         </div>
         <div class="quest-card">
-          <div class="quest-status">QUEST COMPLETE</div>
+          <div class="project-media" role="img" aria-label="Technology project visual"></div>
           <h3>Queue Management System</h3>
-          <div class="quest-meta">MODE: Agile & Scrum Coursework</div>
+          <div class="quest-meta">METHOD: Agile and Scrum Coursework</div>
           <ul>
             <li>Managed sprint backlog, led planning poker, coordinated daily scrums.</li>
             <li>Tracked epics and MRFs; delivered on schedule with full documentation.</li>
           </ul>
         </div>
         <div class="quest-card">
-          <div class="quest-status">QUEST COMPLETE</div>
+          <div class="project-media" role="img" aria-label="Technology project visual"></div>
           <h3>Hotel Management System</h3>
-          <div class="quest-meta">LOADOUT: Web Technologies Â· MySQL<br>PARTY SIZE: 4</div>
+          <div class="quest-meta">TECHNOLOGY: Web Technologies | MySQL<br>TEAM SIZE: 4</div>
           <ul>
             <li>Managed planning, task distribution, and delivery timeline.</li>
             <li>Delivered admin panel + booking site within deadline.</li>
           </ul>
         </div>
+        <div class="quest-card">
+          <div class="project-media" role="img" aria-label="Advanced Enterprise Resource Planning project visual"></div>
+          <h3>Advanced Enterprise Resource Planning</h3>
+          <div class="quest-meta">TOOLS: SAP S/4HANA | Oracle NetSuite<br>TEAM SIZE: 5</div>
+          <ul>
+            <li>Compared core ERP modules, integrations, and implementation approaches.</li>
+            <li>Analyzed business use cases, digital transformation, risks, and mitigation strategies.</li>
+            <li>Produced research, visual aids, and the final stakeholder presentation.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section>
-      <div class="sec-title"><span class="bracket">[04]</span><h2>Guild Ranks â€” AIESEC in NIBM</h2></div>
+    <section class="experience-section">
+      <div class="sec-title"><span class="bracket">[04] INDUSTRY EXPERIENCE</span><h2>Professional Experience</h2></div>
+      <p class="experience-intro">Professional experience focused on business analysis, process improvement, requirements gathering, and supporting digital transformation initiatives.</p>
+      <article class="experience-card reveal">
+        <div class="experience-mark"><img src="supunlogo.png" alt="Supun Group of Companies logo"></div>
+        <div class="experience-content">
+          <span class="experience-label">INDUSTRY ROLE</span>
+          <span class="experience-date">August 2026 &ndash; Present</span>
+          <h3>Business Analyst Intern</h3>
+          <p class="experience-company">Supun Group of Companies · Sri Lanka</p>
+          <ul>
+            <li>Assist with gathering and analyzing business requirements from stakeholders and different departments.</li>
+            <li>Analyze existing business processes and identify opportunities for improvement and digital transformation.</li>
+            <li>Support the documentation of business requirements, workflows, process flows, and functional requirements.</li>
+            <li>Collaborate with management and team members to understand operational challenges and propose suitable technology solutions.</li>
+            <li>Assist in planning and analyzing potential ERP and business management system solutions.</li>
+            <li>Support communication between business stakeholders and technical teams during project planning and implementation.</li>
+          </ul>
+          <div class="experience-tags"><span>Business Analysis</span><span>Requirements Gathering</span><span>Process Improvement</span><span>Stakeholder Communication</span><span>Business Process Modeling</span><span>Documentation</span><span>ERP Systems</span><span>Process Mapping</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="leadership-section">
+      <div class="sec-title"><span class="bracket">[04]</span><h2>Leadership Experience - AIESEC</h2></div>
+      <img class="leadership-photo" data-gallery="aiesec" src="aiesec.png" alt="AIESEC team members together">
       <div class="guild-list reveal">
         <div class="guild-item"><div class="guild-rank">OCVP LOGISTICS<br>Elevate 26 Career Fair</div><p>Planned & managed end-to-end logistics for a 400+ delegate event.</p></div>
         <div class="guild-item"><div class="guild-rank">OCVP PARTNERSHIP DEV.<br>Christmas OEM Event</div><p>Led partner outreach strategy and tracked partnership deliverables.</p></div>
         <div class="guild-item"><div class="guild-rank">OGT B2C TEAM LEAD<br>Term 26.27</div><p>Directed a ground-level team, set weekly targets, reported to leadership.</p></div>
-        <div class="guild-item"><div class="guild-rank">OC MEMBER â€” PR<br>Blood Donation Drive</div><p>Coordinated promotional campaign & internal communications.</p></div>
+        <div class="guild-item"><div class="guild-rank">OC MEMBER - PR<br>Blood Donation Drive</div><p>Coordinated promotional campaign and internal communications.</p></div>
       </div>
     </section>
 
-    <section>
-      <div class="sec-title"><span class="bracket">[05]</span><h2>Level Progression â€” Education</h2></div>
+    <section class="education-section">
+      <div class="sec-title"><span class="bracket">[06]</span><h2>Academic Journey</h2></div>
       <div class="level-list reveal">
-        <div class="level-item"><div class="level-badge">L4</div><div><span class="lv-date">2026 â€” Present</span><h3>BSc (Hons) IT for Business</h3><div class="lv-org">Coventry University, UK (via NIBM)</div><div class="lv-mods">Project Management, IT Service & Infrastructure Management, Operational Research.</div></div></div>
-        <div class="level-item"><div class="level-badge">L3</div><div><span class="lv-date">Apr 2025 â€” Apr 2026</span><h3>HND in Information Systems</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Agile & DevOps, Business Analysis, IT Management Practices.</div></div></div>
-        <div class="level-item"><div class="level-badge">L2</div><div><span class="lv-date">Sep 2023 â€” Sep 2024</span><h3>Diploma in Software Engineering</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Software Engineering, OOP, Web Development.</div></div></div>
-        <div class="level-item"><div class="level-badge">L1</div><div><span class="lv-date">Dec 2022 â€” May 2023</span><h3>Certificate in Computer Science</h3><div class="lv-org">NIBM, Sri Lanka</div></div></div>
+        <div class="level-item"><div class="level-badge">L4</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">2026 – Present</span><h3>BSc (Hons) IT for Business</h3><div class="lv-org">Coventry University, UK (via NIBM)</div><div class="lv-mods">Project Management, IT Service & Infrastructure Management, Operational Research.</div></div></div>
+        <div class="level-item"><div class="level-badge">L3</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Apr 2025 – Apr 2026</span><h3>HND in Information Systems</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Agile & DevOps, Business Analysis, IT Management Practices.</div></div></div>
+        <div class="level-item"><div class="level-badge">L2</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Sep 2023 – Sep 2024</span><h3>Diploma in Software Engineering</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Software Engineering, OOP, Web Development.</div></div></div>
+        <div class="level-item"><div class="level-badge">L1</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Dec 2022 – May 2023</span><h3>Certificate in Computer Science</h3><div class="lv-org">NIBM, Sri Lanka</div></div></div>
       </div>
     </section>
 
-    <section>
-      <div class="sec-title"><span class="bracket">[06]</span><h2>Achievements Unlocked</h2></div>
+    <section class="certifications-section">
+      <div class="sec-title"><span class="bracket">[06]</span><h2>Professional Certifications</h2></div>
       <div class="ach-grid reveal">
-        <div class="ach"><span class="badge">âœ“</span>Managing Project Teams â€” Alison, Aug 2025</div>
-        <div class="ach"><span class="badge">âœ“</span>British Council English â€” Level A2</div>
-        <div class="ach"><span class="badge">âœ“</span>Spoken English Excellence â€” Aquinas College</div>
-        <div class="ach"><span class="badge">âœ“</span>45-Day English Course â€” Diplomat's Mun</div>
-      </div>
-    </section>
-
-    <section>
-      <div class="sec-title"><span class="bracket">[07]</span><h2>Inventory</h2></div>
-      <div class="inv-grid reveal">
-        <div><h3>LANGUAGES</h3><div class="inv-tags"><span>English</span><span>Sinhala</span></div></div>
-        <div><h3>INTERESTS</h3><div class="inv-tags"><span>Chess</span><span>Football</span><span>Basketball</span></div></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="sec-title"><span class="bracket">[08]</span><h2>Allies</h2></div>
-      <div class="ally-grid reveal">
-        <div class="ally-card"><h3>Amila De Silva</h3><div class="ally-role">Consultant / Lecturer, NIBM</div><div class="ally-line"><span>TEL</span>+94 117 321 000</div><div class="ally-line"><a href="mailto:amilau@gmail.com"><span>MAIL</span>amilau@gmail.com</a></div></div>
-        <div class="ally-card"><h3>Chandula Sulakshana De Silva</h3><div class="ally-role">Senior Software Engineer, Orysys Limited</div><div class="ally-line"><span>TEL</span>+94 775 677 460</div><div class="ally-line"><a href="mailto:chandula.work@gmail.com"><span>MAIL</span>chandula.work@gmail.com</a></div></div>
+        <div class="ach"><span class="badge">&#9733;</span><span><strong>Cloud 101: Powered by AWS</strong><small>AWS Cloud Club NIBM - Issued Jan 2026</small></span></div>
+        <div class="ach"><span class="badge">&#9733;</span><span><strong>Certificate in Computer Science</strong><small>National Institute of Business Management - Issued Jun 2023</small></span></div>
+        <div class="ach"><span class="badge">&#9733;</span><span><strong>LeanPM Yellow Belt Certified</strong><small>Lean Project Management Foundation - Issued Apr 2026</small></span></div>
+        <div class="ach"><span class="badge">&#9733;</span><span><strong>45-Day English Course - Diplomat's Mun</strong><small>Aug 2024 - Feb 2025</small></span></div>
+        <div class="ach"><span class="badge">&#9733;</span><span><strong>British Council English Course - Level A2 (Spoken English)</strong><small>Aug 2024 - Feb 2025</small></span></div>
       </div>
     </section>
 
@@ -570,7 +798,7 @@
   <div class="page" id="page-ba">
     <section class="hero" style="border-top:none; padding-top:10px;">
       <div>
-        <div class="rank-tag"><span class="pulse"></span>CLASS SELECTED â€” READY FOR DEPLOYMENT</div>
+        <div class="rank-tag"><span class="pulse"></span>BUSINESS ANALYST &mdash; AVAILABLE FOR OPPORTUNITIES</div>
         <h1>ANUL <span class="glow">METHNULA</span></h1>
         <div class="class-name">CLASS: <strong>Aspiring Business Analyst</strong> Â</div>
         <p class="blurb">Aspiring business analyst with a background in information systems, Agile methodologies, and business analysis. Experienced in requirements gathering, process modelling, documentation, and stakeholder coordination â€” seeking a junior business analyst role to support data-driven decision-making.</p>
@@ -606,25 +834,30 @@
       </div>
     </section>
 
-    <section>
-      <div class="sec-title"><span class="bracket">[02]</span><h2>Stat Sheet</h2></div>
-      <div class="stat-grid reveal">
-        <div class="stat"><div class="stat-top"><span>Requirements Gathering (BRD/SRS)</span><span class="lvl">ADVANCED</span></div><div class="stat-track"><div class="stat-fill" data-fill="90"></div></div></div>
-        <div class="stat"><div class="stat-top"><span>Process Modeling (UML/BPMN)</span><span class="lvl">ADVANCED</span></div><div class="stat-track"><div class="stat-fill" data-fill="88"></div></div></div>
-        <div class="stat"><div class="stat-top"><span>Stakeholder Communication</span><span class="lvl">ADVANCED</span></div><div class="stat-track"><div class="stat-fill" data-fill="88"></div></div></div>
-        <div class="stat"><div class="stat-top"><span>Gap, SWOT & PESTEL Analysis</span><span class="lvl">INTERMEDIATE</span></div><div class="stat-track"><div class="stat-fill" data-fill="68"></div></div></div>
-        <div class="stat"><div class="stat-top"><span>Oracle, SQL & MongoDB</span><span class="lvl">INTERMEDIATE</span></div><div class="stat-track"><div class="stat-fill" data-fill="65"></div></div></div>
-        <div class="stat"><div class="stat-top"><span>Figma, Draw.io & Jira</span><span class="lvl">ADVANCED</span></div><div class="stat-track"><div class="stat-fill" data-fill="82"></div></div></div>
+    <section class="skill-showcase">
+      <video class="skill-showcase-video" autoplay muted loop playsinline aria-hidden="true"><source src="video.mp4" type="video/mp4"></video>
+      <div class="sec-title"><span class="bracket">[03]</span><h2>Skills &amp; Expertise</h2></div>
+      <div class="skill-showcase-grid reveal">
+        <article class="skill-tile"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i><h3>Project Planning</h3><p>Planning activities, coordinating tasks and tracking project progress.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><h3>Agile &amp; Scrum</h3><p>Sprint planning, daily stand-ups, reviews and retrospectives.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-users" aria-hidden="true"></i><h3>Stakeholder Management</h3><p>Collaborating and communicating with stakeholders and project teams.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-chart-column" aria-hidden="true"></i><h3>Progress Tracking</h3><p>Tracking milestones, blockers and project deliverables.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-folder-open" aria-hidden="true"></i><h3>Jira &amp; Trello</h3><p>Managing backlogs, tasks and team workflows using project tools.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><h3>Requirements Gathering</h3><p>Understanding business needs and translating them into requirements.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><h3>Business Analysis</h3><p>SWOT, PESTAL and business process analysis.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><h3>BPMN &amp; UML</h3><p>Business process modeling and system documentation.</p></article>
+        <article class="skill-tile"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i><h3>Figma &amp; Draw.io</h3><p>Wireframing, diagrams and visual project documentation.</p></article>
       </div>
     </section>
 
-    <section>
-      <div class="sec-title"><span class="bracket">[03]</span><h2>Quest Log â€” Completed Projects</h2></div>
+    <section class="projects-section">
+      <div class="sec-title"><span class="bracket">[03] PORTFOLIO</span><h2>Featured Projects</h2></div>
+      <p class="projects-intro">A selection of academic, software and business projects delivered through planning, analysis and team coordination.</p>
       <div class="quest-grid reveal">
         <div class="quest-card">
-          <div class="quest-status">QUEST COMPLETE</div>
+          <div class="project-media" role="img" aria-label="Technology project visual"></div>
           <h3>QR-Based E-Ticketing System</h3>
-          <div class="quest-meta">LOADOUT: React PWA Â· Flutter Â· Node.js Â· Firebase<br>PARTY SIZE: 4</div>
+          <div class="quest-meta">TECHNOLOGY: React PWA | Flutter | Node.js | Firebase<br>TEAM SIZE: 4</div>
           <ul>
             <li>Owned requirements gathering and produced UML diagrams and system architecture docs.</li>
             <li>Defined acceptance criteria across sprints alongside full stakeholder reporting.</li>
@@ -632,78 +865,97 @@
           </ul>
         </div>
         <div class="quest-card">
-          <div class="quest-status">QUEST COMPLETE</div>
+          <div class="project-media" role="img" aria-label="Technology project visual"></div>
           <h3>Online Gas Delivery System</h3>
-          <div class="quest-meta">LOADOUT: Figma Â· Draw.io<br>PARTY SIZE: 5</div>
+          <div class="quest-meta">TOOLS: Figma | Draw.io<br>TEAM SIZE: 5</div>
           <ul>
             <li>Ran requirements workshops, translating business needs into clear project scope.</li>
             <li>Produced BPMN process diagrams and Figma wireframes.</li>
           </ul>
         </div>
         <div class="quest-card">
-          <div class="quest-status">QUEST COMPLETE</div>
+          <div class="project-media" role="img" aria-label="Technology project visual"></div>
           <h3>Queue Management System</h3>
-          <div class="quest-meta">MODE: Agile & Scrum Coursework</div>
+          <div class="quest-meta">METHOD: Agile and Scrum Coursework</div>
           <ul>
             <li>Tracked requirements as epics/MRFs with full documentation.</li>
             <li>Gained hands-on exposure to DevOps workflow integration.</li>
           </ul>
         </div>
         <div class="quest-card">
-          <div class="quest-status">QUEST COMPLETE</div>
+          <div class="project-media" role="img" aria-label="Technology project visual"></div>
           <h3>Hotel Management System</h3>
-          <div class="quest-meta">LOADOUT: Web Technologies Â· MySQL<br>PARTY SIZE: 4</div>
+          <div class="quest-meta">TECHNOLOGY: Web Technologies | MySQL<br>TEAM SIZE: 4</div>
           <ul>
             <li>Produced Use Case, Class & Sequence Diagrams and ER Diagrams.</li>
             <li>Delivered admin panel + customer-facing booking site.</li>
           </ul>
         </div>
+        <div class="quest-card">
+          <div class="project-media" role="img" aria-label="Advanced Enterprise Resource Planning project visual"></div>
+          <h3>Advanced Enterprise Resource Planning</h3>
+          <div class="quest-meta">TOOLS: SAP S/4HANA | Oracle NetSuite<br>TEAM SIZE: 5</div>
+          <ul>
+            <li>Compared core ERP modules, integrations, and implementation approaches.</li>
+            <li>Analyzed business use cases, digital transformation, risks, and mitigation strategies.</li>
+            <li>Produced research, visual aids, and the final stakeholder presentation.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section>
-      <div class="sec-title"><span class="bracket">[04]</span><h2>Guild Ranks â€” AIESEC in NIBM</h2></div>
+    <section class="experience-section">
+      <div class="sec-title"><span class="bracket">[04] INDUSTRY EXPERIENCE</span><h2>Professional Experience</h2></div>
+      <p class="experience-intro">Professional experience focused on business analysis, process improvement, requirements gathering, and supporting digital transformation initiatives.</p>
+      <article class="experience-card reveal">
+        <div class="experience-mark"><img src="supunlogo.png" alt="Supun Group of Companies logo"></div>
+        <div class="experience-content">
+          <span class="experience-label">INDUSTRY ROLE</span>
+          <span class="experience-date">August 2026 &ndash; Present</span>
+          <h3>Business Analyst Intern</h3>
+          <p class="experience-company">Supun Group of Companies · Sri Lanka</p>
+          <ul>
+            <li>Assist with gathering and analyzing business requirements from stakeholders and different departments.</li>
+            <li>Analyze existing business processes and identify opportunities for improvement and digital transformation.</li>
+            <li>Support the documentation of business requirements, workflows, process flows, and functional requirements.</li>
+            <li>Collaborate with management and team members to understand operational challenges and propose suitable technology solutions.</li>
+            <li>Assist in planning and analyzing potential ERP and business management system solutions.</li>
+            <li>Support communication between business stakeholders and technical teams during project planning and implementation.</li>
+          </ul>
+          <div class="experience-tags"><span>Business Analysis</span><span>Requirements Gathering</span><span>Process Improvement</span><span>Stakeholder Communication</span><span>Business Process Modeling</span><span>Documentation</span><span>ERP Systems</span><span>Process Mapping</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="leadership-section">
+      <div class="sec-title"><span class="bracket">[04]</span><h2>Leadership Experience - AIESEC</h2></div>
+      <img class="leadership-photo" data-gallery="aiesec" src="aiesec.png" alt="AIESEC team members together">
       <div class="guild-list reveal">
         <div class="guild-item"><div class="guild-rank">OCVP LOGISTICS<br>Elevate 26 Career Fair</div><p>Planned & managed end-to-end logistics for a 400+ delegate event.</p></div>
         <div class="guild-item"><div class="guild-rank">OCVP PARTNERSHIP DEV.<br>Christmas OEM Event</div><p>Led partner outreach strategy and tracked partnership deliverables.</p></div>
         <div class="guild-item"><div class="guild-rank">OGT B2C TEAM LEAD<br>Term 26.27</div><p>Directed a ground-level team, set weekly targets, reported to leadership.</p></div>
-        <div class="guild-item"><div class="guild-rank">OC MEMBER â€” PR<br>Blood Donation Drive</div><p>Coordinated promotional campaign & internal communications.</p></div>
+        <div class="guild-item"><div class="guild-rank">OC MEMBER - PR<br>Blood Donation Drive</div><p>Coordinated promotional campaign and internal communications.</p></div>
       </div>
     </section>
 
-    <section>
-      <div class="sec-title"><span class="bracket">[05]</span><h2>Level Progression â€” Education</h2></div>
+    <section class="education-section">
+      <div class="sec-title"><span class="bracket">[06]</span><h2>Academic Journey</h2></div>
       <div class="level-list reveal">
-        <div class="level-item"><div class="level-badge">L4</div><div><span class="lv-date">2026 â€” Present</span><h3>BSc (Hons) IT for Business</h3><div class="lv-org">Coventry University, UK (via NIBM)</div><div class="lv-mods">Data Science for Business, Artificial Intelligence, Security & Compliance in the Cloud.</div></div></div>
-        <div class="level-item"><div class="level-badge">L3</div><div><span class="lv-date">Apr 2025 â€” Apr 2026</span><h3>HND in Information Systems</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Business Analysis, Software Quality Engineering, Advanced Database Management.</div></div></div>
-        <div class="level-item"><div class="level-badge">L2</div><div><span class="lv-date">Sep 2023 â€” Sep 2024</span><h3>Diploma in Software Engineering</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Enterprise Application Development, OOP, Computer Networks.</div></div></div>
-        <div class="level-item"><div class="level-badge">L1</div><div><span class="lv-date">Dec 2022 â€” May 2023</span><h3>Certificate in Computer Science</h3><div class="lv-org">NIBM, Sri Lanka</div></div></div>
+        <div class="level-item"><div class="level-badge">L4</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">2026 – Present</span><h3>BSc (Hons) IT for Business</h3><div class="lv-org">Coventry University, UK (via NIBM)</div><div class="lv-mods">Project Management, IT Service & Infrastructure Management, Operational Research.</div></div></div>
+        <div class="level-item"><div class="level-badge">L3</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Apr 2025 – Apr 2026</span><h3>HND in Information Systems</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Agile & DevOps, Business Analysis, IT Management Practices.</div></div></div>
+        <div class="level-item"><div class="level-badge">L2</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Sep 2023 – Sep 2024</span><h3>Diploma in Software Engineering</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Software Engineering, OOP, Web Development.</div></div></div>
+        <div class="level-item"><div class="level-badge">L1</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Dec 2022 – May 2023</span><h3>Certificate in Computer Science</h3><div class="lv-org">NIBM, Sri Lanka</div></div></div>
       </div>
     </section>
 
-    <section>
-      <div class="sec-title"><span class="bracket">[06]</span><h2>Achievements Unlocked</h2></div>
+    <section class="certifications-section">
+      <div class="sec-title"><span class="bracket">[06]</span><h2>Professional Certifications</h2></div>
       <div class="ach-grid reveal">
-        <div class="ach"><span class="badge">âœ“</span>Managing Project Teams â€” Alison, Aug 2025</div>
-        <div class="ach"><span class="badge">âœ“</span>British Council English â€” Level A2</div>
-        <div class="ach"><span class="badge">âœ“</span>Spoken English Excellence â€” Aquinas College</div>
-        <div class="ach"><span class="badge">âœ“</span>45-Day English Course â€” Diplomat's Mun</div>
-      </div>
-    </section>
-
-    <section>
-      <div class="sec-title"><span class="bracket">[07]</span><h2>Inventory</h2></div>
-      <div class="inv-grid reveal">
-        <div><h3>LANGUAGES</h3><div class="inv-tags"><span>English</span><span>Sinhala</span></div></div>
-        <div><h3>INTERESTS</h3><div class="inv-tags"><span>Chess</span><span>Football</span><span>Basketball</span></div></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="sec-title"><span class="bracket">[08]</span><h2>Allies</h2></div>
-      <div class="ally-grid reveal">
-        <div class="ally-card"><h3>Amila De Silva</h3><div class="ally-role">Consultant / Lecturer, NIBM</div><div class="ally-line"><span>TEL</span>+94 117 321 000</div><div class="ally-line"><a href="mailto:amilau@gmail.com"><span>MAIL</span>amilau@gmail.com</a></div></div>
-        <div class="ally-card"><h3>Chandula Sulakshana De Silva</h3><div class="ally-role">Senior Software Engineer, Orysys Limited</div><div class="ally-line"><span>TEL</span>+94 775 677 460</div><div class="ally-line"><a href="mailto:chandula.work@gmail.com"><span>MAIL</span>chandula.work@gmail.com</a></div></div>
+        <div class="ach"><span class="badge">&#9733;</span><span><strong>Cloud 101: Powered by AWS</strong><small>AWS Cloud Club NIBM - Issued Jan 2026</small></span></div>
+        <div class="ach"><span class="badge">&#9733;</span><span><strong>Certificate in Computer Science</strong><small>National Institute of Business Management - Issued Jun 2023</small></span></div>
+        <div class="ach"><span class="badge">&#9733;</span><span><strong>LeanPM Yellow Belt Certified</strong><small>Lean Project Management Foundation - Issued Apr 2026</small></span></div>
+        <div class="ach"><span class="badge">&#9733;</span><span><strong>45-Day English Course - Diplomat's Mun</strong><small>Aug 2024 - Feb 2025</small></span></div>
+        <div class="ach"><span class="badge">&#9733;</span><span><strong>British Council English Course - Level A2 (Spoken English)</strong><small>Aug 2024 - Feb 2025</small></span></div>
       </div>
     </section>
 
@@ -856,6 +1108,37 @@
   }, {threshold:0.3});
   document.querySelectorAll('.impact-grid').forEach(el=>impactIO.observe(el));
 
+  // ---- leadership photo shuffle ----
+  const leadershipPhotos = ['aiesec.png','aiesec1.png','aiesec2.png','aiesec3.png','aiesec4.png'];
+  const shuffledLeadershipPhotos = [...leadershipPhotos].sort(()=>Math.random() - 0.5);
+  shuffledLeadershipPhotos.forEach(photo=>{ const preload = new Image(); preload.src = photo; });
+  document.querySelectorAll('[data-gallery="aiesec"]').forEach(gallery=>{
+    let currentPhoto = 0;
+    const showNextLeadershipPhoto = ()=>{
+      currentPhoto = (currentPhoto + 1) % shuffledLeadershipPhotos.length;
+      gallery.classList.add('is-changing');
+      setTimeout(()=>{
+        gallery.src = shuffledLeadershipPhotos[currentPhoto];
+        gallery.classList.remove('is-changing');
+      }, 280);
+    };
+    setInterval(showNextLeadershipPhoto, 3000);
+  });
+
+  const educationDates = ['2026 – Present','Apr 2025 – Apr 2026','Sep 2023 – Sep 2024','Dec 2022 – May 2023'];
+  document.querySelectorAll('.level-list').forEach(list=>{
+    list.querySelectorAll('.lv-date').forEach((date,index)=>{ date.textContent = educationDates[index]; });
+  });
+  document.querySelectorAll('.level-logo img').forEach(logo=>{ logo.src = 'nibm%20logo.png'; });
+  const textFixes = [['â€”',' - '],['â†’',' -> '],['Â·',' | '],['â—',''],['Â','']];
+  const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const visibleTextNodes = [];
+  let textNode;
+  while(textNode = textWalker.nextNode()) visibleTextNodes.push(textNode);
+  visibleTextNodes.forEach(node=>{
+    textFixes.forEach(([bad,replacement])=>{ node.nodeValue = node.nodeValue.split(bad).join(replacement); });
+  });
+
   // ---- avatar tilt ----
   document.querySelectorAll('.avatar-frame').forEach(frame=>{
     frame.addEventListener('mousemove', (e)=>{
@@ -872,8 +1155,4 @@
   window.addEventListener('scroll', ()=>{
     stickyCta.classList.toggle('show', window.scrollY > 700);
   });
-</script>
-
-</body>
-</html>
-
+  // ---- avatar tilt ----
