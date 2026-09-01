@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anul Methnula &mdash; Portfolio</title>
+<link rel="preload" as="image" href="hero-scrum-master-casual.png" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -742,6 +743,13 @@
     .avatar-frame{ position:absolute; inset:0; width:100%; height:100%; margin:0; border-radius:0; }
     .avatar-frame img{ object-position:68% center; }
   }
+  /* The portfolio now uses one combined BA/PM view. */
+  .class-select,#page-ba{ display:none !important; }
+  .cursor-glow{ position:fixed; z-index:120; left:0; top:0; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(98,215,154,.12) 0%,rgba(232,176,123,.06) 34%,transparent 70%); transform:translate3d(-50%,-50%,0); pointer-events:none; opacity:0; transition:opacity .25s ease; will-change:transform; }
+  body.has-pointer .cursor-glow{ opacity:1; }
+  .avatar-frame img{ opacity:0; }
+  .avatar-frame img.is-ready{ opacity:1; transition:opacity .32s ease !important; }
+  @media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){ .cursor-glow{ display:none; } }
   @media (max-width:720px){
     .hero{ min-height:calc(100svh - 68px); padding:40px clamp(20px,6vw,32px) !important; }
     .hero::before{ background:linear-gradient(90deg,rgba(8,10,13,.97) 0%,rgba(8,10,13,.84) 58%,rgba(8,10,13,.28) 100%),linear-gradient(0deg,#080a0d 0%,transparent 46%,rgba(8,10,13,.34) 100%); }
@@ -870,11 +878,12 @@
 </style>
 </head>
 <body>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
 <div class="boot" id="boot">
   <div class="boot-line" id="bl1">INITIALIZING PROFILE...</div>
   <div class="boot-line" id="bl2">LOADING CANDIDATE: ANUL METHNULA</div>
-  <div class="boot-line" id="bl3">CLASSES FOUND: PROJECT MANAGER Â· BUSINESS ANALYST</div>
+  <div class="boot-line" id="bl3">PROFILE: BUSINESS ANALYSIS &amp; PROJECT MANAGEMENT</div>
   <div class="boot-bar"><div class="boot-fill" id="bootFill"></div></div>
 </div>
 
@@ -1451,11 +1460,24 @@
   }, {threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // Use the portfolio-optimized corporate portrait in both role heroes.
+  // Reveal only the final portrait, preventing the embedded legacy image from flashing first.
   document.querySelectorAll('.avatar-frame img').forEach(photo=>{
+    const revealPhoto = ()=>photo.classList.add('is-ready');
+    photo.addEventListener('load', revealPhoto, {once:true});
     photo.src = 'hero-scrum-master-casual.png';
     photo.alt = 'Anul Methnula facilitating an Agile Scrum planning session';
+    if(photo.complete) revealPhoto();
   });
+
+  // Subtle pointer-following ambient light for mouse/trackpad visitors.
+  const cursorGlow = document.getElementById('cursorGlow');
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    window.addEventListener('pointermove', event=>{
+      document.body.classList.add('has-pointer');
+      cursorGlow.style.transform = `translate3d(${event.clientX - 110}px,${event.clientY - 110}px,0)`;
+    }, {passive:true});
+    document.documentElement.addEventListener('mouseleave', ()=>document.body.classList.remove('has-pointer'));
+  }
 
   // Keep the skills video calm for visitors who request reduced motion.
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -1745,16 +1767,19 @@ VERIFIED PORTFOLIO FACTS:
   document.addEventListener('keydown', event=>{
     if(event.key === 'Escape' && portfolioChat.classList.contains('is-open')) setChatOpen(false);
   });
-  setTimeout(()=>{
-    try{
-      if(!sessionStorage.getItem('anul-chat-seen')){
-        setChatOpen(true);
-        sessionStorage.setItem('anul-chat-seen','1');
-      }
-    } catch(error){ /* Storage may be unavailable in privacy mode. */ }
-  }, 4200);
+  // Chat intentionally remains closed until the visitor presses the bot button.
 
-  // ---- sticky cta ----
+  // Discourage casual source inspection. Client-side code can never be made fully private.
+  document.addEventListener('contextmenu', event=>event.preventDefault());
+  document.addEventListener('keydown', event=>{
+    const key = event.key.toLowerCase();
+    const blocked = key === 'f12' ||
+      (event.ctrlKey && key === 'u') ||
+      (event.ctrlKey && event.shiftKey && ['i','j','c'].includes(key)) ||
+      (event.metaKey && event.altKey && ['i','j','c','u'].includes(key));
+    if(blocked) event.preventDefault();
+  });
+// ---- sticky cta ----
   const stickyCta = document.getElementById('stickyCta');
   window.addEventListener('scroll', ()=>{
     stickyCta.classList.toggle('show', window.scrollY > 700);
