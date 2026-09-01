@@ -4,7 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
 <title>Anul Methnula &mdash; Portfolio</title>
+<script>
+  (()=>{try{const saved=localStorage.getItem('anul-theme');document.documentElement.dataset.theme=saved||'dark';}catch(error){document.documentElement.dataset.theme='dark';}})();
+</script>
 <link rel="preload" as="image" href="hero-scrum-master-casual.png" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -266,12 +270,20 @@
   @media (max-width:650px){ .projects-section{ padding-inline:18px; } .projects-section .quest-grid{ grid-template-columns:1fr; } .project-media{ height:220px; } }
   @media (prefers-reduced-motion:reduce){ .projects-section .quest-grid.in .quest-card{ animation:none; } .project-media{ transition:none; } }
 
-  .experience-section{ padding:86px clamp(24px,8vw,120px); background:linear-gradient(135deg,#111613,#0b1110); }
+  .experience-section{ position:relative; isolation:isolate; overflow:hidden; padding:86px clamp(24px,8vw,120px); background:linear-gradient(135deg,#142727 0%,#10242c 46%,#201d29 100%); }
+  .experience-weather{ position:absolute; z-index:-2; inset:0; width:100%; height:100%; pointer-events:none; opacity:1; }
+  .experience-section::before{ content:""; position:absolute; z-index:-1; inset:-25%; background:radial-gradient(circle at 22% 42%,rgba(75,226,165,.26),transparent 26%),radial-gradient(circle at 78% 30%,rgba(78,180,231,.25),transparent 29%),radial-gradient(circle at 58% 88%,rgba(240,177,104,.21),transparent 30%); filter:blur(18px); animation:experienceAurora 11s ease-in-out infinite alternate; pointer-events:none; }
+  .experience-section::after{ content:""; position:absolute; z-index:-1; inset:0; background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px); background-size:52px 52px; mask-image:linear-gradient(to bottom,rgba(0,0,0,.75),transparent 88%); pointer-events:none; }
+  @keyframes experienceAurora{ 0%{ transform:translate3d(-3%,-2%,0) rotate(-2deg) scale(1); } 100%{ transform:translate3d(4%,3%,0) rotate(3deg) scale(1.12); } }
   .experience-section .sec-title{ display:block; max-width:1050px; margin:0 auto 34px; text-align:center; }
   .experience-section .sec-title .bracket{ display:inline-block; margin-bottom:12px; font-size:.75rem; }
   .experience-section .sec-title h2{ font-family:'Manrope',sans-serif; font-size:clamp(2.2rem,5vw,4.5rem); letter-spacing:-.06em; }
   .experience-intro{ max-width:650px; margin:0 auto 34px; color:#aeb7b1; text-align:center; line-height:1.7; }
-  .experience-card{ display:grid; grid-template-columns:140px minmax(0,1fr); align-items:center; gap:26px; max-width:990px; margin:0 auto; padding:22px; border:1px solid rgba(255,255,255,.14); border-radius:18px; background:rgba(22,29,25,.72); box-shadow:0 18px 45px rgba(0,0,0,.2); }
+  .experience-card{ display:grid; grid-template-columns:140px minmax(0,1fr); align-items:center; gap:26px; max-width:990px; margin:0 auto; padding:24px; border:1px solid rgba(194,241,221,.42); border-radius:20px; background:linear-gradient(135deg,rgba(20,38,37,.78),rgba(16,28,35,.72)); box-shadow:0 26px 70px rgba(0,0,0,.34),0 0 55px rgba(71,218,164,.12),inset 0 1px 0 rgba(255,255,255,.16); backdrop-filter:blur(16px) saturate(1.2); -webkit-backdrop-filter:blur(16px) saturate(1.2); transform-style:preserve-3d; transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease; }
+  .experience-card:hover{ transform:perspective(1000px) rotateX(1deg) translateY(-7px) scale(1.008); border-color:rgba(245,194,127,.72); box-shadow:0 35px 85px rgba(0,0,0,.42),0 0 65px rgba(98,215,154,.2),inset 0 1px 0 rgba(255,255,255,.2); }
+  .experience-section .sec-title h2{ color:#fff; text-shadow:0 3px 28px rgba(95,218,176,.25); }
+  .experience-section .sec-title .bracket{ color:#f3bd7b; }
+  .experience-intro{ color:#d9e6e3; text-shadow:0 2px 14px rgba(0,0,0,.5); }
   .experience-mark{ display:grid; place-items:center; align-self:center; width:140px; height:140px; min-height:0; padding:16px; border-radius:14px; background:#f4f1e8; }
   .experience-mark img{ display:block; width:100%; height:100%; min-height:0; object-fit:contain; object-position:center; }
   .experience-content{ position:relative; }
@@ -295,23 +307,29 @@
   @media (max-width:640px){ .guild-item{ grid-template-columns:1fr; } }
   .guild-rank{ font-family:'Orbitron',sans-serif; font-size:0.72rem; color:var(--accent); }
   .guild-item p{ font-size:0.88rem; color:#C4CBE3; }
-  .leadership-section{ position:relative; isolation:isolate; width:100%; padding-inline:clamp(24px,5vw,72px); background:#080d11 !important; }
-  .leadership-photo{ display:block; width:100%; max-width:1080px; aspect-ratio:16/8; object-fit:cover; object-position:center; margin:0 auto 18px; border:1px solid rgba(255,255,255,.16); border-radius:18px; box-shadow:0 22px 55px rgba(0,0,0,.3); opacity:1; transition:opacity .28s ease,transform .42s cubic-bezier(.22,.75,.25,1); }
-  .leadership-photo.is-changing{ opacity:0; transform:translateX(20px) scale(1.015); }
-  .leadership-section .sec-title{ display:block; margin:0 auto 28px; text-align:center; }
-  .leadership-section .sec-title .bracket{ display:block; margin-bottom:10px; font-size:.78rem; }
-  .leadership-section .sec-title h2{ font-family:'Manrope',sans-serif; font-size:clamp(2rem,4.5vw,3.8rem); letter-spacing:-.06em; }
-  .leadership-section > *{ position:relative; z-index:1; }
-  .leadership-section .guild-list{ position:relative; z-index:2; display:grid; width:90%; max-width:900px; margin:0 auto; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; transform:translateY(-340px); margin-bottom:-340px; }
-  .leadership-section .guild-item{ min-height:104px; grid-template-columns:1fr; gap:7px; padding:15px 17px; background:rgba(7,17,24,.24); border:1px solid rgba(177,231,226,.3); border-radius:12px; position:relative; overflow:hidden; backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px); box-shadow:0 12px 28px rgba(0,0,0,.17),inset 0 1px 0 rgba(255,255,255,.1); transition:transform .3s ease,border-color .3s ease,background .3s ease,box-shadow .3s ease; }
-  .leadership-section .guild-item::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(var(--accent),#65c8df); }
-  .leadership-section .guild-item::after{ content:""; position:absolute; top:-30%; left:-35%; width:35%; height:180%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.17),transparent); transform:rotate(18deg); animation:leadershipShine 6s ease-in-out infinite; pointer-events:none; }
-  .leadership-section .guild-item:hover{ transform:translateY(-6px); border-color:rgba(123,227,170,.8); background:linear-gradient(135deg,rgba(23,54,55,.68),rgba(7,18,25,.48)); box-shadow:0 22px 44px rgba(0,0,0,.3),0 0 24px rgba(98,215,154,.12); }
-  @keyframes leadershipShine{ 0%,55%{ transform:translateX(-30%) rotate(18deg); opacity:0; } 70%{ opacity:1; } 100%{ transform:translateX(390%) rotate(18deg); opacity:0; } }
-  .leadership-section .guild-rank{ font-family:'Manrope',sans-serif; font-size:.74rem; line-height:1.35; letter-spacing:.03em; color:#7ce6b0; text-align:center; text-shadow:0 2px 10px rgba(0,0,0,.85); }
-  .leadership-section .guild-item p{ position:relative; padding-left:15px; color:#f0f4f2; font-size:.82rem; line-height:1.45; text-shadow:0 2px 10px rgba(0,0,0,.9); }
-  .leadership-section .guild-item p::before{ content:""; position:absolute; left:2px; top:.7em; width:7px; height:7px; border-top:1px solid var(--gold); border-right:1px solid var(--gold); transform:rotate(45deg); }
-  @media (max-width:650px){ .leadership-section{ padding-inline:18px; } .leadership-section .guild-list{ width:100%; grid-template-columns:1fr; transform:translateY(-90px); margin-bottom:-90px; } .leadership-section .guild-item{ min-height:112px; padding:18px; } }
+  .leadership-section{ position:relative; isolation:isolate; width:100%; padding:clamp(62px,7vw,92px) clamp(24px,5vw,72px); background:#080d11 !important; }
+  .leadership-section .sec-title{ display:block; margin:0 auto 30px; text-align:center; }
+  .page .leadership-section .leadership-eyebrow{ display:block; margin-bottom:12px; color:#79dfac; font:800 .72rem/1 'Manrope',sans-serif; letter-spacing:.16em; }
+  .leadership-section .sec-title h2{ font-family:'Manrope',sans-serif; font-size:clamp(2.35rem,4.3vw,4rem); letter-spacing:-.06em; }
+  .leadership-section .sec-title h2 span{ color:#e8a653; }
+  .leadership-gallery{ position:relative; isolation:isolate; width:100%; max-width:1180px; height:clamp(535px,46vw,650px); margin:0 auto; overflow:hidden; border:0; border-radius:20px; outline:0; background:#080d11; box-shadow:0 28px 68px rgba(0,0,0,.4); }
+  .leadership-photo{ position:absolute; z-index:-3; inset:-4px; display:block; width:calc(100% + 8px); height:calc(100% + 8px); object-fit:cover; object-position:center; opacity:0; filter:brightness(1.08) saturate(1.04) contrast(.98); transform:translate3d(0,0,0) scale(1.025); backface-visibility:hidden; transition:opacity .85s ease; will-change:opacity,transform; }
+  .leadership-photo.is-active{ opacity:1; z-index:-2; animation:leadershipKenBurns 5.5s linear both; }
+  .leadership-gallery::before{ content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(to bottom,rgba(5,10,14,.18),rgba(5,10,14,.4)),linear-gradient(90deg,rgba(5,10,14,.48),rgba(5,10,14,.25) 56%,rgba(5,10,14,.12)); pointer-events:none; }
+  .leadership-gallery::after{ content:""; position:absolute; z-index:-1; inset:31% 5% 7%; border-radius:28px; background:radial-gradient(ellipse,rgba(3,8,12,.42),transparent 72%); filter:blur(14px); pointer-events:none; }
+  .leadership-section .guild-list{ position:absolute; z-index:2; left:50%; bottom:58px; display:grid; width:min(91%,1020px); margin:0; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; transform:translateX(-50%); }
+  .leadership-section .guild-item{ position:relative; display:block; min-height:142px; padding:22px 23px; overflow:hidden; border:1px solid rgba(255,255,255,.14); border-radius:15px; background:rgba(7,14,20,.84); box-shadow:0 14px 34px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.04); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); transition:transform .28s ease,border-color .28s ease,background .28s ease,box-shadow .28s ease; }
+  .leadership-section .guild-item::before{ content:""; position:absolute; left:0; top:17px; bottom:17px; width:2px; border-radius:2px; background:linear-gradient(#62d79a,#e8b07b); opacity:.8; }
+  .leadership-section .guild-item::after{ display:none; }
+  .leadership-section .guild-item:hover,.leadership-section .guild-item.is-active{ transform:translateY(-3px); border-color:rgba(106,224,167,.55); background:rgba(11,24,29,.91); box-shadow:0 20px 42px rgba(0,0,0,.36),0 0 25px rgba(98,215,154,.09); }
+  .leadership-section .guild-rank{ margin-bottom:13px; font-family:'Manrope',sans-serif; text-align:left; text-shadow:none; }
+  .leadership-section .guild-role{ display:block; margin-bottom:6px; color:#76e1a9; font-size:.78rem; font-weight:800; line-height:1.2; letter-spacing:.08em; text-transform:uppercase; }
+  .leadership-section .guild-event{ display:block; color:#f0bf84; font-size:1rem; font-weight:650; line-height:1.3; }
+  .leadership-section .guild-item p{ margin:0; padding:0; color:#e1e6e7; font-size:.94rem; line-height:1.52; text-shadow:none; }
+  .leadership-section .guild-item p::before{ display:none; }
+  @keyframes leadershipKenBurns{ from{ transform:scale(1); } to{ transform:scale(1.035); } }
+  @media (max-width:760px){ .leadership-section{ padding-inline:16px; }.leadership-gallery{ height:auto; overflow:visible; padding-top:min(67vw,390px); border-radius:18px; background:#0b1115; }.leadership-photo{ height:calc(min(67vw,390px) + 4px); border-radius:18px 18px 0 0; }.leadership-gallery::before{ height:min(67vw,390px); background:linear-gradient(to bottom,rgba(5,10,14,.1),rgba(5,10,14,.34)); }.leadership-gallery::after{ display:none; }.leadership-section .guild-list{ position:relative; left:auto; bottom:auto; width:100%; padding:14px; grid-template-columns:1fr; transform:none; background:#0b1115; }.leadership-section .guild-item{ min-height:0; padding:19px 18px; } }
+  @media (prefers-reduced-motion:reduce){ .leadership-photo{ transition:none; }.leadership-photo.is-active{ animation:none; transform:translateZ(0); }.leadership-section .guild-item{ transition:none; } }
 
   /* level progression / education */
   .level-list{ display:flex; flex-direction:column; gap:18px; position:relative; padding:0 0 0 78px; }
@@ -582,9 +600,23 @@
   .skill-showcase:has(.skill-showcase-grid.in)::after{ animation:skillRain 1.35s ease-out forwards; }
   @keyframes skillRain{ 0%{ opacity:0; transform:translateY(-22%); } 18%{ opacity:.72; } 68%{ opacity:.35; } 100%{ opacity:0; transform:translateY(18%); } }
   .skill-showcase > *:not(.skill-showcase-video){ position:relative; z-index:1; }
-  .skill-showcase .sec-title{ display:block; width:100%; max-width:none; margin:0 0 20px; }
+  .skill-showcase .sec-title{ display:block; width:100%; max-width:none; margin:0 0 30px; }
   .skill-showcase .sec-title .bracket{ display:block; margin-bottom:12px; font-size:.78rem; color:#e8b07b; }
   .skill-showcase .sec-title h2{ font-size:clamp(2.4rem,5vw,4.8rem); letter-spacing:-.07em; }
+  .skill-marquees{ width:100%; margin:0 auto 40px; }
+  .tool-marquee{ position:relative; height:68px; overflow:hidden; border:1px solid rgba(167,202,198,.22); border-radius:12px; background:rgba(5,13,19,.66); box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 12px 28px rgba(0,0,0,.16); }
+  .tool-marquee::before,.tool-marquee::after{ content:""; position:absolute; z-index:2; top:0; bottom:0; width:70px; pointer-events:none; }
+  .tool-marquee::before{ left:0; background:linear-gradient(90deg,#071018,transparent); }
+  .tool-marquee::after{ right:0; background:linear-gradient(-90deg,#071018,transparent); }
+  .tool-marquee-track{ display:flex; align-items:center; width:max-content; min-width:200%; height:100%; animation:toolsLeft 40s linear infinite; will-change:transform; }
+  .tool-marquee:hover .tool-marquee-track{ animation-play-state:paused; }
+  .tool-marquee-group{ display:flex; align-items:center; flex-shrink:0; gap:clamp(45px,4vw,60px); padding-right:clamp(45px,4vw,60px); }
+  .tool-marquee-item{ display:inline-flex; align-items:center; gap:10px; flex:0 0 auto; white-space:nowrap; color:#eef3f4; font:600 clamp(.875rem,1vw,.96rem)/1 'Manrope',sans-serif; transition:color .22s ease,transform .22s ease,filter .22s ease; }
+  .tool-marquee-item:hover{ color:#77e3aa; transform:translateY(-1px); filter:brightness(1.22); }
+  .tool-logo{ display:block; width:29px; height:29px; flex:0 0 auto; background:var(--brand); -webkit-mask:var(--icon) center/contain no-repeat; mask:var(--icon) center/contain no-repeat; filter:drop-shadow(0 3px 7px rgba(0,0,0,.3)); }
+  @keyframes toolsLeft{ to{ transform:translateX(-50%); } }
+  @media (max-width:700px){ .skill-showcase .sec-title{ margin-bottom:26px; } .skill-marquees{ margin-bottom:36px; } .tool-marquee{ height:56px; } .tool-marquee::before,.tool-marquee::after{ width:38px; } .tool-marquee-group{ gap:28px; padding-right:28px; } .tool-marquee-item{ gap:8px; font-size:.76rem; } .tool-logo{ width:23px; height:23px; } }
+  @media (prefers-reduced-motion:reduce){ .tool-marquee{ height:auto; min-height:57px; overflow-x:auto; } .tool-marquee-track{ width:max-content; min-width:0; animation:none; } .tool-marquee-group[aria-hidden="true"]{ display:none; } }
   .skill-showcase-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-auto-rows:1fr; width:100%; max-width:none; margin:0; gap:14px; }
   .skill-tile{ display:flex; flex-direction:column; min-width:0; min-height:168px; height:100%; padding:20px 18px; background:rgba(8,16,25,.58); border:1px solid rgba(194,221,238,.34); border-radius:14px; backdrop-filter:blur(10px); transition:transform .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease; }
   .skill-tile:nth-child(3n+1){ border-top-color:#e8b07b; }
@@ -632,7 +664,7 @@
     transform:none !important; transform-style:flat; transition:none;
   }
   .avatar-frame::after{ background:linear-gradient(90deg,rgba(8,10,13,.5),transparent 34%),linear-gradient(0deg,rgba(8,10,13,.35),transparent 36%); }
-  .avatar-frame img{ width:100%; height:100%; object-fit:cover; object-position:68% center; filter:contrast(1.03) saturate(.82) brightness(.88); animation:none !important; transform:none !important; transition:none !important; }
+  .avatar-frame img{ width:100%; height:100%; object-fit:cover; object-position:68% center; filter:contrast(1.03) saturate(.82) brightness(.88); animation:none !important; }
   .avatar-corner,.avatar-hud{ display:none; }
   @keyframes heroContentIn{ from{ opacity:0; transform:translateY(14px); } to{ opacity:1; transform:translateY(0); } }
   .page.active .hero-copy{ animation:heroContentIn .58s cubic-bezier(.2,.75,.25,1) both; }
@@ -708,22 +740,22 @@
   }
 
   /* Full-image hero and activity-aware contact rail */
-  .hero{ display:flex; align-items:center; min-height:calc(100svh - 76px); padding:clamp(48px,7vh,78px) clamp(70px,7vw,120px) !important; background:#080a0d; }
-  .hero::before{ z-index:1; background:linear-gradient(90deg,#080a0d 0%,rgba(8,10,13,.97) 32%,rgba(8,10,13,.76) 51%,rgba(8,10,13,.18) 75%,rgba(8,10,13,.08) 100%),linear-gradient(0deg,rgba(8,10,13,.5),transparent 42%); }
-  .hero-copy{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:flex-start; width:min(700px,47vw); max-width:700px; min-width:0; }
+  .hero{ display:flex; align-items:center; min-height:calc(100svh - 76px); padding:clamp(48px,7vh,78px) clamp(50px,5vw,90px) clamp(48px,7vh,78px) clamp(110px,10vw,170px) !important; background:#080a0d; }
+  .hero::before{ z-index:1; background:linear-gradient(90deg,#080a0d 0%,rgba(8,10,13,.98) 28%,rgba(8,10,13,.8) 48%,rgba(8,10,13,.34) 63%,rgba(8,10,13,.08) 82%),linear-gradient(0deg,rgba(8,10,13,.42),transparent 46%); }
+  .hero-copy{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:flex-start; width:min(700px,48vw); max-width:700px; min-width:0; }
   .hero-copy > *{ margin-left:0; }
-  .status-tags{ display:flex; align-items:center; flex-wrap:wrap; width:100%; gap:10px; margin:0 0 clamp(28px,3.2vh,35px); }
-  .hero-copy .status-tags .rank-tag{ margin:0; white-space:nowrap; }
-  .hero-intro{ width:100%; margin:0 0 8px; font-size:clamp(3rem,2.8vw,3.5rem); font-weight:650; line-height:1; letter-spacing:-.04em; text-align:left; }
-  .hero-copy h1{ width:100%; margin:0 0 clamp(25px,3vh,32px); font-size:clamp(5.125rem,5vw,6rem); line-height:.9; letter-spacing:-.075em; text-align:left; }
+  .status-tags{ display:flex; align-items:center; flex-wrap:wrap; width:100%; gap:12px; margin:0 0 clamp(28px,3.2vh,34px); }
+  .hero-copy .status-tags .rank-tag{ margin:0; white-space:nowrap; font-size:clamp(.75rem,.78vw,.82rem); }
+  .hero-intro{ width:100%; margin:0 0 14px; font-size:clamp(2.8rem,3.4vw,3.5rem); font-weight:680; line-height:1; letter-spacing:-.04em; text-align:left; }
+  .hero-copy h1{ width:100%; margin:0 0 clamp(28px,3.2vh,36px); font-size:clamp(5rem,6.5vw,7rem); line-height:.89; letter-spacing:-.08em; text-align:left; }
   .hero-copy h1 span{ display:block; }
-  .hero-copy h1 span + span{ margin-top:-.02em; }
-  .hero-quote{ box-sizing:border-box; width:100%; max-width:600px; margin:0 0 20px; padding-left:18px; font-size:clamp(1.375rem,1.35vw,1.625rem); font-weight:600; line-height:1.42; }
+  .hero-copy h1 span + span{ margin-top:-.045em; }
+  .hero-quote{ box-sizing:border-box; width:100%; max-width:620px; margin:0 0 24px; padding-left:18px; font-size:clamp(1.375rem,1.5vw,1.5625rem); font-weight:600; line-height:1.35; }
   .hero-quote .quote-line,.hero p.blurb .blurb-line{ display:block; }
-  .hero p.blurb{ width:100%; max-width:610px; margin:0; font-size:clamp(1.125rem,1.1vw,1.3125rem); line-height:1.65; }
+  .hero p.blurb{ width:100%; max-width:630px; margin:0; font-size:clamp(1.1875rem,1.25vw,1.3125rem); line-height:1.6; }
   .avatar-frame{ position:absolute; inset:0; z-index:0; width:100%; height:100%; border:0; border-radius:0; background:#080a0d; box-shadow:none; }
   .avatar-frame::after{ display:none; }
-  .avatar-frame img{ width:100%; height:100%; object-fit:cover; object-position:72% center; filter:contrast(1.03) saturate(.9) brightness(.82); }
+  .avatar-frame img{ width:100%; height:100%; object-fit:cover; object-position:64% center; filter:contrast(1.03) saturate(.92) brightness(.88); transform:scale(1.055); transform-origin:center center; }
   .connect-label{ display:none; }
   .connect-link{ color:var(--brand); }
   .connect-link.linkedin{ --brand:#0a66c2; }
@@ -741,7 +773,7 @@
     .hero-quote{ font-size:clamp(1.2rem,2.2vw,1.4rem); }
     .hero p.blurb{ font-size:clamp(1.05rem,1.9vw,1.18rem); }
     .avatar-frame{ position:absolute; inset:0; width:100%; height:100%; margin:0; border-radius:0; }
-    .avatar-frame img{ object-position:68% center; }
+    .avatar-frame img{ object-position:66% center; transform:scale(1.025); }
   }
   /* The portfolio now uses one combined BA/PM view. */
   .class-select,#page-ba{ display:none !important; }
@@ -768,9 +800,58 @@
     .hero p.blurb{ max-width:100%; font-size:clamp(1rem,4.1vw,1.08rem); }
     .hero-quote .quote-line,.hero p.blurb .blurb-line{ display:inline; }
     .avatar-frame{ height:100%; border-radius:0; }
-    .avatar-frame img{ object-position:66% center; filter:contrast(1.03) saturate(.86) brightness(.68); }
+    .avatar-frame img{ object-position:66% center; filter:contrast(1.03) saturate(.86) brightness(.72); transform:none; }
     .connect-rail.is-idle{ transform:translate(-50%,14px); }
   }
+
+  /* Project Rescue decision simulator */
+  .page > section.project-rescue{ position:relative; isolation:isolate; overflow:hidden; width:100%; max-width:none; margin:34px 0 0; padding:clamp(66px,8vw,112px) clamp(22px,6vw,96px); border-top:1px solid rgba(255,255,255,.09); background:#090d11; }
+  .rescue-bg-word{ position:absolute; z-index:-1; color:#dbe9e4; font:800 clamp(3rem,8vw,8rem)/1 'Manrope',sans-serif; letter-spacing:-.07em; opacity:.025; pointer-events:none; }
+  .rescue-bg-word:nth-child(1){ top:8%; left:-1%; }.rescue-bg-word:nth-child(2){ top:20%; right:2%; }.rescue-bg-word:nth-child(3){ bottom:8%; left:7%; }.rescue-bg-word:nth-child(4){ bottom:4%; right:3%; }
+  .rescue-wrap{ width:100%; max-width:1280px; margin:0 auto; }
+  .rescue-kicker{ display:flex; align-items:center; gap:10px; margin-bottom:18px; color:#79dfac; font:800 .72rem/1 'Manrope',sans-serif; letter-spacing:.16em; }
+  .rescue-kicker::before{ content:""; width:32px; height:1px; background:#79dfac; box-shadow:0 0 10px rgba(121,223,172,.42); }
+  .rescue-title{ margin:0; color:#f5f7f8; font-family:'Manrope',sans-serif; font-size:clamp(3.6rem,7vw,7rem); font-weight:800; line-height:.84; letter-spacing:-.075em; }
+  .rescue-title span{ display:block; color:#e8a653; }
+  .rescue-subtitle{ margin:24px 0 8px; color:#f2f4f4; font:750 clamp(1.15rem,1.6vw,1.45rem)/1.25 'Manrope',sans-serif; }
+  .rescue-description{ max-width:650px; margin:0 0 34px; color:#bfc8cc; font-size:clamp(.98rem,1.1vw,1.12rem); line-height:1.65; }
+  .rescue-game{ display:grid; grid-template-columns:minmax(260px,.36fr) minmax(0,.64fr); min-height:470px; overflow:hidden; border:1px solid rgba(177,211,202,.2); border-radius:22px; background:#10161b; box-shadow:0 28px 70px rgba(0,0,0,.38),0 0 45px rgba(98,215,154,.045); }
+  .rescue-sidebar{ display:flex; flex-direction:column; padding:clamp(25px,3vw,38px); border-right:1px solid rgba(255,255,255,.09); background:linear-gradient(145deg,rgba(25,36,34,.74),rgba(12,19,23,.82)); }
+  .rescue-status-label,.rescue-request-label{ color:#e8b07b; font:800 .67rem/1 'Manrope',sans-serif; letter-spacing:.15em; }
+  .rescue-stats{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:26px 0; }
+  .rescue-stat{ min-width:0; padding:14px 10px; border:1px solid rgba(255,255,255,.1); border-radius:10px; background:rgba(5,11,15,.38); }
+  .rescue-stat small{ display:block; margin-bottom:7px; color:#829097; font:700 .58rem/1 'Manrope',sans-serif; letter-spacing:.11em; }
+  .rescue-stat strong{ display:block; overflow:hidden; color:#f1f4f3; font:800 clamp(1rem,1.5vw,1.35rem)/1 'Manrope',sans-serif; text-overflow:ellipsis; }
+  .rescue-instruction{ margin:0 0 16px; color:#cad2d4; font-size:.9rem; line-height:1.55; }
+  .rescue-keys{ margin:0 0 25px; color:#7f8d92; font:.72rem/1.5 'Share Tech Mono',monospace; }
+  .rescue-start{ display:inline-flex; align-items:center; justify-content:center; gap:9px; width:100%; min-height:48px; margin-top:auto; border:1px solid #e8ad67; border-radius:10px; background:#e8ad67; color:#17120d; font:800 .76rem/1 'Manrope',sans-serif; letter-spacing:.07em; cursor:pointer; transition:transform .22s ease,filter .22s ease,box-shadow .22s ease; }
+  .rescue-start:hover{ transform:translateY(-2px); filter:brightness(1.06); box-shadow:0 10px 25px rgba(232,173,103,.16); }
+  .rescue-start:focus-visible,.rescue-option:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+  .rescue-main{ display:flex; min-width:0; padding:clamp(25px,4vw,48px); background:radial-gradient(circle at 90% 8%,rgba(98,215,154,.075),transparent 32%),#0c1217; }
+  .rescue-panel{ position:relative; display:flex; flex:1; min-width:0; flex-direction:column; justify-content:center; padding:clamp(24px,4vw,46px); border:1px solid rgba(255,255,255,.1); border-radius:17px; background:rgba(16,24,29,.88); }
+  .rescue-panel.is-entering{ animation:rescueRequestIn .25s ease both; }
+  .rescue-ready-title,.rescue-result-title{ margin:18px 0 10px; color:#f5f7f7; font:800 clamp(1.8rem,3vw,2.7rem)/1.05 'Manrope',sans-serif; letter-spacing:-.04em; }
+  .rescue-ready-copy,.rescue-result-copy{ max-width:540px; color:#b9c4c7; font-size:1rem; line-height:1.65; }
+  .rescue-scenario{ margin:20px 0 24px; color:#f4f6f6; font:700 clamp(1.45rem,2.6vw,2.35rem)/1.28 'Manrope',sans-serif; letter-spacing:-.035em; }
+  .rescue-choose{ margin-bottom:12px; color:#91a0a5; font-size:.78rem; }
+  .rescue-options{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+  .rescue-option{ display:flex; align-items:center; justify-content:center; gap:8px; min-height:52px; padding:0 12px; border:1px solid rgba(255,255,255,.14); border-radius:10px; background:#141c22; color:#e7ecec; font:800 .72rem/1 'Manrope',sans-serif; letter-spacing:.05em; cursor:pointer; transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease,box-shadow .18s ease; }
+  .rescue-option:hover{ transform:translateY(-1px); }.rescue-option.critical:hover{ border-color:rgba(219,111,100,.6); }.rescue-option.important:hover{ border-color:rgba(232,176,123,.65); }.rescue-option.backlog:hover{ border-color:rgba(98,215,154,.55); }
+  .rescue-option:disabled{ cursor:default; opacity:.8; transform:none; }
+  .rescue-option.is-correct{ border-color:#62d79a; background:rgba(42,121,82,.24); box-shadow:0 0 22px rgba(98,215,154,.12); }
+  .rescue-option.is-wrong{ border-color:#c86d64; background:rgba(130,52,48,.22); }
+  .rescue-feedback{ min-height:44px; margin-top:16px; color:#aeb9bc; font:700 .8rem/1.5 'Manrope',sans-serif; }
+  .rescue-feedback.good{ color:#73dda5; }.rescue-feedback.bad{ color:#e29a91; }
+  .rescue-progress{ position:absolute; top:0; left:0; right:0; height:3px; overflow:hidden; border-radius:17px 17px 0 0; background:rgba(255,255,255,.06); }
+  .rescue-progress span{ display:block; width:0; height:100%; background:linear-gradient(90deg,#62d79a,#e8b07b); transition:width .25s ease; }
+  .rescue-results{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:24px 0; }
+  .rescue-result-stat{ padding:15px; border:1px solid rgba(255,255,255,.1); border-radius:10px; background:#11191e; }
+  .rescue-result-stat small{ display:block; margin-bottom:7px; color:#849197; font:.62rem/1 'Manrope',sans-serif; letter-spacing:.1em; }.rescue-result-stat strong{ color:#f4f5f5; font:800 1.25rem/1 'Manrope',sans-serif; }
+  .rescue-quote{ max-width:580px; color:#869399; font-size:.82rem; font-style:italic; line-height:1.6; }
+  @keyframes rescueRequestIn{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:translateY(0); } }
+  @media (max-width:900px){ .rescue-game{ grid-template-columns:minmax(230px,.4fr) minmax(0,.6fr); }.rescue-options{ grid-template-columns:1fr; }.rescue-keys{ display:none; } }
+  @media (max-width:680px){ .page > section.project-rescue{ padding:58px 16px; }.rescue-title{ font-size:clamp(3.25rem,17vw,5rem); }.rescue-game{ grid-template-columns:1fr; }.rescue-sidebar{ border-right:0; border-bottom:1px solid rgba(255,255,255,.09); }.rescue-main{ padding:14px; }.rescue-panel{ min-height:390px; padding:22px 18px; }.rescue-scenario{ font-size:clamp(1.3rem,6.5vw,1.75rem); }.rescue-results{ grid-template-columns:1fr; }.rescue-stat{ padding:12px 8px; } }
+  @media (prefers-reduced-motion:reduce){ .rescue-panel.is-entering{ animation:none; }.rescue-progress span,.rescue-start,.rescue-option{ transition:none; } }
 
   /* Final contact / CTA */
   .contact-final{ position:relative; isolation:isolate; overflow:hidden; width:100%; margin:0 !important; padding:clamp(58px,7vw,96px) clamp(24px,6vw,104px) !important; border-top:1px solid rgba(255,255,255,.1); border-bottom:1px solid rgba(255,255,255,.08); background:#080c10 !important; }
@@ -835,11 +916,11 @@
   .bot-mouth span:nth-child(2){ height:6px; animation-delay:.16s; }
   .portfolio-chat.is-thinking .bot-face{ box-shadow:inset 7px 3px 10px rgba(255,255,255,.72),inset -7px -5px 11px rgba(42,65,76,.35),0 12px 25px rgba(0,0,0,.38),0 0 34px rgba(101,200,223,.72); }
   .portfolio-chat.is-thinking .bot-mouth span{ animation-duration:.48s; }
-  .chat-panel{ position:absolute; right:0; bottom:102px; display:flex; flex-direction:column; width:min(400px,calc(100vw - 32px)); height:min(570px,calc(100svh - 120px)); overflow:hidden; border:1px solid rgba(255,255,255,.14); border-radius:20px; background:#0d1217; box-shadow:0 26px 75px rgba(0,0,0,.55),0 0 50px rgba(98,215,154,.06); opacity:0; visibility:hidden; transform:translateY(18px) scale(.97); transform-origin:bottom right; transition:opacity .24s ease,transform .24s ease,visibility 0s linear .24s; }
+  .chat-panel{ position:absolute; right:0; bottom:102px; display:flex; flex-direction:column; width:min(420px,calc(100vw - 32px)); height:min(590px,calc(100svh - 120px)); overflow:hidden; border:1px solid rgba(123,222,176,.22); border-radius:22px; background:radial-gradient(circle at 85% 0,rgba(101,200,223,.09),transparent 34%),linear-gradient(155deg,#10171d,#0b1015 62%); box-shadow:0 28px 90px rgba(0,0,0,.64),0 0 0 1px rgba(255,255,255,.025) inset,0 0 55px rgba(98,215,154,.08); opacity:0; visibility:hidden; transform:translateY(18px) scale(.97); transform-origin:bottom right; transition:opacity .24s ease,transform .24s ease,visibility 0s linear .24s; }
   .chat-panel::before{ content:""; position:absolute; z-index:3; top:0; left:-45%; width:38%; height:2px; background:linear-gradient(90deg,transparent,#62d79a,#65c8df,#e8b07b,transparent); animation:chatPanelScan 4.5s ease-in-out infinite; pointer-events:none; }
   .portfolio-chat.is-open .chat-panel{ opacity:1; visibility:visible; transform:translateY(0) scale(1); transition-delay:0s; }
   .portfolio-chat.is-open .chat-toggle{ background:transparent; color:#f2b56f; }
-  .chat-header{ display:flex; align-items:center; gap:12px; flex:0 0 auto; padding:17px 18px; border-bottom:1px solid rgba(255,255,255,.1); background:#11171c; }
+  .chat-header{ display:flex; align-items:center; gap:12px; flex:0 0 auto; padding:17px 18px; border-bottom:1px solid rgba(255,255,255,.1); background:linear-gradient(110deg,rgba(24,35,40,.98),rgba(14,22,28,.98)); }
   .chat-avatar{ display:grid; place-items:center; width:42px; height:42px; flex:0 0 auto; border:1px solid rgba(232,176,123,.45); border-radius:13px; background:#1a2025; color:#f0b773; font:800 .78rem/1 'Manrope',sans-serif; box-shadow:inset 0 0 18px rgba(232,176,123,.08),0 0 18px rgba(98,215,154,.06); animation:chatAvatarGlow 3.2s ease-in-out infinite; }
   .chat-identity{ min-width:0; flex:1; }
   .chat-identity strong{ display:block; color:#f5f6f7; font-size:.95rem; }
@@ -851,18 +932,25 @@
   .chat-message{ display:flex; align-items:flex-end; gap:8px; margin-bottom:13px; animation:chatMessageIn .28s ease both; }
   .chat-message.user{ justify-content:flex-end; }
   .chat-message-avatar{ display:grid; place-items:center; width:27px; height:27px; flex:0 0 auto; border-radius:8px; background:#1b242b; color:#e8b07b; font-size:.65rem; font-weight:800; }
-  .chat-bubble{ max-width:82%; padding:11px 13px; border:1px solid rgba(255,255,255,.1); border-radius:14px 14px 14px 4px; background:#171e24; color:#dbe0e4; font-size:.82rem; line-height:1.55; }
+  .chat-bubble{ max-width:86%; padding:12px 14px; border:1px solid rgba(255,255,255,.1); border-radius:15px 15px 15px 4px; background:linear-gradient(145deg,#1a232a,#151c22); color:#dbe0e4; font-size:.82rem; line-height:1.55; box-shadow:0 10px 24px rgba(0,0,0,.16); }
   .chat-message.user .chat-bubble{ border-color:rgba(232,176,123,.34); border-radius:14px 14px 4px 14px; background:#2a2018; color:#f6e4d1; }
   .chat-bubble a{ color:#79dba8; font-weight:700; text-decoration:none; }
   .chat-bubble a:hover{ text-decoration:underline; }
+  .chat-answer-title{ display:block; margin-bottom:6px; color:#fff4e8; font-size:.9rem; font-weight:800; letter-spacing:-.01em; }
+  .chat-answer-body{ display:grid; gap:9px; }
+  .chat-answer-body p{ margin:0; }
+  .chat-answer-body ul{ display:grid; gap:5px; margin:0; padding-left:18px; }
+  .chat-answer-body li{ padding-left:2px; }
+  .chat-answer-body li::marker{ color:#72dca7; }
+  .chat-general-answer{ white-space:pre-line; line-height:1.62; }
   .chat-typing{ display:flex; align-items:center; gap:4px; height:18px; }
   .chat-typing span{ width:5px; height:5px; border-radius:50%; background:#9ba6af; animation:chatDot 1s ease-in-out infinite; }
   .chat-typing span:nth-child(2){ animation-delay:.14s; }
   .chat-typing span:nth-child(3){ animation-delay:.28s; }
-  .chat-suggestions{ display:flex; gap:7px; flex:0 0 auto; overflow-x:auto; padding:11px 12px; border-top:1px solid rgba(255,255,255,.08); scrollbar-width:none; }
+  .chat-suggestions{ display:flex; gap:7px; flex:0 0 auto; overflow-x:auto; padding:11px 12px; border-top:1px solid rgba(255,255,255,.08); background:rgba(9,14,18,.64); scrollbar-width:none; }
   .chat-suggestions::-webkit-scrollbar{ display:none; }
-  .chat-suggestion{ flex:0 0 auto; padding:8px 11px; border:1px solid rgba(255,255,255,.11); border-radius:999px; background:#151b20; color:#d7dde1; font:700 .7rem/1 'Manrope',sans-serif; cursor:pointer; transition:border-color .2s ease,color .2s ease; }
-  .chat-suggestion:hover{ border-color:rgba(232,176,123,.5); color:#efb777; }
+  .chat-suggestion{ flex:0 0 auto; padding:8px 11px; border:1px solid rgba(255,255,255,.11); border-radius:999px; background:#151b20; color:#d7dde1; font:700 .7rem/1 'Manrope',sans-serif; cursor:pointer; transition:border-color .2s ease,background .2s ease,color .2s ease,transform .2s ease; }
+  .chat-suggestion:hover{ border-color:rgba(232,176,123,.5); background:#1c242a; color:#efb777; transform:translateY(-1px); }
   .chat-form{ display:flex; align-items:center; gap:9px; flex:0 0 auto; padding:12px; border-top:1px solid rgba(255,255,255,.08); background:#10161a; }
   .chat-input{ min-width:0; flex:1; height:44px; padding:0 14px; border:1px solid rgba(255,255,255,.11); border-radius:12px; outline:none; background:#181f25; color:#f1f3f4; font:500 .8rem 'Manrope',sans-serif; }
   .chat-input::placeholder{ color:#7f8a94; }
@@ -881,6 +969,235 @@
   @keyframes chatCalloutPeek{ 0%{ opacity:0; transform:translateY(8px) scale(.96); } 14%,72%{ opacity:1; transform:translateY(0) scale(1); } 100%{ opacity:0; transform:translateY(-4px) scale(.98); } }
   @media (max-width:720px){ .portfolio-chat{ right:12px; bottom:calc(92px + env(safe-area-inset-bottom)); } .chat-toggle{ width:68px; height:72px; } .chat-callout{ display:none; } .bot-face{ width:54px; height:57px; } .bot-visor{ top:15px; left:6px; width:40px; } .chat-panel{ position:fixed; right:10px; bottom:calc(176px + env(safe-area-inset-bottom)); width:calc(100vw - 20px); height:min(560px,calc(100svh - 198px)); border-radius:18px; } }
   @media (prefers-reduced-motion:reduce){ .chat-panel,.chat-panel::before,.chat-toggle,.chat-toggle::before,.bot-face,.bot-eye,.bot-mouth span,.chat-callout,.chat-avatar,.chat-message,.chat-typing span{ animation:none; transition:none; } .portfolio-chat:not(.is-open) .chat-toggle:hover .chat-callout,.portfolio-chat:not(.is-open) .chat-toggle:focus-visible .chat-callout{ opacity:1; visibility:visible; transform:none; } }
+
+  /* Animated wordmark */
+  .logo{ gap:10px; }
+  .logo-name{ display:inline-flex; align-items:center; gap:.38em; color:#f3f5f5 !important; }
+  .logo-word{ color:#f3f5f5 !important; background:linear-gradient(105deg,#f3f5f5 15%,#f3f5f5 38%,#e8b07b 48%,#72dda6 53%,#f3f5f5 63%); background-size:260% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:logoShimmer 5.5s ease-in-out infinite; }
+  .logo-word:nth-child(2){ animation-delay:.12s; }
+  .logo .crest{ animation:logoSignal 2.2s ease-in-out infinite; }
+  @keyframes logoShimmer{ 0%,68%,100%{ background-position:100% 50%; } 82%{ background-position:0 50%; } }
+  @keyframes logoSignal{ 0%,100%{ transform:scale(.82); box-shadow:0 0 8px rgba(98,215,154,.42); } 50%{ transform:scale(1); box-shadow:0 0 18px rgba(98,215,154,.9),0 0 0 5px rgba(98,215,154,.07); } }
+
+  /* Final phone layout: desktop design language, rebuilt for narrow screens. */
+  @media (max-width:600px){
+    html,body,.shell,.page{ width:100%; max-width:100%; overflow-x:hidden; }
+    body{ padding-bottom:calc(72px + env(safe-area-inset-bottom)); }
+    .shell{ padding-top:64px; }
+    .topbar{ min-height:64px; padding:0 15px; }
+    .logo{ min-width:0; font-size:.82rem; }
+    .logo-name{ gap:.3em; }
+    .logo .crest{ width:8px; height:8px; }
+    .hero{ min-height:calc(100svh - 64px); padding:36px 18px 34px !important; align-items:center; }
+    .hero::before{ background:linear-gradient(90deg,rgba(8,10,13,.97),rgba(8,10,13,.84) 62%,rgba(8,10,13,.38)),linear-gradient(0deg,rgba(8,10,13,.78),transparent 48%); }
+    .hero-copy{ width:100%; max-width:100%; }
+    .status-tags{ flex-direction:row; flex-wrap:wrap; align-items:center; gap:7px; margin-bottom:24px; }
+    .hero-copy .status-tags .rank-tag{ width:auto; max-width:100%; padding:8px 10px; font-size:clamp(.53rem,2.6vw,.64rem); white-space:normal; }
+    .hero-intro{ margin-bottom:11px; font-size:clamp(1.85rem,9vw,2.35rem); }
+    .hero-copy h1{ max-width:100%; margin-bottom:24px; font-size:clamp(2.75rem,12vw,3.8rem); line-height:.92; overflow-wrap:normal; }
+    .hero-quote{ max-width:100%; margin-bottom:18px; padding-left:13px; font-size:clamp(1rem,4.7vw,1.18rem); line-height:1.4; }
+    .hero p.blurb{ max-width:100%; font-size:clamp(.96rem,4.2vw,1.08rem); line-height:1.58; }
+    .avatar-frame img{ object-position:65% center; filter:contrast(1.02) saturate(.88) brightness(.7); }
+    .page > section:not(.hero){ max-width:100%; }
+    .page > section:not(.hero) .sec-title h2{ max-width:100%; font-size:clamp(2rem,10vw,3rem); line-height:1; overflow-wrap:anywhere; }
+    .skill-showcase,.projects-section,.experience-section,.education-section,.certifications-section,.leadership-section{ padding-inline:15px !important; }
+    .skill-showcase-grid,.projects-section .quest-grid{ grid-template-columns:1fr; gap:12px; }
+    .skill-tile{ min-height:0; padding:18px 16px; }
+    .tool-marquee{ height:54px; }
+    .project-media{ height:clamp(190px,58vw,235px); }
+    .projects-section .quest-card > :not(.project-media){ margin-inline:17px; }
+    .experience-card{ grid-template-columns:1fr; padding:17px; }
+    .experience-mark{ width:96px; height:96px; }
+    .experience-content h3{ padding-right:0; }
+    .experience-date{ position:static; display:inline-block; margin-bottom:13px; }
+    .leadership-section{ padding-top:54px !important; padding-bottom:54px !important; }
+    .leadership-section .sec-title h2{ font-size:clamp(2.15rem,10.5vw,3rem); }
+    .leadership-gallery{ padding-top:min(70vw,330px); border-radius:16px; box-shadow:0 20px 45px rgba(0,0,0,.34); }
+    .leadership-photo{ height:calc(min(70vw,330px) + 8px); border-radius:16px 16px 0 0; }
+    .leadership-gallery::before{ height:min(70vw,330px); }
+    .leadership-section .guild-list{ padding:11px; gap:10px; }
+    .leadership-section .guild-item{ padding:17px 16px; }
+    .leadership-section .guild-role{ font-size:.7rem; }
+    .leadership-section .guild-event{ font-size:.94rem; }
+    .leadership-section .guild-item p{ font-size:.88rem; }
+    .education-section .level-list{ padding-left:0; gap:12px; }
+    .education-section .level-list::before{ display:none; }
+    .education-section .level-item{ display:grid; grid-template-columns:54px minmax(0,1fr); grid-template-rows:auto auto; gap:10px 14px; min-height:0; padding:17px; }
+    .education-section .level-badge{ position:static; grid-column:1; grid-row:1; width:48px; height:48px; transform:none; box-shadow:none; }
+    .education-section .level-logo{ position:static; grid-column:1; grid-row:2; width:48px; height:44px; transform:none; }
+    .education-section .level-logo img{ width:42px; height:36px; }
+    .education-section .level-item > div:last-child{ grid-column:2; grid-row:1 / span 2; max-width:100%; padding:0; }
+    .education-section .level-item .lv-date{ position:static; display:flex; margin-bottom:8px; transform:none; white-space:normal; font-size:.65rem; }
+    .education-section .level-item h3{ font-size:1.02rem; }
+    .education-section .level-item h3::before{ padding:6px 8px; font-size:.54rem; }
+    .certifications-section .ach{ min-height:0; }
+    .page > section.project-rescue{ padding:54px 14px; }
+    .rescue-title{ font-size:clamp(3rem,16vw,4.5rem); }
+    .rescue-game{ border-radius:17px; }
+    .rescue-sidebar{ padding:21px 17px; }
+    .rescue-main{ padding:10px; }
+    .rescue-panel{ min-height:360px; padding:20px 16px; }
+    .rescue-options{ grid-template-columns:1fr; }
+    .contact-final{ padding:54px 16px 0 !important; }
+    .contact-final h2{ font-size:clamp(3rem,15vw,4.25rem); }
+    .contact-final-portrait{ width:calc(100% + 32px); margin-left:-16px; }
+    .connect-rail{ width:max-content; max-width:calc(100vw - 12px); gap:3px; padding:5px; }
+    .connect-link{ width:40px; height:40px; }
+    .portfolio-chat{ right:7px; bottom:calc(72px + env(safe-area-inset-bottom)); }
+    .chat-toggle{ width:60px; height:64px; }
+    .chat-panel{ right:6px; bottom:calc(142px + env(safe-area-inset-bottom)); width:calc(100vw - 12px); height:min(570px,calc(100svh - 154px)); }
+  }
+  @media (prefers-reduced-motion:reduce){ .logo-word,.logo .crest{ animation:none; } }
+
+  /* Minimal professional footer */
+  .portfolio-footer{ width:100%; margin:0; padding:0 clamp(24px,5vw,76px); background:#090d11; }
+  .portfolio-footer-inner{ display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:24px; width:100%; max-width:1440px; min-height:112px; margin:0 auto; border-top:1px solid rgba(255,255,255,.12); color:#8f9ba1; font-family:'Manrope',sans-serif; font-size:.78rem; }
+  .footer-copy{ justify-self:start; }
+  .footer-positioning{ justify-self:center; color:#bac3c6; font-weight:650; letter-spacing:.02em; text-align:center; }
+  .footer-details{ display:flex; align-items:center; justify-self:end; gap:12px; }
+  .footer-details a{ color:#aab5b9; text-decoration:none; transition:color .2s ease; }
+  .footer-details a:hover{ color:#e8b07b; }
+  .footer-separator{ color:#536066; }
+  .footer-top{ display:grid; place-items:center; width:44px; height:44px; margin-left:4px; border:1px solid rgba(232,176,123,.3); border-radius:12px; background:rgba(232,176,123,.1); color:#e8b07b; text-decoration:none; transition:transform .22s ease,background .22s ease,border-color .22s ease; }
+  .footer-top:hover{ transform:translateY(-3px); border-color:#e8b07b; background:rgba(232,176,123,.17); }
+  .footer-top:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+  @media (max-width:760px){ .portfolio-footer{ padding:0 18px; }.portfolio-footer-inner{ grid-template-columns:1fr; gap:13px; min-height:0; padding:30px 0 calc(92px + env(safe-area-inset-bottom)); text-align:center; }.footer-copy,.footer-positioning,.footer-details{ justify-self:center; }.footer-details{ flex-wrap:wrap; justify-content:center; }.footer-top{ width:42px; height:42px; margin:4px 0 0; } }
+  @media (prefers-reduced-motion:reduce){ .footer-top,.footer-details a{ transition:none; } }
+
+  /* Section navigation */
+  .topbar{ gap:clamp(12px,1.5vw,22px); }
+  .site-nav{ position:relative; display:flex; align-items:center; justify-content:center; gap:3px; margin-left:auto; padding:5px; border:1px solid rgba(255,255,255,.12); border-radius:17px; background:linear-gradient(135deg,rgba(24,31,36,.88),rgba(12,17,21,.9)); box-shadow:0 14px 36px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.055); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+  .site-nav::before{ content:""; position:absolute; inset:-1px; z-index:-1; border-radius:inherit; background:linear-gradient(110deg,rgba(98,215,154,.28),transparent 25%,transparent 72%,rgba(232,176,123,.27)); opacity:.7; filter:blur(9px); pointer-events:none; }
+  .site-nav-link{ position:relative; display:flex; align-items:center; justify-content:center; min-height:42px; padding:0 clamp(10px,1vw,14px); border:1px solid transparent; border-radius:12px; color:#aab4b9; font:750 .82rem/1 'Manrope',sans-serif; letter-spacing:.01em; text-decoration:none; white-space:nowrap; transition:color .22s ease,background .22s ease,border-color .22s ease,transform .22s ease,box-shadow .22s ease; }
+  .site-nav-link::before{ content:""; width:0; height:5px; margin-right:0; border-radius:50%; background:#72dda6; box-shadow:0 0 10px rgba(98,215,154,.8); opacity:0; transition:width .22s ease,margin .22s ease,opacity .22s ease; }
+  .site-nav-link::after{ content:""; position:absolute; right:12px; bottom:4px; left:12px; height:1px; border-radius:2px; background:linear-gradient(90deg,transparent,#62d79a,#e8b07b,transparent); opacity:0; transform:scaleX(.3); transition:opacity .22s ease,transform .22s ease; }
+  .site-nav-link:hover{ color:#fff; border-color:rgba(255,255,255,.09); background:rgba(255,255,255,.055); transform:translateY(-1px); }
+  .site-nav-link.is-active{ color:#fff; border-color:rgba(98,215,154,.19); background:linear-gradient(135deg,rgba(98,215,154,.14),rgba(232,176,123,.075)); box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 7px 20px rgba(0,0,0,.18); }
+  .site-nav-link.is-active::before{ width:5px; margin-right:7px; opacity:1; }
+  .site-nav-link.is-active::after{ opacity:1; transform:scaleX(1); }
+  .theme-toggle{ display:grid; place-items:center; width:62px; height:42px; flex:0 0 auto; padding:0; border:1px solid rgba(255,255,255,.13); border-radius:14px; background:rgba(17,24,29,.92); color:#e7edf0; cursor:pointer; box-shadow:inset 0 1px 0 rgba(255,255,255,.05); transition:border-color .22s ease,background .22s ease,transform .22s ease; }
+  .theme-toggle:hover{ border-color:rgba(232,176,123,.48); transform:translateY(-1px); }
+  .theme-toggle-track{ position:relative; display:flex; align-items:center; justify-content:space-between; width:48px; height:28px; padding:0 7px; border-radius:999px; background:#080d11; color:#7c8990; font-size:.66rem; }
+  .theme-toggle-track i{ position:relative; z-index:1; }
+  .theme-sun{ color:#f5b85e; }.theme-moon{ color:#8bbce8; }
+  .theme-toggle-thumb{ position:absolute; z-index:2; top:3px; left:23px; display:grid; place-items:center; width:22px; height:22px; border-radius:50%; background:linear-gradient(145deg,#dbeaff,#8bbce8); color:#15324d; box-shadow:0 4px 12px rgba(0,0,0,.38),0 0 12px rgba(139,188,232,.3); transition:transform .32s cubic-bezier(.2,.8,.2,1),background .25s ease; }
+  .theme-toggle-thumb::before{ content:"☾"; font:800 .82rem/1 Arial,sans-serif; transform:translateY(-1px); }
+  html[data-theme="light"] .theme-toggle-thumb{ transform:translateX(-20px); background:linear-gradient(145deg,#fff2d2,#e8b07b); color:#70420e; }
+  html[data-theme="light"] .theme-toggle-thumb::before{ content:"☀"; font-size:.72rem; transform:none; }
+  .nav-toggle{ display:none; place-items:center; width:46px; height:42px; padding:0; border:1px solid rgba(255,255,255,.13); border-radius:13px; background:#11171c; color:#f2f4f4; cursor:pointer; }
+  .nav-toggle-lines,.nav-toggle-lines::before,.nav-toggle-lines::after{ display:block; width:18px; height:2px; border-radius:2px; background:currentColor; transition:transform .25s ease,opacity .25s ease; }
+  .nav-toggle-lines{ position:relative; }.nav-toggle-lines::before,.nav-toggle-lines::after{ content:""; position:absolute; left:0; }.nav-toggle-lines::before{ top:-6px; }.nav-toggle-lines::after{ top:6px; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-lines{ background:transparent; }.nav-toggle[aria-expanded="true"] .nav-toggle-lines::before{ top:0; transform:rotate(45deg); }.nav-toggle[aria-expanded="true"] .nav-toggle-lines::after{ top:0; transform:rotate(-45deg); }
+  .nav-progress{ position:absolute; right:0; bottom:-1px; left:0; height:2px; overflow:hidden; pointer-events:none; }
+  .nav-progress span{ display:block; width:100%; height:100%; background:linear-gradient(90deg,#62d79a,#e8b07b); transform:scaleX(0); transform-origin:left; box-shadow:0 0 10px rgba(98,215,154,.42); will-change:transform; }
+  @media (max-width:1240px){ .site-nav-link{ padding-inline:9px; font-size:.76rem; } }
+  @media (max-width:1030px){
+    .nav-toggle{ display:grid; }
+    .site-nav{ position:fixed; z-index:110; top:calc(76px + 10px); right:14px; left:14px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:0; padding:14px; border-radius:20px; background:rgba(9,14,18,.96); box-shadow:0 26px 65px rgba(0,0,0,.5); opacity:0; visibility:hidden; transform:translateY(-12px) scale(.975); transform-origin:top; transition:opacity .24s ease,transform .24s ease,visibility 0s linear .24s; }
+    .site-nav.is-open{ opacity:1; visibility:visible; transform:translateY(0) scale(1); transition-delay:0s; }
+    .site-nav-link{ min-height:50px; padding:0 12px; font-size:.8rem; }
+  }
+  @media (max-width:820px){ .site-nav{ top:calc(68px + 8px); } }
+  @media (max-width:650px){ .site-nav{ grid-template-columns:repeat(2,minmax(0,1fr)); }.site-nav-link{ justify-content:flex-start; padding-left:15px; }.site-nav-link::after{ right:14px; left:14px; }.theme-toggle{ position:absolute; right:69px; width:56px; }.nav-toggle{ position:absolute; right:15px; display:grid !important; }.logo-name{ font-size:.88rem; } }
+  @media (max-width:390px){ .logo .crest{ display:none; }.logo-name{ font-size:.8rem; }.topbar{ gap:7px; }.theme-toggle{ width:52px; } }
+  @media (prefers-reduced-motion:reduce){ .site-nav,.site-nav-link,.site-nav-link::before,.site-nav-link::after,.theme-toggle,.theme-toggle-thumb,.nav-toggle-lines,.nav-toggle-lines::before,.nav-toggle-lines::after{ transition:none; } }
+
+  /* Persisted light theme */
+  html{ color-scheme:dark; }
+  html[data-theme="light"]{ color-scheme:light; --bg:#f3f1e9; --bg2:#ebe8df; --panel:#fffefa; --panel-line:rgba(29,48,43,.17); --text:#17201d; --text-dim:#65716d; --accent:#238b61; --accent-soft:rgba(35,139,97,.11); --accent-glow:rgba(35,139,97,.17); --gold:#b76c20; --gold-soft:rgba(183,108,32,.11); --gold-glow:rgba(183,108,32,.16); }
+  html[data-theme="light"] body{ background:#f3f1e9; color:#17201d; }
+  html[data-theme="light"] .bg-layer{ opacity:.48; }
+  html[data-theme="light"] .grid-overlay{ background-image:linear-gradient(rgba(30,67,55,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(30,67,55,.08) 1px,transparent 1px); }
+  html[data-theme="light"] .scanlines{ opacity:.04; }
+  html[data-theme="light"] .vignette{ background:radial-gradient(ellipse at 50% 40%,transparent 54%,rgba(197,191,173,.5)); }
+  html[data-theme="light"] .topbar{ background:rgba(247,245,238,.84); border-color:rgba(34,59,51,.13); box-shadow:0 10px 34px rgba(43,55,48,.08); }
+  html[data-theme="light"] .logo-word{ background:linear-gradient(105deg,#15201c 15%,#15201c 38%,#b66f27 48%,#238b61 53%,#15201c 63%); background-size:260% 100%; -webkit-background-clip:text; background-clip:text; }
+  html[data-theme="light"] .site-nav{ border-color:rgba(37,65,56,.15); background:linear-gradient(135deg,rgba(255,255,252,.94),rgba(239,239,232,.94)); box-shadow:0 14px 32px rgba(38,56,48,.11),inset 0 1px 0 #fff; }
+  html[data-theme="light"] .site-nav-link{ color:#53615c; }
+  html[data-theme="light"] .site-nav-link:hover{ color:#17201d; border-color:rgba(35,139,97,.12); background:rgba(35,139,97,.07); }
+  html[data-theme="light"] .site-nav-link.is-active{ color:#10261e; border-color:rgba(35,139,97,.2); background:linear-gradient(135deg,rgba(35,139,97,.13),rgba(183,108,32,.08)); box-shadow:0 7px 18px rgba(35,74,60,.09); }
+  html[data-theme="light"] .theme-toggle,html[data-theme="light"] .nav-toggle{ border-color:rgba(37,65,56,.17); background:#fffefa; color:#18241f; }
+  html[data-theme="light"] .theme-toggle-track{ background:#e7e5dd; }
+  html[data-theme="light"] .nav-progress span{ background:linear-gradient(90deg,#238b61,#c57a2d); }
+  html[data-theme="light"] .hero{ border-color:rgba(40,70,60,.15); background:linear-gradient(90deg,#f7f3ea 0%,#f5f1e8 42%,rgba(245,241,232,.8) 62%,rgba(245,241,232,.08) 100%); }
+  html[data-theme="light"] .hero::before{ background:radial-gradient(circle at 0 0,rgba(205,139,69,.18),transparent 20%),linear-gradient(90deg,transparent 64%,rgba(52,139,103,.1)); }
+  html[data-theme="light"] .hero::after{ border-color:rgba(35,139,97,.16); box-shadow:0 0 0 76px rgba(35,139,97,.025),0 0 0 152px rgba(183,108,32,.018); }
+  html[data-theme="light"] .hero-copy{ padding:clamp(24px,3vw,38px); border:1px solid rgba(54,82,72,.18); border-radius:24px; background:rgba(250,248,241,.9); box-shadow:0 24px 60px rgba(16,31,26,.18),inset 0 1px 0 #fff; backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+  html[data-theme="light"] .hero h1{ color:#16221e; }
+  html[data-theme="light"] .hero-intro{ color:#2d3b36; }
+  html[data-theme="light"] .hero-quote{ color:#754311; }
+  html[data-theme="light"] .hero p.blurb{ color:#4d5d57; }
+  html[data-theme="light"] .hero .rank-tag{ border-color:rgba(166,94,28,.28); background:rgba(255,251,243,.72); color:#945314; }
+  html[data-theme="light"] .hero .avatar-frame img{ filter:contrast(1.02) saturate(.94) brightness(1.02); }
+  html[data-theme="light"] .hero .avatar-frame::after{ background:linear-gradient(90deg,#f5f1e8 0%,rgba(245,241,232,.62) 16%,transparent 50%),linear-gradient(0deg,rgba(245,241,232,.35),transparent 34%); }
+  html[data-theme="light"] .page > section:not(.hero){ background:#f3f1e9 !important; border-color:rgba(32,59,50,.13); box-shadow:none; }
+  html[data-theme="light"] .page > section:not(.hero) .sec-title h2{ color:#18231f; }
+  html[data-theme="light"] .page > section.hero + section.skill-showcase{ background:#e5ede8 !important; }
+  html[data-theme="light"] .skill-showcase::before{ background:linear-gradient(90deg,rgba(231,239,234,.74),rgba(238,242,237,.47) 52%,rgba(226,235,230,.68)),linear-gradient(0deg,rgba(228,236,231,.76),transparent 52%); }
+  html[data-theme="light"] .skill-showcase-video{ opacity:.5; filter:saturate(.68) contrast(1.02) brightness(1.06); }
+  html[data-theme="light"] .tool-marquee{ border-color:rgba(29,72,58,.18); background:rgba(255,255,252,.8); box-shadow:0 12px 28px rgba(42,62,54,.08); }
+  html[data-theme="light"] .tool-marquee::before{ background:linear-gradient(90deg,#f4f5ef,transparent); }
+  html[data-theme="light"] .tool-marquee::after{ background:linear-gradient(-90deg,#f4f5ef,transparent); }
+  html[data-theme="light"] .tool-marquee-item{ color:#25332e; }
+  html[data-theme="light"] .skill-tile{ border-color:rgba(42,84,69,.24); background:rgba(255,255,252,.88); box-shadow:0 14px 28px rgba(41,62,53,.1); }
+  html[data-theme="light"] .skill-tile:hover{ background:#fff; }
+  html[data-theme="light"] .skill-tile h3{ color:#17231f; }
+  html[data-theme="light"] .skill-tile p{ color:#56635f; }
+  html[data-theme="light"] .projects-section{ background:linear-gradient(180deg,#f7f4ec,#f0eee7) !important; }
+  html[data-theme="light"] .projects-section .quest-card{ border-color:rgba(38,76,63,.2) !important; background:#fffefa !important; box-shadow:0 14px 34px rgba(47,65,57,.1); }
+  html[data-theme="light"] .projects-section .quest-card h3{ color:#17231f; }
+  html[data-theme="light"] .projects-section .quest-card li{ color:#55635f; }
+  html[data-theme="light"] .projects-intro{ color:#53615d; }
+  html[data-theme="light"] .projects-section .quest-meta{ color:#a45d18; }
+  html[data-theme="light"] .projects-section .project-role{ border-color:rgba(35,139,97,.28); background:rgba(35,139,97,.11); color:#176d49; }
+  html[data-theme="light"] .projects-section .project-media{ filter:brightness(1.04) contrast(1.02) saturate(.96); }
+  html[data-theme="light"] .experience-section{ background:linear-gradient(135deg,#dcece4,#dbe9ec 52%,#eee2d6) !important; }
+  html[data-theme="light"] .experience-section .sec-title h2{ color:#17231f; text-shadow:none; }
+  html[data-theme="light"] .experience-section::before{ opacity:.38; }
+  html[data-theme="light"] .experience-section::after{ background-image:linear-gradient(rgba(35,77,61,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(35,77,61,.05) 1px,transparent 1px); }
+  html[data-theme="light"] .experience-weather{ opacity:.28; }
+  html[data-theme="light"] .experience-intro{ color:#425b52; text-shadow:none; }
+  html[data-theme="light"] .experience-card{ border-color:rgba(42,109,83,.24); background:rgba(255,255,252,.78); box-shadow:0 24px 64px rgba(41,69,57,.12),inset 0 1px 0 #fff; }
+  html[data-theme="light"] .experience-card h3,html[data-theme="light"] .experience-card strong{ color:#17231f; }
+  html[data-theme="light"] .experience-card li,html[data-theme="light"] .experience-company{ color:#465b53; }
+  html[data-theme="light"] .experience-date{ border-color:rgba(35,139,97,.28); background:rgba(35,139,97,.07); color:#1e7954; }
+  html[data-theme="light"] .experience-tags span{ border-color:rgba(35,89,69,.17); background:rgba(255,255,255,.5); color:#3e564d; }
+  html[data-theme="light"] .leadership-section{ background:#edf0e9 !important; }
+  html[data-theme="light"] .leadership-photo{ filter:brightness(1.05) contrast(1.01) saturate(.94); }
+  html[data-theme="light"] .leadership-gallery{ border-color:rgba(35,74,60,.2); box-shadow:0 24px 62px rgba(43,58,51,.18); }
+  html[data-theme="light"] .education-section{ background:linear-gradient(180deg,#f7f4ec,#eeeee7) !important; }
+  html[data-theme="light"] .education-section .level-item{ border-color:rgba(37,72,60,.17); background:#fffefa; box-shadow:0 16px 34px rgba(47,65,57,.08); }
+  html[data-theme="light"] .education-section .level-item h3{ color:#17231f; }
+  html[data-theme="light"] .education-section .level-item :is(.lv-org,.lv-mods){ color:#5c6864; }
+  html[data-theme="light"] .education-section .lv-date{ color:#267b59; }
+  html[data-theme="light"] .education-section .level-list::before{ background:linear-gradient(#2f9a6e,#bd7a35); opacity:.65; }
+  html[data-theme="light"] .certifications-section{ background-image:linear-gradient(110deg,rgba(244,246,239,.82),rgba(235,241,235,.67) 48%,rgba(244,241,233,.82)),url("cer1.png") !important; background-size:cover,112%; }
+  html[data-theme="light"] .certifications-section::before,html[data-theme="light"] .certifications-section::after{ opacity:.27; filter:saturate(.78) contrast(1.02) brightness(1.03); }
+  html[data-theme="light"] .certifications-section .ach{ border-color:rgba(38,76,63,.21); background:rgba(255,255,252,.9); box-shadow:0 16px 38px rgba(47,65,57,.11); }
+  html[data-theme="light"] .certifications-section .ach strong{ color:#18231f; }
+  html[data-theme="light"] .certifications-section .ach small{ color:#5c6864; }
+  html[data-theme="light"] .page > section.project-rescue{ background:linear-gradient(145deg,#e4eee9,#edf0e8 58%,#eee8dd) !important; }
+  html[data-theme="light"] .rescue-bg-word{ color:#275e4a; opacity:.065; }
+  html[data-theme="light"] .rescue-title,html[data-theme="light"] .rescue-subtitle{ color:#17231f; }
+  html[data-theme="light"] .rescue-description{ color:#596661; }
+  html[data-theme="light"] .rescue-game{ border-color:rgba(35,75,61,.18); background:#fffefa; box-shadow:0 24px 60px rgba(45,67,58,.1); }
+  html[data-theme="light"] .rescue-sidebar{ border-color:rgba(35,75,61,.12); background:linear-gradient(145deg,#eef3ec,#e4ece8); }
+  html[data-theme="light"] .rescue-main{ background:#f8f7f2; }
+  html[data-theme="light"] .rescue-panel{ border-color:rgba(35,75,61,.14); background:#fff; }
+  html[data-theme="light"] .rescue-ready-title,html[data-theme="light"] .rescue-result-title,html[data-theme="light"] .rescue-scenario{ color:#17231f; }
+  html[data-theme="light"] .rescue-ready-copy,html[data-theme="light"] .rescue-result-copy,html[data-theme="light"] .rescue-instruction{ color:#5a6762; }
+  html[data-theme="light"] .contact-final{ background:#f2eee5 !important; }
+  html[data-theme="light"] .contact-final h2 span:first-child{ color:#17231f; }
+  html[data-theme="light"] .contact-final-description,html[data-theme="light"] .contact-final-detail a,html[data-theme="light"] .contact-final-detail span{ color:#53605c; }
+  html[data-theme="light"] .contact-final-btn.secondary{ border-color:rgba(37,65,56,.2); background:rgba(255,255,255,.52); color:#17231f; }
+  html[data-theme="light"] .contact-final-portrait::after{ background:linear-gradient(90deg,#f2eee5 0%,rgba(242,238,229,.58) 13%,transparent 38%),linear-gradient(0deg,#f2eee5 0%,transparent 24%); }
+  html[data-theme="light"] .contact-final-portrait img{ filter:contrast(1.02) saturate(.92) brightness(1.02); }
+  html[data-theme="light"] .portfolio-footer{ background:#e9e5dc; }
+  html[data-theme="light"] .portfolio-footer-inner{ border-color:rgba(37,65,56,.15); color:#60706a; }
+  html[data-theme="light"] .footer-positioning,html[data-theme="light"] .footer-details a{ color:#33443e; }
+  @media (max-width:1030px){ html[data-theme="light"] .site-nav{ background:rgba(250,249,244,.97); } }
+  @media (max-width:760px){ html[data-theme="light"] .contact-final-portrait::after{ background:linear-gradient(0deg,#f2eee5 0%,transparent 22%),linear-gradient(180deg,#f2eee5 0%,transparent 16%); } }
+  #home,#skills,#projects-pm,#experience,#leadership,#education,#certifications,#project-rescue,#contact{ scroll-margin-top:86px; }
 </style>
 </head>
 <body>
@@ -896,7 +1213,7 @@
 <div class="toast-wrap" id="toastWrap"></div>
 <div class="sticky-cta" id="stickyCta">
   <div class="msg">Impressed so far? <strong>Anul is available to start immediately.</strong></div>
-  <a href="mailto:anulmethnula@gmail.com">CONTACT ANUL â†’</a>
+  <a href="mailto:anulmethnula@gmail.com">CONTACT ANUL &rarr;</a>
 </div>
 
 <div class="bg-layer">
@@ -913,7 +1230,23 @@
 
 <div class="shell">
   <div class="topbar">
-    <div class="logo"><span class="crest">AM</span>ANUL<span>.</span>METHNULA</div>
+    <div class="logo" aria-label="Anul Methnula"><span class="crest" aria-hidden="true">AM</span><span class="logo-name" aria-hidden="true"><span class="logo-word">ANUL</span><span class="logo-word">METHNULA</span></span></div>
+    <nav class="site-nav" id="siteNav" aria-label="Portfolio sections">
+      <a class="site-nav-link is-active" href="#home" data-nav-target="home">Home</a>
+      <a class="site-nav-link" href="#skills" data-nav-target="skills">Skills</a>
+      <a class="site-nav-link" href="#projects-pm" data-nav-target="projects-pm">Projects</a>
+      <a class="site-nav-link" href="#experience" data-nav-target="experience">Experience</a>
+      <a class="site-nav-link" href="#leadership" data-nav-target="leadership">Leadership</a>
+      <a class="site-nav-link" href="#education" data-nav-target="education">Education</a>
+      <a class="site-nav-link" href="#certifications" data-nav-target="certifications">Certifications</a>
+      <a class="site-nav-link" href="#project-rescue" data-nav-target="project-rescue">Challenge</a>
+      <a class="site-nav-link" href="#contact" data-nav-target="contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+      <span class="theme-toggle-track" aria-hidden="true"><i class="fa-solid fa-sun theme-sun"></i><i class="fa-solid fa-moon theme-moon"></i><span class="theme-toggle-thumb"></span></span>
+    </button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="siteNav"><span class="nav-toggle-lines" aria-hidden="true"></span></button>
+    <div class="nav-progress" aria-hidden="true"><span id="navProgress"></span></div>
     <div class="class-select">
       <button class="class-btn pm-btn active" id="btnPM">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
@@ -939,20 +1272,23 @@
     <section class="chat-panel" id="chatPanel" aria-hidden="true" aria-label="Chat with Anul AI">
       <header class="chat-header">
         <div class="chat-avatar" aria-hidden="true">AM</div>
-        <div class="chat-identity"><strong>Anul AI</strong><span class="chat-status">Online &amp; ready to help</span></div>
+        <div class="chat-identity"><strong>Anul AI</strong><span class="chat-status">Portfolio + live web answers</span></div>
         <button class="chat-close" id="chatClose" type="button" aria-label="Close chat"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
       </header>
       <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions"></div>
       <div class="chat-suggestions" aria-label="Suggested questions">
         <button class="chat-suggestion" type="button" data-chat-question="Tell me about Anul">About Anul</button>
         <button class="chat-suggestion" type="button" data-chat-question="What are Anul's skills?">Skills</button>
+        <button class="chat-suggestion" type="button" data-chat-question="What is Anul's professional experience?">Experience</button>
         <button class="chat-suggestion" type="button" data-chat-question="Show me Anul's projects">Projects</button>
+        <button class="chat-suggestion" type="button" data-chat-question="Tell me about Anul's leadership experience">Leadership</button>
+        <button class="chat-suggestion" type="button" data-chat-question="What is Anul's education?">Education</button>
         <button class="chat-suggestion" type="button" data-chat-question="How can I contact Anul?">Contact</button>
         <button class="chat-suggestion" type="button" data-chat-question="Can I download Anul's CV?">Download CV</button>
       </div>
       <form class="chat-form" id="chatForm">
-        <label class="sr-only" for="chatInput">Ask about Anul</label>
-        <input class="chat-input" id="chatInput" type="text" maxlength="240" autocomplete="off" placeholder="Ask about Anul...">
+        <label class="sr-only" for="chatInput">Ask Anul AI a question</label>
+        <input class="chat-input" id="chatInput" type="text" maxlength="240" autocomplete="off" placeholder="Ask about Anul or anything...">
         <button class="chat-send" type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
       </form>
     </section>
@@ -969,7 +1305,7 @@
 
   <!-- ================= PM PAGE ================= -->
   <div class="page active" id="page-pm">
-    <section class="hero" style="border-top:none; padding-top:10px;">
+    <section class="hero" id="home" style="border-top:none; padding-top:10px;">
       <div class="hero-copy">
         <div class="status-tags" aria-label="Current professional roles">
           <div class="rank-tag"><span class="pulse"></span>BUSINESS ANALYST INTERN</div>
@@ -984,13 +1320,14 @@
 " alt="Anul Methnula">
         <div class="avatar-corner tl"></div>
         <div class="avatar-corner br"></div>
-        <div class="avatar-hud"><span>ID: PM-01</span><span>â— ACTIVE</span></div>
+        <div class="avatar-hud"><span>ID: PM-01</span><span>&#9679; ACTIVE</span></div>
       </div>
     </section>
 
-    <section class="skill-showcase">
+    <section class="skill-showcase" id="skills">
       <video class="skill-showcase-video" autoplay muted loop playsinline aria-hidden="true"><source src="video.mp4" type="video/mp4"></video>
       <div class="sec-title"><span class="bracket">[03]</span><h2>Skills &amp; Expertise</h2></div>
+      <div class="skill-marquees" aria-label="Professional tools and technical foundation"></div>
       <div class="skill-showcase-grid reveal">
         <article class="skill-tile"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i><h3>Project Planning &amp; Coordination</h3><p>Planning project activities, coordinating tasks, managing milestones and tracking project progress.</p></article>
         <article class="skill-tile"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><h3>Agile &amp; Scrum</h3><p>Supporting sprint planning, backlog management, daily stand-ups, sprint reviews and retrospectives.</p></article>
@@ -1070,7 +1407,8 @@
       </div>
     </section>
 
-    <section class="experience-section">
+    <section class="experience-section" id="experience">
+      <canvas class="experience-weather" aria-hidden="true"></canvas>
       <div class="sec-title"><span class="bracket">[04] INDUSTRY EXPERIENCE</span><h2>Professional Experience</h2></div>
       <p class="experience-intro">Professional experience focused on business analysis, process improvement, requirements gathering, and supporting digital transformation initiatives.</p>
       <article class="experience-card reveal">
@@ -1091,28 +1429,30 @@
       </article>
     </section>
 
-    <section class="leadership-section">
-      <div class="sec-title"><span class="bracket">[04]</span><h2>Leadership Experience - AIESEC</h2></div>
-      <img class="leadership-photo" data-gallery="aiesec" src="aiesec.jpeg" alt="AIESEC team members together">
-      <div class="guild-list reveal">
-        <div class="guild-item"><div class="guild-rank">OCVP LOGISTICS<br>Elevate 26 Career Fair</div><p>Planned & managed end-to-end logistics for a 400+ delegate event.</p></div>
-        <div class="guild-item"><div class="guild-rank">OCVP PARTNERSHIP DEV.<br>Christmas OEM Event</div><p>Led partner outreach strategy and tracked partnership deliverables.</p></div>
-        <div class="guild-item"><div class="guild-rank">OGT B2C TEAM LEAD<br>Term 26.27</div><p>Directed a ground-level team, set weekly targets, reported to leadership.</p></div>
-        <div class="guild-item"><div class="guild-rank">OC MEMBER - PR<br>Blood Donation Drive</div><p>Coordinated promotional campaign and internal communications.</p></div>
+    <section class="leadership-section" id="leadership">
+      <div class="sec-title"><span class="leadership-eyebrow">BEYOND THE CLASSROOM</span><h2>Leadership Experience <span>&mdash; AIESEC</span></h2></div>
+      <div class="leadership-gallery" data-gallery="aiesec">
+        <img class="leadership-photo is-active" src="aiesec.jpeg" alt="AIESEC team members together"><img class="leadership-photo" src="aiesec1.png" alt="AIESEC leadership event moment">
+        <div class="guild-list reveal">
+          <div class="guild-item"><div class="guild-rank"><span class="guild-role">OCVP Logistics</span><span class="guild-event">Elevate 26 Career Fair</span></div><p>Planned &amp; managed end-to-end logistics for a 400+ delegate event.</p></div>
+          <div class="guild-item"><div class="guild-rank"><span class="guild-role">OCVP Partnership Dev.</span><span class="guild-event">Christmas OEM Event</span></div><p>Led partner outreach strategy and tracked partnership deliverables.</p></div>
+          <div class="guild-item"><div class="guild-rank"><span class="guild-role">OGT B2C Team Lead</span><span class="guild-event">Term 26.27</span></div><p>Directed a ground-level team, set weekly targets, reported to leadership.</p></div>
+          <div class="guild-item"><div class="guild-rank"><span class="guild-role">OC Member - PR</span><span class="guild-event">Blood Donation Drive</span></div><p>Coordinated promotional campaign and internal communications.</p></div>
+        </div>
       </div>
     </section>
 
-    <section class="education-section">
+    <section class="education-section" id="education">
       <div class="sec-title"><span class="bracket">[06]</span><h2>Academic Journey</h2></div>
       <div class="level-list reveal">
-        <div class="level-item"><div class="level-badge">L4</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">2026 – Present</span><h3>BSc (Hons) IT for Business</h3><div class="lv-org">Coventry University, UK (via NIBM)</div><div class="lv-mods">Project Management, IT Service & Infrastructure Management, Operational Research.</div></div></div>
+        <div class="level-item"><div class="level-badge">L4</div><div class="level-logo"><img src="nibm logo.png" alt="NIBM logo"></div><div><span class="lv-date">2026 – Present</span><h3>BSc (Hons) IT for Business</h3><div class="lv-org">Coventry University, UK (via NIBM)</div><div class="lv-mods">Project Management, IT Service & Infrastructure Management, Operational Research.</div></div></div>
         <div class="level-item"><div class="level-badge">L3</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Apr 2025 – Apr 2026</span><h3>HND in Information Systems</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Agile & DevOps, Business Analysis, IT Management Practices.</div></div></div>
         <div class="level-item"><div class="level-badge">L2</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Sep 2023 – Sep 2024</span><h3>Diploma in Software Engineering</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Software Engineering, OOP, Web Development.</div></div></div>
         <div class="level-item"><div class="level-badge">L1</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Dec 2022 – May 2023</span><h3>Certificate in Computer Science</h3><div class="lv-org">NIBM, Sri Lanka</div></div></div>
       </div>
     </section>
 
-    <section class="certifications-section">
+    <section class="certifications-section" id="certifications">
       <div class="sec-title"><span class="bracket">[06]</span><h2>Professional Certifications</h2></div>
       <div class="ach-grid reveal">
         <div class="ach"><span class="badge">&#9733;</span><span><strong>Cloud 101: Powered by AWS</strong><small>AWS Cloud Club NIBM - Issued Jan 2026</small></span></div>
@@ -1123,7 +1463,41 @@
       </div>
     </section>
 
-    <section class="contact-final reveal" aria-labelledby="contact-final-pm-title">
+    <section class="project-rescue" id="project-rescue" aria-labelledby="rescue-title">
+      <span class="rescue-bg-word" aria-hidden="true">SCOPE</span><span class="rescue-bg-word" aria-hidden="true">RISK</span><span class="rescue-bg-word" aria-hidden="true">SPRINT</span><span class="rescue-bg-word" aria-hidden="true">UAT</span>
+      <div class="rescue-wrap">
+        <div class="rescue-kicker">INTERACTIVE CHALLENGE</div>
+        <h2 class="rescue-title" id="rescue-title">PROJECT <span>RESCUE.</span></h2>
+        <p class="rescue-subtitle">Prioritize. Decide. Deliver.</p>
+        <p class="rescue-description">Step into the role of a Business Analyst / Project Manager. Prioritize real project situations before time runs out.</p>
+        <div class="rescue-game" id="rescueGame">
+          <aside class="rescue-sidebar" aria-label="Project status">
+            <div class="rescue-status-label">PROJECT STATUS</div>
+            <div class="rescue-stats" aria-live="polite">
+              <div class="rescue-stat"><small>SCORE</small><strong id="rescueScore">0</strong></div>
+              <div class="rescue-stat"><small>TIME</small><strong id="rescueTime">30s</strong></div>
+              <div class="rescue-stat"><small>STREAK</small><strong id="rescueStreak">&times;0</strong></div>
+            </div>
+            <p class="rescue-instruction">Classify each request as Critical, Important, or Backlog before the project clock expires.</p>
+            <p class="rescue-keys">KEYS: 1 CRITICAL &nbsp; 2 IMPORTANT &nbsp; 3 BACKLOG</p>
+            <button class="rescue-start" id="rescueStart" type="button"><i class="fa-solid fa-play" aria-hidden="true"></i><span>START PROJECT</span></button>
+          </aside>
+          <div class="rescue-main">
+            <div class="rescue-panel" id="rescuePanel">
+              <div class="rescue-progress" aria-hidden="true"><span id="rescueProgress"></span></div>
+              <div id="rescueContent">
+                <div class="rescue-request-label">PROJECT STATUS</div>
+                <h3 class="rescue-ready-title">Ready to take control?</h3>
+                <p class="rescue-ready-copy">You have 30 seconds to prioritize ten project issues and stakeholder requests.</p>
+              </div>
+              <div class="rescue-feedback" id="rescueFeedback" aria-live="assertive"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-final reveal" id="contact" aria-labelledby="contact-final-pm-title">
       <div class="contact-final-inner">
         <div class="contact-final-copy">
           <div class="contact-final-eyebrow">LET&rsquo;S CONNECT</div>
@@ -1142,6 +1516,18 @@
         <figure class="contact-final-portrait"><img src="assets/images/contact-portrait-gold.png" alt="Anul Methnula wearing gold-frame glasses and holding a laptop in a modern office" loading="lazy"></figure>
       </div>
     </section>
+
+    <footer class="portfolio-footer" aria-label="Portfolio footer">
+      <div class="portfolio-footer-inner">
+        <div class="footer-copy">&copy; 2026 Anul Methnula</div>
+        <div class="footer-positioning">Business Analysis &bull; Project Management &bull; Digital Transformation</div>
+        <div class="footer-details">
+          <span>Sri Lanka</span><span class="footer-separator" aria-hidden="true">&bull;</span>
+          <a href="mailto:anulmethnula@gmail.com">anulmethnula@gmail.com</a>
+          <a class="footer-top" href="#page-pm" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </footer>
 
   </div>
 
@@ -1162,13 +1548,14 @@
 " alt="Anul Methnula">
         <div class="avatar-corner tl"></div>
         <div class="avatar-corner br"></div>
-        <div class="avatar-hud"><span>ID: BA-01</span><span>â— ACTIVE</span></div>
+        <div class="avatar-hud"><span>ID: BA-01</span><span>&#9679; ACTIVE</span></div>
       </div>
     </section>
 
     <section class="skill-showcase">
       <video class="skill-showcase-video" autoplay muted loop playsinline aria-hidden="true"><source src="video.mp4" type="video/mp4"></video>
       <div class="sec-title"><span class="bracket">[03]</span><h2>Skills &amp; Expertise</h2></div>
+      <div class="skill-marquees" aria-label="Professional tools and technical foundation"></div>
       <div class="skill-showcase-grid reveal">
         <article class="skill-tile"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i><h3>Project Planning &amp; Coordination</h3><p>Planning project activities, coordinating tasks, managing milestones and tracking project progress.</p></article>
         <article class="skill-tile"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><h3>Agile &amp; Scrum</h3><p>Supporting sprint planning, backlog management, daily stand-ups, sprint reviews and retrospectives.</p></article>
@@ -1249,6 +1636,7 @@
     </section>
 
     <section class="experience-section">
+      <canvas class="experience-weather" aria-hidden="true"></canvas>
       <div class="sec-title"><span class="bracket">[04] INDUSTRY EXPERIENCE</span><h2>Professional Experience</h2></div>
       <p class="experience-intro">Professional experience focused on business analysis, process improvement, requirements gathering, and supporting digital transformation initiatives.</p>
       <article class="experience-card reveal">
@@ -1270,13 +1658,15 @@
     </section>
 
     <section class="leadership-section">
-      <div class="sec-title"><span class="bracket">[04]</span><h2>Leadership Experience - AIESEC</h2></div>
-      <img class="leadership-photo" data-gallery="aiesec" src="aiesec.jpeg" alt="AIESEC team members together">
-      <div class="guild-list reveal">
-        <div class="guild-item"><div class="guild-rank">OCVP LOGISTICS<br>Elevate 26 Career Fair</div><p>Planned & managed end-to-end logistics for a 400+ delegate event.</p></div>
-        <div class="guild-item"><div class="guild-rank">OCVP PARTNERSHIP DEV.<br>Christmas OEM Event</div><p>Led partner outreach strategy and tracked partnership deliverables.</p></div>
-        <div class="guild-item"><div class="guild-rank">OGT B2C TEAM LEAD<br>Term 26.27</div><p>Directed a ground-level team, set weekly targets, reported to leadership.</p></div>
-        <div class="guild-item"><div class="guild-rank">OC MEMBER - PR<br>Blood Donation Drive</div><p>Coordinated promotional campaign and internal communications.</p></div>
+      <div class="sec-title"><span class="leadership-eyebrow">BEYOND THE CLASSROOM</span><h2>Leadership Experience <span>&mdash; AIESEC</span></h2></div>
+      <div class="leadership-gallery" data-gallery="aiesec">
+        <img class="leadership-photo is-active" src="aiesec.jpeg" alt="AIESEC team members together"><img class="leadership-photo" src="aiesec1.png" alt="AIESEC leadership event moment">
+        <div class="guild-list reveal">
+          <div class="guild-item"><div class="guild-rank"><span class="guild-role">OCVP Logistics</span><span class="guild-event">Elevate 26 Career Fair</span></div><p>Planned &amp; managed end-to-end logistics for a 400+ delegate event.</p></div>
+          <div class="guild-item"><div class="guild-rank"><span class="guild-role">OCVP Partnership Dev.</span><span class="guild-event">Christmas OEM Event</span></div><p>Led partner outreach strategy and tracked partnership deliverables.</p></div>
+          <div class="guild-item"><div class="guild-rank"><span class="guild-role">OGT B2C Team Lead</span><span class="guild-event">Term 26.27</span></div><p>Directed a ground-level team, set weekly targets, reported to leadership.</p></div>
+          <div class="guild-item"><div class="guild-rank"><span class="guild-role">OC Member - PR</span><span class="guild-event">Blood Donation Drive</span></div><p>Coordinated promotional campaign and internal communications.</p></div>
+        </div>
       </div>
     </section>
 
@@ -1499,6 +1889,46 @@
     document.documentElement.addEventListener('mouseleave', ()=>document.body.classList.remove('has-pointer'));
   }
 
+  // BA/PM-first tool marquee. The sequence is duplicated for a seamless loop.
+  const marqueeTools = [
+    ['Jira','jira.svg','#2684ff'],['Confluence','confluence.svg','#1868db'],['Microsoft Project','project.svg','#21a366'],
+    ['Trello','trello.svg','#0c66e4'],['Draw.io','drawio.svg','#f08705'],['Microsoft Visio','microsoftvisio.svg','#3955a3'],
+    ['Figma','figma.svg','#f24e1e'],['Microsoft Excel','excel.svg','#217346'],['Power BI','powerbi.svg','#f2c811'],
+    ['SQL','sql.svg','#65c8df'],['SAP S/4HANA','sap.svg','#0faaff'],['Microsoft Teams','teams.svg','#6264a7'],
+    ['GitHub','github.svg','#f2f2f2'],['HTML5','html5.svg','#e34f26'],['CSS3','css3.svg','#1572b6'],
+    ['JavaScript','javascript.svg','#f7df1e'],['C','c.svg','#a8b9cc']
+  ];
+  const makeToolGroup = (tools,hidden=false)=>{
+    const group=document.createElement('div');
+    group.className='tool-marquee-group';
+    if(hidden) group.setAttribute('aria-hidden','true');
+    tools.forEach(([name,file,color])=>{
+      const item=document.createElement('span');
+      item.className='tool-marquee-item';
+      const logo=document.createElement('span');
+      logo.className='tool-logo';
+      logo.setAttribute('aria-hidden','true');
+      logo.style.setProperty('--icon',`url("assets/icons/tools/${file}")`);
+      logo.style.setProperty('--brand',color);
+      const text=document.createElement('span');
+      text.textContent=name;
+      item.append(logo,text);
+      group.appendChild(item);
+    });
+    return group;
+  };
+  document.querySelectorAll('.skill-marquees').forEach(container=>{
+    const marquee=document.createElement('div');
+    marquee.className='tool-marquee';
+    marquee.setAttribute('role','region');
+    marquee.setAttribute('aria-label','Professional tools and technologies');
+    const track=document.createElement('div');
+    track.className='tool-marquee-track';
+    track.append(makeToolGroup(marqueeTools),makeToolGroup(marqueeTools,true));
+    marquee.appendChild(track);
+    container.appendChild(marquee);
+  });
+
   // Keep the skills video calm for visitors who request reduced motion.
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const syncSkillVideos = ()=>{
@@ -1567,36 +1997,40 @@
   }, {threshold:0.3});
   document.querySelectorAll('.quest-grid').forEach(el=>questIO.observe(el));
 
-  // ---- leadership photo shuffle ----
-  const leadershipPhotos = ['aiesec.jpeg','aiesec1.png','aiese2.png','aiesec3.png','aiesec4.png'];
-  const shuffledLeadershipPhotos = [...leadershipPhotos].sort(()=>Math.random() - 0.5);
-  shuffledLeadershipPhotos.forEach(photo=>{ const preload = new Image(); preload.src = photo; });
+  // ---- cinematic AIESEC leadership gallery ----
+  const leadershipPhotos=['aiesec.jpeg','aiesec1.png','aiese2.png','aiesec3.png','aiesec4.png'];
+  const leadershipSequence=[leadershipPhotos[0],...leadershipPhotos.slice(1).sort(()=>Math.random()-.5)];
+  leadershipSequence.forEach(photo=>{const preload=new Image();preload.src=photo;});
   document.querySelectorAll('[data-gallery="aiesec"]').forEach(gallery=>{
-    let currentPhoto = 0;
-    const showNextLeadershipPhoto = ()=>{
-      currentPhoto = (currentPhoto + 1) % shuffledLeadershipPhotos.length;
-      gallery.classList.add('is-changing');
-      setTimeout(()=>{
-        gallery.src = shuffledLeadershipPhotos[currentPhoto];
-        gallery.classList.remove('is-changing');
-      }, 280);
+    const layers=[...gallery.querySelectorAll('.leadership-photo')];
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current=0,activeLayer=0,cycleTimer=0,visible=false,transitioning=false;
+    const scheduleLeadershipCycle=()=>{
+      clearTimeout(cycleTimer);
+      if(visible&&!document.hidden&&!reduced.matches) cycleTimer=setTimeout(()=>showLeadershipPhoto((current+1)%leadershipSequence.length),5500);
     };
-    setInterval(showNextLeadershipPhoto, 3000);
+    function showLeadershipPhoto(index){
+      if(index===current||transitioning)return;
+      transitioning=true;
+      const nextLayer=activeLayer===0?1:0;
+      const incoming=layers[nextLayer],outgoing=layers[activeLayer];
+      const reveal=()=>{
+        current=index;incoming.classList.add('is-active');
+        setTimeout(()=>{outgoing.classList.remove('is-active');activeLayer=nextLayer;transitioning=false;scheduleLeadershipCycle();},850);
+      };
+      incoming.src=leadershipSequence[index];
+      if(incoming.complete)reveal();else incoming.addEventListener('load',reveal,{once:true});
+    }
+    new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;if(visible)scheduleLeadershipCycle();else clearTimeout(cycleTimer);},{rootMargin:'150px'}).observe(gallery);
+    document.addEventListener('visibilitychange',scheduleLeadershipCycle);
+    reduced.addEventListener?.('change',scheduleLeadershipCycle);
   });
 
   const educationDates = ['2026 – Present','Apr 2025 – Apr 2026','Sep 2023 – Sep 2024','Dec 2022 – May 2023'];
   document.querySelectorAll('.level-list').forEach(list=>{
     list.querySelectorAll('.lv-date').forEach((date,index)=>{ date.textContent = educationDates[index]; });
   });
-  document.querySelectorAll('.level-logo img').forEach(logo=>{ logo.src = 'nibm%20logo.png'; });
-  const textFixes = [['â€”',' - '],['â†’',' -> '],['Â·',' | '],['â—',''],['Â','']];
-  const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  const visibleTextNodes = [];
-  let textNode;
-  while(textNode = textWalker.nextNode()) visibleTextNodes.push(textNode);
-  visibleTextNodes.forEach(node=>{
-    textFixes.forEach(([bad,replacement])=>{ node.nodeValue = node.nodeValue.split(bad).join(replacement); });
-  });
+  document.querySelectorAll('.level-logo img').forEach(logo=>{ logo.src = 'nibm logo.png'; });
 
   // ---- free local portfolio assistant (no API key or usage fees) ----
   const portfolioChat = document.getElementById('portfolioChat');
@@ -1610,8 +2044,10 @@
   let chatStarted = false;
   let chatReplying = false;
   let aiChatHistory = [];
-  const portfolioSystemPrompt = `You are Anul AI, the helpful assistant on Anul Methnula's professional portfolio.
-Answer portfolio questions using only the verified facts below. Never invent achievements, dates, employers, qualifications, contact details, or project results. If a requested portfolio fact is not listed, say that it is not available and suggest contacting Anul. For general questions unrelated to the portfolio, answer helpfully and accurately in plain language. Keep answers concise unless the visitor asks for detail. If uncertain, say so clearly.
+  const portfolioSystemPrompt = `You are Anul AI, a friendly portfolio and general-purpose assistant. The visitor's current date is ${new Date().toISOString().slice(0,10)}.
+For portfolio questions, use only the verified facts below. Never invent achievements, dates, employers, qualifications, contact details, or project results. If a portfolio fact is unavailable, say so and suggest contacting Anul.
+For general questions, answer in simple, friendly language. Use web search for current or changeable information such as political leaders, news, laws, prices, schedules, weather, and public officeholders. Do not guess. If reliable confirmation is unavailable, clearly say that instead of inventing an answer.
+Keep the response easy to scan: give the direct answer first, use short paragraphs, add no more than three bullets when helpful, and avoid unnecessary jargon. For current factual answers, briefly name the source and when it was checked. Do not claim certainty beyond the evidence.
 
 VERIFIED PORTFOLIO FACTS:
 - Name: Anul Methnula.
@@ -1633,7 +2069,7 @@ VERIFIED PORTFOLIO FACTS:
     chatToggle.setAttribute('aria-label', open ? 'Close Anul AI chat' : 'Open Anul AI chat');
     if(open && !chatStarted){
       chatStarted = true;
-      addChatMessage('Hi! I\'m <strong>Anul AI</strong>. Ask me about Anul\'s experience, skills, projects, education, certifications, contact details, or CV.', 'bot', true);
+      addChatMessage('<span class="chat-answer-title">Hi! I’m Anul AI.</span><div class="chat-answer-body"><p>Ask about Anul’s portfolio—or ask a general question. I’ll keep the answer clear and concise.</p></div>', 'bot', true);
     }
     if(open && focusInput) setTimeout(()=>chatInput.focus(), 120);
   }
@@ -1673,29 +2109,47 @@ VERIFIED PORTFOLIO FACTS:
     return row;
   }
 
-  function getPortfolioReply(question){
-    const q = question.toLowerCase().replace(/[^a-z0-9+.# ]/g,' ');
-    const projectLink = current === 'pm' ? '#projects-pm' : '#projects-ba';
-    const cvFile = current === 'pm' ? 'Anul_Methnula_PM_Resume.pdf' : 'Anul_Methnula_BA_Resume.pdf';
-    const cvName = current === 'pm' ? 'Project Manager CV' : 'Business Analyst CV';
+  function normalizeChatQuestion(question){
+    return question.toLowerCase().normalize('NFKD').replace(/[’']/g,'').replace(/[^a-z0-9+.#\s-]/g,' ').replace(/\s+/g,' ').trim();
+  }
 
-    if(/\b(hello|hi|hey|good morning|good evening)\b/.test(q)) return 'Hello! How can I help you learn more about Anul? You can ask about his skills, projects, experience, education, or contact details.';
-    if(/\b(who|about|profile|tell me)\b/.test(q) && /\b(anul|him|candidate|you)\b/.test(q) && !/\b(skill|project|experience|education|degree|certificate|certification|cv|resume|contact|available|availability|hire)\b/.test(q)) return 'Anul Methnula is a <strong>Business Analyst Intern</strong> and aspiring <strong>Project Manager</strong>. He turns business needs into clear requirements, practical plans, and well-coordinated digital solutions.';
-    if(/\b(skill|expertise|technology|technologies|tool|tools)\b/.test(q)) return 'Anul\'s core strengths include <strong>business analysis, requirements gathering, process mapping, stakeholder communication, Agile/Scrum, project coordination, BA/PM documentation, ERP systems, UAT, and delivery support</strong>. His tools include Jira, Trello, Microsoft Project, Excel, Figma, and Draw.io.';
-    if(/\b(project|portfolio|built|work sample)\b/.test(q)) return `Featured work includes a <strong>QR-Based E-Ticketing System, Online Gas Delivery System, Queue Management System, Guest &amp; Resident Feedback System, Hotel Management System</strong>, and an <strong>ERP analysis project</strong>. <a href="${projectLink}">View the projects</a>.`;
-    if(/\b(experience|intern|supun|employment|industry|job)\b/.test(q)) return 'Anul is a <strong>Business Analyst Intern at Supun Group of Companies, Sri Lanka</strong> (August 2026 - Present). He gathers requirements, reviews processes, documents workflows and functional needs, and supports ERP planning and communication between business and technical teams.';
-    if(/\b(education|degree|study|academic|university|nibm|coventry)\b/.test(q)) return 'Anul is studying a <strong>BSc (Hons) in IT for Business</strong> from Coventry University through NIBM. He has also completed an HND in Information Systems, a Diploma in Software Engineering, and a Certificate in Computer Science.';
-    if(/\b(certification|certificate|aws|leanpm|english course)\b/.test(q)) return 'His certifications include <strong>Cloud 101: Powered by AWS, LeanPM Yellow Belt, Certificate in Computer Science</strong>, the Diplomat\'s Mun 45-Day English Course, and British Council Spoken English Level A2.';
-    if(/\b(cv|resume|download)\b/.test(q)) return `You can download Anul\'s current <a href="${cvFile}" download>${cvName}</a>. Use the Project Manager / Business Analyst switch at the top to select the other version.`;
-    if(/\b(available|availability|start|opportunity|hire)\b/.test(q)) return 'Yes—Anul is open to suitable <strong>Business Analyst, Project Coordinator, and junior Project Management opportunities</strong>. Use the contact options here to discuss a role.';
-    if(/\b(contact|email|phone|call|whatsapp|linkedin|reach)\b/.test(q)) return 'You can contact Anul by <a href="mailto:anulmethnula@gmail.com">email</a>, <a href="tel:+94740529061">phone</a>, <a href="https://wa.me/94740529061" target="_blank" rel="noopener noreferrer">WhatsApp</a>, or <a href="https://www.linkedin.com/in/anul-methnula/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.';
-    if(/\b(ai|bot|human|real person)\b/.test(q)) return 'I\'m a free browser-based portfolio assistant trained on the information displayed on this website. I can answer questions about Anul, but contacting him directly is best for anything not covered here.';
-    if(/\b(thank|thanks)\b/.test(q)) return 'You\'re welcome! If you are considering Anul for an opportunity, I can also show you his CV or contact details.';
-    return 'I can help with questions about <strong>Anul\'s profile, skills, projects, experience, education, certifications, CV, or contact details</strong>. Try asking “What are Anul\'s skills?”';
+  function chatAnswer(title,body){
+    return `<span class="chat-answer-title">${title}</span><div class="chat-answer-body">${body}</div>`;
+  }
+
+  function getPortfolioReply(question){
+    const q = normalizeChatQuestion(question);
+
+    if(/\b(hello|hi|hey|good morning|good afternoon|good evening)\b/.test(q)) return chatAnswer('Hello — I’m Anul AI.','Ask me about Anul’s BA/PM skills, projects, professional experience, leadership, education, certifications, CV, availability, or contact details.');
+    if(/\b(qr|ticket|ticketing|e-ticketing)\b/.test(q)) return chatAnswer('QR-Based E-Ticketing System','Anul translated stakeholder needs into requirements, UML diagrams, architecture, and acceptance criteria for a React PWA / Flutter / Node / Firebase solution covering QR trips, wallets, and dynamic fares. <a href="#projects-pm">View project work</a>.');
+    if(/\b(gas|delivery system)\b/.test(q)) return chatAnswer('Online Gas Delivery System','Anul defined scope, prioritized requirements, and produced BPMN flows and Figma wireframes for a streamlined ordering and delivery experience. <a href="#projects-pm">View project work</a>.');
+    if(/\b(queue|scrum project)\b/.test(q)) return chatAnswer('Queue Management System','An Agile/Scrum project where Anul supported sprint planning, planning poker, daily scrums, milestone tracking, epics, requirements, blocker management, and documentation. <a href="#projects-pm">View project work</a>.');
+    if(/\b(hotel|booking system)\b/.test(q)) return chatAnswer('Hotel Management System','Anul modeled booking and administration requirements with use-case, class, sequence, and ER diagrams for a web and MySQL solution. <a href="#projects-pm">View project work</a>.');
+    if(/\b(feedback|resident|guest)\b/.test(q)) return chatAnswer('Guest &amp; Resident Feedback System','Anul defined functional and non-functional requirements, feedback/dashboard flows, data models, APIs, acceptance criteria, and urgent-rating alerts. <a href="#projects-pm">View project work</a>.');
+    if(/\b(erp|sap|netsuite|oracle)\b/.test(q)) return chatAnswer('ERP knowledge','Anul supports ERP planning in his current BA internship and has completed comparative analysis involving SAP S/4HANA and Oracle NetSuite. His strengths include requirements, process mapping, stakeholder coordination, and business-to-technical communication.');
+    if(/\b(skills?|expertise|capabilit(?:y|ies)|strengths?|technolog(?:y|ies)|tools?)\b/.test(q) || /what can (anul|he) do/.test(q)) return chatAnswer('BA &amp; PM strengths','<ul><li>Business analysis and requirements</li><li>Process mapping and documentation</li><li>Stakeholder communication</li><li>Agile, planning, UAT, and delivery support</li></ul><p><strong>Main tools:</strong> Jira, Confluence, Microsoft Project, Trello, Draw.io, Figma, Excel, Power BI, SQL, and SAP S/4HANA.</p>');
+    if(/\b(projects?|portfolio|built|work samples?|case studies?)\b/.test(q)) return chatAnswer('Featured projects','<p>Anul’s work covers ticketing, delivery, queue management, feedback, hotel management, and ERP analysis.</p><ul><li>Requirements and process modeling</li><li>Project planning and coordination</li><li>Acceptance criteria and delivery documentation</li></ul><p><a href="#projects-pm">Explore all projects</a></p>');
+    if(/\b(leadership|aiesec|ocvp|team lead|career fair|blood donation|christmas oem)\b/.test(q)) return chatAnswer('Leadership — AIESEC','<ul><li>OCVP Logistics — Elevate 26 Career Fair</li><li>OCVP Partnership Development — Christmas OEM</li><li>OGT B2C Team Lead — Term 26.27</li><li>OC Member, PR — Blood Donation Drive</li></ul><p><a href="#leadership">View leadership experience</a></p>');
+    if(/\b(challenge|game|project rescue|mini-game|prioriti[sz])\b/.test(q)) return chatAnswer('Project Rescue challenge','A 30-second BA/PM prioritization game with randomized project situations. Classify each item as Critical, Important, or Backlog and test your delivery judgment. <a href="#project-rescue">Play Project Rescue</a>.');
+    if(/\b(experiences?|internship|intern|supun|employment|industry|roles?|job)\b/.test(q)) return chatAnswer('Professional experience','<p><strong>Business Analyst Intern</strong><br>Supun Group of Companies, Sri Lanka<br>August 2026–Present</p><ul><li>Requirements and process analysis</li><li>Workflow and functional documentation</li><li>ERP planning and team communication</li></ul><p><a href="#experience">View experience</a></p>');
+    if(/\b(education|degrees?|study|studies|academic|university|nibm|coventry|hnd|diploma)\b/.test(q)) return chatAnswer('Education','<ul><li>BSc (Hons) IT for Business — in progress</li><li>HND in Information Systems</li><li>Diploma in Software Engineering</li><li>Certificate in Computer Science</li></ul><p>Coventry University through NIBM. <a href="#education">View education</a></p>');
+    if(/\b(certifications?|certificates?|aws|leanpm|english course|british council)\b/.test(q)) return chatAnswer('Certifications','<ul><li>Cloud 101 — AWS</li><li>LeanPM Yellow Belt</li><li>Certificate in Computer Science</li><li>English qualifications and courses</li></ul><p><a href="#certifications">View certifications</a></p>');
+    if(/\b(cv|cvs|resumes?|download)\b/.test(q)) return chatAnswer('Choose a CV','Download the <a href="Anul_Methnula_BA_Resume.pdf" download>Business Analysis CV</a> or the <a href="Anul_Methnula_PM_Resume.pdf" download>Project Management CV</a>.');
+    if(/\b(available|availability|start|opportunit(?:y|ies)|hire|recruit)\b/.test(q)) return chatAnswer('Open to opportunities','Anul is open to suitable <strong>Business Analyst, Project Coordinator, and junior Project Management opportunities</strong>. <a href="#contact">Contact Anul</a> to discuss a role.');
+    if(/\b(contact|email|phone|call|whatsapp|linkedin|reach|location)\b/.test(q)) return chatAnswer('Contact Anul','Email <a href="mailto:anulmethnula@gmail.com">anulmethnula@gmail.com</a>, call <a href="tel:+94740529061">+94 740 529 061</a>, message through <a href="https://wa.me/94740529061" target="_blank" rel="noopener noreferrer">WhatsApp</a>, or connect on <a href="https://www.linkedin.com/in/anul-methnula/" target="_blank" rel="noopener noreferrer">LinkedIn</a>. He is based in Sri Lanka.');
+    if((/\b(who|about|profile|tell me)\b/.test(q) && /\b(anul|him|candidate)\b/.test(q)) || /why (hire|choose) (anul|him)/.test(q)) return chatAnswer('Anul Methnula','A <strong>Business Analyst Intern</strong> and aspiring <strong>Project Manager</strong> who turns business needs into clear requirements, practical plans, and coordinated digital solutions. His portfolio combines industry experience, delivery-focused projects, leadership, and a solid technical foundation.');
+    if(/\b(ai|bot|assistant|human|real person)\b/.test(q) || /what can you do/.test(q)) return chatAnswer('How I can help','<ul><li>Verified answers about Anul’s portfolio</li><li>General knowledge questions</li><li>Web-checked answers for changing information</li></ul><p>I’ll say clearly when reliable confirmation is unavailable.</p>');
+    if(/\b(thank|thanks|cheers)\b/.test(q)) return 'You’re welcome! I can also show you Anul’s projects, CVs, or direct contact details.';
+    return chatAnswer('I don’t have a verified answer for that yet.','Try asking about Anul’s skills, projects, experience, leadership, education, certifications, CV, availability, or contact details—or <a href="#contact">ask Anul directly</a>.');
   }
 
   function isPortfolioQuestion(question){
-    return /\b(anul|portfolio|profile|skill|project|experience|intern|supun|education|degree|academic|nibm|coventry|certification|certificate|cv|resume|contact|email|phone|whatsapp|linkedin|hire|available|availability)\b/i.test(question);
+    const q = normalizeChatQuestion(question);
+    const namesAnul=/\b(anul|his|him|candidate|portfolio)\b/.test(q);
+    const siteSpecific=/\b(supun|aiesec|ocvp|nibm|coventry|leanpm|ticketing|e-ticketing|project rescue|christmas oem)\b/.test(q);
+    const shortCommand=q.split(' ').length<=3 && /\b(skills?|projects?|experience|leadership|education|certifications?|cv|resumes?|contact|availability)\b/.test(q);
+    const casual=/^(hi|hello|hey|thanks|thank you|good morning|good afternoon|good evening)$/.test(q);
+    return namesAnul || siteSpecific || shortCommand || casual || /what can you do|who are you|are you (an ai|a bot)/.test(q) || /why (hire|choose) (anul|him)/.test(q);
   }
 
   async function streamAIReply(question, typingRow){
@@ -1706,31 +2160,22 @@ VERIFIED PORTFOLIO FACTS:
       { role:'user', content:question }
     ];
     const response = await puter.ai.chat(conversation, {
-      model:'gpt-5-nano',
-      stream:true,
-      max_tokens:500,
-      temperature:.3
+      model:'openai/gpt-5.6-luna',
+      tools:[{type:'web_search'}],
+      normalize:true,
+      max_tokens:650,
+      temperature:.15,
+      reasoning_effort:'low',
+      verbosity:'low'
     });
-    typingRow.remove();
-    const responseRow = addChatMessage('', 'bot');
-    const bubble = responseRow.querySelector('.chat-bubble');
-    let answer = '';
-    try{
-      for await (const part of response){
-        if(part?.text){
-          answer += part.text;
-          bubble.textContent = answer;
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-      }
-    } catch(error){
-      if(!answer.trim()) responseRow.remove();
-      throw error;
-    }
+    let answer = typeof response === 'string' ? response : response?.message?.content || response?.text || response?.content || '';
+    if(Array.isArray(answer)) answer=answer.map(part=>part?.text||part?.content||'').join('\n');
     if(!answer.trim()){
-      responseRow.remove();
       throw new Error('Empty AI response');
     }
+    typingRow.remove();
+    const responseRow = addChatMessage(answer.trim(), 'bot');
+    responseRow.querySelector('.chat-bubble')?.classList.add('chat-general-answer');
     aiChatHistory.push({role:'user',content:question},{role:'assistant',content:answer});
     aiChatHistory = aiChatHistory.slice(-10);
   }
@@ -1767,7 +2212,7 @@ VERIFIED PORTFOLIO FACTS:
       await streamAIReply(cleanQuestion, typing);
     } catch(error){
       if(typing.isConnected) typing.remove();
-      addChatMessage('The live AI service is temporarily unavailable. I can still answer questions about Anul\'s portfolio, skills, projects, experience, education, CV, and contact details.', 'bot');
+      addChatMessage('I couldn’t reach live web search just now. Please try again shortly. Verified questions about Anul’s portfolio still work normally.', 'bot');
     } finally {
       chatReplying = false;
       portfolioChat.classList.remove('is-thinking');
@@ -1799,7 +2244,224 @@ VERIFIED PORTFOLIO FACTS:
       (event.metaKey && event.altKey && ['i','j','c','u'].includes(key));
     if(blocked) event.preventDefault();
   });
-// ---- sticky cta ----
+  // Animated section navigation, mobile menu, and page progress.
+  const siteNav=document.getElementById('siteNav');
+  const navToggle=document.getElementById('navToggle');
+  const navProgress=document.getElementById('navProgress');
+  const themeToggle=document.getElementById('themeToggle');
+  const navLinks=[...document.querySelectorAll('[data-nav-target]')];
+  function applyTheme(theme,persist=false){
+    const nextTheme=theme==='light'?'light':'dark';
+    document.documentElement.dataset.theme=nextTheme;
+    const nextLabel=nextTheme==='dark'?'Switch to light mode':'Switch to dark mode';
+    themeToggle.setAttribute('aria-label',nextLabel);
+    themeToggle.setAttribute('title',nextLabel);
+    themeToggle.setAttribute('aria-pressed',String(nextTheme==='light'));
+    if(persist){try{localStorage.setItem('anul-theme',nextTheme);}catch(error){/* Theme still works without storage. */}}
+  }
+  applyTheme(document.documentElement.dataset.theme);
+  themeToggle.addEventListener('click',()=>applyTheme(document.documentElement.dataset.theme==='dark'?'light':'dark',true));
+  const closeSiteNav=()=>{
+    siteNav.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded','false');
+    navToggle.setAttribute('aria-label','Open navigation');
+  };
+  navToggle.addEventListener('click',()=>{
+    const open=!siteNav.classList.contains('is-open');
+    siteNav.classList.toggle('is-open',open);
+    navToggle.setAttribute('aria-expanded',String(open));
+    navToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+  });
+  navLinks.forEach(link=>link.addEventListener('click',closeSiteNav));
+  document.addEventListener('pointerdown',event=>{
+    if(siteNav.classList.contains('is-open')&&!siteNav.contains(event.target)&&!navToggle.contains(event.target))closeSiteNav();
+  });
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeSiteNav();});
+  const navSections=navLinks.map(link=>document.getElementById(link.dataset.navTarget)).filter(Boolean);
+  function updateNavState(){
+    const scrollable=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+    navProgress.style.transform=`scaleX(${Math.min(1,window.scrollY/scrollable)})`;
+    const activationLine=window.innerHeight*.34;
+    let activeSection=navSections[0];
+    navSections.forEach(section=>{if(section.getBoundingClientRect().top<=activationLine)activeSection=section;});
+    if(window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-4)activeSection=navSections[navSections.length-1];
+    if(activeSection)navLinks.forEach(link=>link.classList.toggle('is-active',link.dataset.navTarget===activeSection.id));
+  }
+  let navScrollFrame=0;
+  function requestNavUpdate(){
+    if(navScrollFrame)return;
+    navScrollFrame=requestAnimationFrame(()=>{
+      updateNavState();
+      navScrollFrame=0;
+    });
+  }
+  window.addEventListener('scroll',requestNavUpdate,{passive:true});
+  window.addEventListener('resize',requestNavUpdate,{passive:true});
+  updateNavState();
+
+  // Project Rescue: browser-only BA/PM prioritization simulator.
+  const rescueScenarios = [
+    {situation:'The payment gateway is unavailable for all customers.',priority:'critical'},
+    {situation:'A stakeholder requests dark mode for the internal dashboard.',priority:'backlog'},
+    {situation:'Customer personal data may be visible to unauthorized users.',priority:'critical'},
+    {situation:'The client needs clarification on an acceptance criterion blocking development.',priority:'important'},
+    {situation:'A typo was discovered in a rarely visited settings page.',priority:'backlog'},
+    {situation:'The production system is preventing users from completing orders.',priority:'critical'},
+    {situation:'A department requests a new monthly analytics report for the next review cycle.',priority:'important'},
+    {situation:'A developer cannot continue because a core business rule is unclear.',priority:'important'},
+    {situation:'A stakeholder requests an additional feature outside the agreed scope.',priority:'backlog'},
+    {situation:'UAT identified a defect affecting the project’s main business workflow.',priority:'critical'},
+    {situation:'A stakeholder asks to change a button colour before launch.',priority:'backlog'},
+    {situation:'Two departments have conflicting requirements for the same workflow.',priority:'important'},
+    {situation:'A critical dependency may delay tomorrow’s production release.',priority:'critical'},
+    {situation:'A user requests an export-to-PDF enhancement for a future release.',priority:'backlog'},
+    {situation:'A stakeholder has not approved a requirement needed for the current sprint.',priority:'important'},
+    {situation:'A security vulnerability has been reported in production.',priority:'critical'}
+  ];
+  const rescueGame=document.getElementById('rescueGame');
+  if(rescueGame){
+    const rescueStart=document.getElementById('rescueStart');
+    const rescueStartText=rescueStart.querySelector('span');
+    const rescuePanel=document.getElementById('rescuePanel');
+    const rescueContent=document.getElementById('rescueContent');
+    const rescueFeedback=document.getElementById('rescueFeedback');
+    const rescueScore=document.getElementById('rescueScore');
+    const rescueTime=document.getElementById('rescueTime');
+    const rescueStreak=document.getElementById('rescueStreak');
+    const rescueProgress=document.getElementById('rescueProgress');
+    let rescueRound=[],rescueIndex=0,score=0,streak=0,bestStreak=0,correct=0,timeLeft=30,timerId=0,nextId=0,scenarioShownAt=0,gameActive=false,answerLocked=false;
+
+    function updateRescueScore(){
+      rescueScore.textContent=score;
+      rescueTime.textContent=`${timeLeft}s`;
+      rescueStreak.innerHTML=`&times;${streak}`;
+      rescueProgress.style.width=`${Math.min(100,rescueIndex/rescueRound.length*100)||0}%`;
+    }
+    function shuffledRescueScenarios(){
+      const items=[...rescueScenarios];
+      for(let i=items.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[items[i],items[j]]=[items[j],items[i]];}
+      return items.slice(0,10);
+    }
+    function showRescueScenario(){
+      if(!gameActive||rescueIndex>=rescueRound.length){finishRescueGame();return;}
+      answerLocked=false; rescueFeedback.textContent=''; rescueFeedback.className='rescue-feedback';
+      rescuePanel.classList.remove('is-entering'); void rescuePanel.offsetWidth; rescuePanel.classList.add('is-entering');
+      const scenario=rescueRound[rescueIndex];
+      rescueContent.innerHTML='<div class="rescue-request-label">CURRENT REQUEST</div><p class="rescue-scenario"></p><div class="rescue-choose">Choose priority:</div><div class="rescue-options"></div>';
+      rescueContent.querySelector('.rescue-scenario').textContent=`“${scenario.situation}”`;
+      const choices=[['critical','fa-triangle-exclamation','CRITICAL'],['important','fa-flag','IMPORTANT'],['backlog','fa-list-check','BACKLOG']];
+      const options=rescueContent.querySelector('.rescue-options');
+      choices.forEach(([value,icon,label])=>{
+        const button=document.createElement('button'); button.type='button'; button.className=`rescue-option ${value}`; button.dataset.priority=value;
+        button.innerHTML=`<i class="fa-solid ${icon}" aria-hidden="true"></i><span>${label}</span>`;
+        button.addEventListener('click',()=>selectRescuePriority(value,button)); options.appendChild(button);
+      });
+      scenarioShownAt=performance.now(); updateRescueScore();
+    }
+    function selectRescuePriority(priority,selectedButton){
+      if(!gameActive||answerLocked)return;
+      answerLocked=true;
+      const scenario=rescueRound[rescueIndex];
+      const buttons=[...rescueContent.querySelectorAll('.rescue-option')]; buttons.forEach(button=>button.disabled=true);
+      if(priority===scenario.priority){
+        const speedBonus=performance.now()-scenarioShownAt<=3500?20:0;
+        score+=100+speedBonus; correct++; streak++; bestStreak=Math.max(bestStreak,streak); selectedButton.classList.add('is-correct');
+        rescueFeedback.textContent=`Good call · +${100+speedBonus}${speedBonus?' speed bonus':''}`; rescueFeedback.classList.add('good');
+      }else{
+        score=Math.max(0,score-25); streak=0; selectedButton.classList.add('is-wrong');
+        const correctButton=buttons.find(button=>button.dataset.priority===scenario.priority); correctButton?.classList.add('is-correct');
+        rescueFeedback.textContent=`Not quite · Correct priority: ${scenario.priority.toUpperCase()}`; rescueFeedback.classList.add('bad');
+      }
+      rescueIndex++; updateRescueScore(); nextId=window.setTimeout(showRescueScenario,780);
+    }
+    function finishRescueGame(){
+      if(!gameActive&&rescueContent.querySelector('.rescue-results'))return;
+      gameActive=false; answerLocked=true; clearInterval(timerId); clearTimeout(nextId); timerId=0; nextId=0;
+      const accuracy=Math.round(correct/rescueRound.length*100)||0;
+      let title='PROJECT NEEDS ATTENTION',copy='Try another sprint.';
+      if(accuracy>=90){title='PROJECT SAVED';copy='Excellent prioritization.';}else if(accuracy>=70){title='PROJECT ON TRACK';copy='Strong decision-making.';}else if(accuracy>=50){title='PROJECT RECOVERING';copy='Good effort — priorities matter.';}
+      rescueProgress.style.width='100%'; rescueFeedback.textContent=''; rescueFeedback.className='rescue-feedback';
+      rescueContent.innerHTML='<div class="rescue-request-label">FINAL STATUS</div><h3 class="rescue-result-title"></h3><p class="rescue-result-copy"></p><div class="rescue-results"><div class="rescue-result-stat"><small>SCORE</small><strong data-result="score"></strong></div><div class="rescue-result-stat"><small>ACCURACY</small><strong data-result="accuracy"></strong></div><div class="rescue-result-stat"><small>BEST STREAK</small><strong data-result="streak"></strong></div></div><p class="rescue-quote">“Good projects aren’t about doing everything first — they’re about doing the right things first.”</p>';
+      rescueContent.querySelector('.rescue-result-title').textContent=title; rescueContent.querySelector('.rescue-result-copy').textContent=copy;
+      rescueContent.querySelector('[data-result="score"]').textContent=score; rescueContent.querySelector('[data-result="accuracy"]').textContent=`${accuracy}%`; rescueContent.querySelector('[data-result="streak"]').textContent=bestStreak;
+      rescueStart.disabled=false; rescueStartText.textContent='PLAY AGAIN'; rescueStart.querySelector('i').className='fa-solid fa-rotate-right';
+    }
+    function startRescueGame(){
+      clearInterval(timerId); clearTimeout(nextId); rescueRound=shuffledRescueScenarios(); rescueIndex=0; score=0; streak=0; bestStreak=0; correct=0; timeLeft=30; gameActive=true; answerLocked=false;
+      rescueStart.disabled=true; rescueStartText.textContent='PROJECT ACTIVE'; rescueStart.querySelector('i').className='fa-solid fa-spinner'; updateRescueScore(); showRescueScenario();
+      timerId=window.setInterval(()=>{timeLeft--;updateRescueScore();if(timeLeft<=0)finishRescueGame();},1000);
+    }
+    rescueStart.addEventListener('click',startRescueGame);
+    document.addEventListener('keydown',event=>{
+      if(!gameActive||answerLocked||event.ctrlKey||event.metaKey||event.altKey||event.target.matches('input,textarea,select'))return;
+      const priority={1:'critical',2:'important',3:'backlog'}[event.key];
+      if(priority){event.preventDefault();const button=rescueContent.querySelector(`[data-priority="${priority}"]`);if(button)selectRescuePriority(priority,button);}
+    });
+  }
+
+  // Cinematic depth-weather field for the Professional Experience section.
+  document.querySelectorAll('.experience-weather').forEach(canvas=>{
+    const section = canvas.closest('.experience-section');
+    const context = canvas.getContext('2d',{alpha:true});
+    if(!context) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const weatherPalettes = {dark:['98,215,154','232,176,123','143,211,222'],light:['35,139,97','183,108,32','57,128,150']};
+    let width=1,height=1,particles=[],frame=0,visible=false,pointerX=0,pointerY=0;
+    const makeParticle = (randomY=true)=>{
+      const depth=.25+Math.random()*.75;
+      return {x:Math.random()*width,y:randomY?Math.random()*height:-45,depth,length:18+depth*54+Math.random()*22,speed:.85+depth*3.7,drift:(Math.random()-.5)*.34,alpha:.2+depth*.48,colorIndex:Math.floor(Math.random()*3),flake:Math.random()>.72,phase:Math.random()*Math.PI*2};
+    };
+    const resizeWeather=()=>{
+      const bounds=section.getBoundingClientRect();
+      const ratio=Math.min(window.devicePixelRatio||1,1.5);
+      width=Math.max(1,bounds.width); height=Math.max(1,bounds.height);
+      canvas.width=Math.round(width*ratio); canvas.height=Math.round(height*ratio);
+      canvas.style.width=`${width}px`; canvas.style.height=`${height}px`;
+      context.setTransform(ratio,0,0,ratio,0,0);
+      const amount=Math.min(190,Math.max(80,Math.round(width*height/8200)));
+      particles=Array.from({length:amount},()=>makeParticle());
+    };
+    const drawWeather=()=>{
+      frame=0; context.clearRect(0,0,width,height);
+      const px=pointerX*12,py=pointerY*6;
+      for(const particle of particles){
+        const particleColor=weatherPalettes[document.documentElement.dataset.theme==='light'?'light':'dark'][particle.colorIndex];
+        particle.phase+=.018; particle.y+=particle.speed; particle.x+=particle.drift+pointerX*particle.depth*.14;
+        if(particle.y>height+particle.length||particle.x < -50||particle.x>width+50) Object.assign(particle,makeParticle(false));
+        context.beginPath();
+        if(!particle.flake){
+          const gradient=context.createLinearGradient(particle.x,particle.y,particle.x+5,particle.y+particle.length);
+          gradient.addColorStop(0,`rgba(${particleColor},0)`); gradient.addColorStop(1,`rgba(${particleColor},${particle.alpha})`);
+          context.strokeStyle=gradient; context.lineWidth=.7+particle.depth*1.45;
+          context.moveTo(particle.x+px*particle.depth,particle.y+py*particle.depth);
+          context.lineTo(particle.x+5+px*particle.depth,particle.y+particle.length+py*particle.depth); context.stroke();
+        }else{
+          const radius=1.4+particle.depth*3.1;
+          context.fillStyle=`rgba(${particleColor},${particle.alpha*.88})`;
+          context.shadowColor=`rgba(${particleColor},.8)`; context.shadowBlur=13*particle.depth;
+          context.arc(particle.x+Math.sin(particle.phase)*9+px*particle.depth,particle.y+py*particle.depth,radius,0,Math.PI*2); context.fill(); context.shadowBlur=0;
+        }
+      }
+      if(visible&&!reduced.matches) frame=requestAnimationFrame(drawWeather);
+    };
+    new ResizeObserver(resizeWeather).observe(section);
+    new IntersectionObserver(([entry])=>{
+      visible=entry.isIntersecting;
+      if(visible&&!reduced.matches&&!frame) frame=requestAnimationFrame(drawWeather);
+      if(!visible&&frame){cancelAnimationFrame(frame);frame=0;}
+    },{rootMargin:'120px'}).observe(section);
+    section.addEventListener('pointermove',event=>{
+      const bounds=section.getBoundingClientRect();
+      pointerX=(event.clientX-bounds.left)/bounds.width-.5; pointerY=(event.clientY-bounds.top)/bounds.height-.5;
+    },{passive:true});
+    reduced.addEventListener?.('change',()=>{
+      if(reduced.matches&&frame){cancelAnimationFrame(frame);frame=0;}
+      else if(visible&&!frame) frame=requestAnimationFrame(drawWeather);
+    });
+    resizeWeather();
+  });
+
+  // ---- sticky cta ----
   const stickyCta = document.getElementById('stickyCta');
   window.addEventListener('scroll', ()=>{
     stickyCta.classList.toggle('show', window.scrollY > 700);
