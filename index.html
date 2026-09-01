@@ -5,7 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark light">
-<title>Anul Methnula &mdash; Portfolio</title>
+<title>Anul Methnula | Business Analyst &amp; Project Manager</title>
+<meta name="description" content="Anul Methnula — Business Analyst and aspiring Project Manager portfolio featuring experience, projects, leadership, skills, and qualifications.">
+<meta name="theme-color" content="#080c10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1e9" media="(prefers-color-scheme: light)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script>
   (()=>{try{const saved=localStorage.getItem('anul-theme');document.documentElement.dataset.theme=saved||'dark';}catch(error){document.documentElement.dataset.theme='dark';}})();
 </script>
@@ -334,15 +338,16 @@
   /* level progression / education */
   .level-list{ display:flex; flex-direction:column; gap:18px; position:relative; padding:0 0 0 78px; }
   .level-list::before{ content:""; display:block; position:absolute; left:39px; top:30px; bottom:30px; width:2px; background:linear-gradient(var(--accent),var(--gold),#b66f8d,var(--gold)); opacity:.8; }
-  .level-item{ display:flex; align-items:center; gap:24px; min-height:128px; padding:22px 24px 22px 112px; position:relative; isolation:isolate; background:rgba(22,29,25,.58); border:1px solid rgba(255,255,255,.16); border-radius:18px; box-shadow:0 12px 26px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.05); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+  .level-item{ display:flex; align-items:center; gap:24px; min-height:128px; padding:22px 24px 22px 150px; position:relative; isolation:isolate; background:rgba(22,29,25,.58); border:1px solid rgba(255,255,255,.16); border-radius:18px; box-shadow:0 12px 26px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.05); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
   .level-item::before{ display:none; }
   .level-item:last-child{ border-bottom:1px solid rgba(255,255,255,.12); }
   .level-badge{ position:absolute; left:-69px; top:50%; transform:translateY(-50%); z-index:2; flex-shrink:0; width:58px; height:58px; border-radius:16px; background:#11151b; border:1px solid var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Share Tech Mono',monospace; font-size:.9rem; font-weight:700; color:var(--accent); box-shadow:0 0 0 8px var(--bg),0 0 18px rgba(98,215,154,.12); }
   .level-item:nth-child(2) .level-badge{ border-color:var(--gold); color:var(--gold); }
   .level-item:nth-child(3) .level-badge{ border-color:#b66f8d; color:#b66f8d; }
   .level-item:nth-child(4) .level-badge{ border-color:#c4774d; color:#c4774d; }
-  .level-logo{ position:absolute; left:24px; top:50%; transform:translateY(-50%); width:68px; height:58px; display:grid; place-items:center; overflow:hidden; border:1px solid rgba(255,255,255,.12); border-radius:16px; background:#242720; box-shadow:0 8px 18px rgba(0,0,0,.22); }
-  .level-logo img{ display:block; width:62px; height:50px; object-fit:cover; object-position:center; border-radius:7px; background:#fff; }
+  .level-logo{ position:absolute; left:24px; top:50%; transform:translateY(-50%); width:100px; height:84px; display:grid; place-items:center; overflow:hidden; padding:0; border:1px solid rgba(232,176,123,.18); border-radius:20px; background:linear-gradient(145deg,rgba(42,42,34,.94),rgba(27,29,25,.96)); box-shadow:0 12px 28px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.055); }
+  .level-logo::after{ display:none; }
+  .level-logo img{ display:block; width:58px; height:58px; object-fit:contain; object-position:center; padding:2px; border:1px solid rgba(25,35,31,.08); border-radius:11px; background:#fff; box-shadow:0 7px 15px rgba(0,0,0,.2); transform:none; }
   .level-item > div:last-child{ align-self:center; max-width:calc(100% - 34px); }
   .level-item h3{ font-family:'Manrope',sans-serif; font-size:1.32rem; font-weight:800; margin:7px 0 7px; line-height:1.2; }
   .level-item h3::before{ content:"CURRENT STUDIES"; display:block; width:max-content; margin-bottom:10px; padding:7px 11px; border:1px solid rgba(98,215,154,.24); border-radius:999px; background:rgba(98,215,154,.1); color:var(--accent); font-family:'Manrope',sans-serif; font-size:.61rem; letter-spacing:.08em; line-height:1; }
@@ -365,7 +370,7 @@
   .level-list.in .level-item:nth-child(3){ animation-delay:.2s; }
   .level-list.in .level-item:nth-child(4){ animation-delay:.3s; }
   @keyframes educationCardIn{ from{ opacity:0; transform:translateY(22px) scale(.985); } to{ opacity:1; transform:translateY(0) scale(1); } }
-  @media (max-width:700px){ .level-list{ padding-left:50px; gap:16px; } .level-list::before{ left:24px; } .level-item{ min-height:150px; padding:24px 20px 24px 70px; border-radius:16px; } .level-badge{ left:-50px; width:50px; height:50px; border-radius:14px; box-shadow:0 0 0 6px var(--bg); } .level-logo{ left:20px; width:54px; height:50px; border-radius:14px; } .level-logo img{ width:48px; height:40px; } .level-item > div:last-child{ max-width:calc(100% - 8px); padding-top:24px; } .level-item h3{ font-size:1.08rem; } .level-item .lv-date{ top:50%; right:20px; transform:translateY(-50%); font-size:.64rem; } .level-item .lv-mods{ font-size:.75rem; } }
+  @media (max-width:700px){ .level-list{ padding-left:50px; gap:16px; } .level-list::before{ left:24px; } .level-item{ min-height:150px; padding:24px 20px 24px 102px; border-radius:16px; } .level-badge{ left:-50px; width:50px; height:50px; border-radius:14px; box-shadow:0 0 0 6px var(--bg); } .level-logo{ left:16px; width:76px; height:68px; border-radius:16px; } .level-logo img{ width:50px; height:50px; } .level-item > div:last-child{ max-width:calc(100% - 8px); padding-top:24px; } .level-item h3{ font-size:1.08rem; } .level-item .lv-date{ top:50%; right:20px; transform:translateY(-50%); font-size:.64rem; } .level-item .lv-mods{ font-size:.75rem; } }
   @media (max-width:700px){ .education-section{ padding:54px 18px 44px; } .education-section .level-list{ max-width:none; } }
 
   /* achievements */
@@ -937,12 +942,14 @@
   .chat-bubble a{ color:#79dba8; font-weight:700; text-decoration:none; }
   .chat-bubble a:hover{ text-decoration:underline; }
   .chat-answer-title{ display:block; margin-bottom:6px; color:#fff4e8; font-size:.9rem; font-weight:800; letter-spacing:-.01em; }
-  .chat-answer-body{ display:grid; gap:9px; }
+  .chat-answer-body{ display:grid; align-items:start; gap:9px; overflow-wrap:anywhere; }
   .chat-answer-body p{ margin:0; }
   .chat-answer-body ul{ display:grid; gap:5px; margin:0; padding-left:18px; }
   .chat-answer-body li{ padding-left:2px; }
   .chat-answer-body li::marker{ color:#72dca7; }
   .chat-general-answer{ white-space:pre-line; line-height:1.62; }
+  .chat-source{ display:block; margin-top:11px; padding-top:9px; border-top:1px solid rgba(255,255,255,.1); color:#8f9ca3; font-size:.72rem; line-height:1.5; }
+  .chat-source a{ color:#78dca9; font-weight:750; text-underline-offset:3px; }
   .chat-typing{ display:flex; align-items:center; gap:4px; height:18px; }
   .chat-typing span{ width:5px; height:5px; border-radius:50%; background:#9ba6af; animation:chatDot 1s ease-in-out infinite; }
   .chat-typing span:nth-child(2){ animation-delay:.14s; }
@@ -1022,10 +1029,10 @@
     .leadership-section .guild-item p{ font-size:.88rem; }
     .education-section .level-list{ padding-left:0; gap:12px; }
     .education-section .level-list::before{ display:none; }
-    .education-section .level-item{ display:grid; grid-template-columns:54px minmax(0,1fr); grid-template-rows:auto auto; gap:10px 14px; min-height:0; padding:17px; }
+    .education-section .level-item{ display:grid; grid-template-columns:78px minmax(0,1fr); grid-template-rows:auto auto; gap:10px 14px; min-height:0; padding:17px; }
     .education-section .level-badge{ position:static; grid-column:1; grid-row:1; width:48px; height:48px; transform:none; box-shadow:none; }
-    .education-section .level-logo{ position:static; grid-column:1; grid-row:2; width:48px; height:44px; transform:none; }
-    .education-section .level-logo img{ width:42px; height:36px; }
+    .education-section .level-logo{ position:static; grid-column:1; grid-row:2; width:76px; height:66px; transform:none; }
+    .education-section .level-logo img{ width:48px; height:48px; }
     .education-section .level-item > div:last-child{ grid-column:2; grid-row:1 / span 2; max-width:100%; padding:0; }
     .education-section .level-item .lv-date{ position:static; display:flex; margin-bottom:8px; transform:none; white-space:normal; font-size:.65rem; }
     .education-section .level-item h3{ font-size:1.02rem; }
@@ -1066,14 +1073,16 @@
 
   /* Section navigation */
   .topbar{ gap:clamp(12px,1.5vw,22px); }
-  .site-nav{ position:relative; display:flex; align-items:center; justify-content:center; gap:3px; margin-left:auto; padding:5px; border:1px solid rgba(255,255,255,.12); border-radius:17px; background:linear-gradient(135deg,rgba(24,31,36,.88),rgba(12,17,21,.9)); box-shadow:0 14px 36px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.055); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
-  .site-nav::before{ content:""; position:absolute; inset:-1px; z-index:-1; border-radius:inherit; background:linear-gradient(110deg,rgba(98,215,154,.28),transparent 25%,transparent 72%,rgba(232,176,123,.27)); opacity:.7; filter:blur(9px); pointer-events:none; }
-  .site-nav-link{ position:relative; display:flex; align-items:center; justify-content:center; min-height:42px; padding:0 clamp(10px,1vw,14px); border:1px solid transparent; border-radius:12px; color:#aab4b9; font:750 .82rem/1 'Manrope',sans-serif; letter-spacing:.01em; text-decoration:none; white-space:nowrap; transition:color .22s ease,background .22s ease,border-color .22s ease,transform .22s ease,box-shadow .22s ease; }
-  .site-nav-link::before{ content:""; width:0; height:5px; margin-right:0; border-radius:50%; background:#72dda6; box-shadow:0 0 10px rgba(98,215,154,.8); opacity:0; transition:width .22s ease,margin .22s ease,opacity .22s ease; }
-  .site-nav-link::after{ content:""; position:absolute; right:12px; bottom:4px; left:12px; height:1px; border-radius:2px; background:linear-gradient(90deg,transparent,#62d79a,#e8b07b,transparent); opacity:0; transform:scaleX(.3); transition:opacity .22s ease,transform .22s ease; }
-  .site-nav-link:hover{ color:#fff; border-color:rgba(255,255,255,.09); background:rgba(255,255,255,.055); transform:translateY(-1px); }
-  .site-nav-link.is-active{ color:#fff; border-color:rgba(98,215,154,.19); background:linear-gradient(135deg,rgba(98,215,154,.14),rgba(232,176,123,.075)); box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 7px 20px rgba(0,0,0,.18); }
-  .site-nav-link.is-active::before{ width:5px; margin-right:7px; opacity:1; }
+  .site-nav{ position:relative; display:flex; align-items:center; justify-content:center; gap:clamp(10px,1.25vw,22px); margin-left:auto; padding:0; border:0; background:transparent; box-shadow:none; }
+  .site-nav::before{ display:none; }
+  .site-nav-link{ position:relative; display:flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:0 2px; border:0; border-radius:0; color:#aab4b9; font:750 clamp(.82rem,.8vw,.94rem)/1 'Manrope',sans-serif; letter-spacing:.005em; text-decoration:none; white-space:nowrap; transition:color .22s ease,transform .22s ease,text-shadow .22s ease; }
+  .site-nav-link i{ width:18px; color:#89969d; font-size:1rem; text-align:center; transition:color .22s ease,transform .22s ease; }
+  .site-nav-link::before{ display:none; }
+  .site-nav-link::after{ content:""; position:absolute; right:0; bottom:2px; left:0; height:2px; border-radius:2px; background:linear-gradient(90deg,#62d79a,#5fcfe0); opacity:0; transform:scaleX(.2); transform-origin:center; box-shadow:0 0 12px rgba(98,215,154,.45); transition:opacity .22s ease,transform .22s ease; }
+  .site-nav-link:hover{ color:#fff; transform:translateY(-1px); }
+  .site-nav-link:hover i{ color:#c8f4dd; transform:translateY(-1px); }
+  .site-nav-link.is-active{ color:#6ce0aa; text-shadow:0 0 18px rgba(98,215,154,.22); }
+  .site-nav-link.is-active i{ color:#65d7e7; }
   .site-nav-link.is-active::after{ opacity:1; transform:scaleX(1); }
   .theme-toggle{ display:grid; place-items:center; width:62px; height:42px; flex:0 0 auto; padding:0; border:1px solid rgba(255,255,255,.13); border-radius:14px; background:rgba(17,24,29,.92); color:#e7edf0; cursor:pointer; box-shadow:inset 0 1px 0 rgba(255,255,255,.05); transition:border-color .22s ease,background .22s ease,transform .22s ease; }
   .theme-toggle:hover{ border-color:rgba(232,176,123,.48); transform:translateY(-1px); }
@@ -1090,12 +1099,14 @@
   .nav-toggle[aria-expanded="true"] .nav-toggle-lines{ background:transparent; }.nav-toggle[aria-expanded="true"] .nav-toggle-lines::before{ top:0; transform:rotate(45deg); }.nav-toggle[aria-expanded="true"] .nav-toggle-lines::after{ top:0; transform:rotate(-45deg); }
   .nav-progress{ position:absolute; right:0; bottom:-1px; left:0; height:2px; overflow:hidden; pointer-events:none; }
   .nav-progress span{ display:block; width:100%; height:100%; background:linear-gradient(90deg,#62d79a,#e8b07b); transform:scaleX(0); transform-origin:left; box-shadow:0 0 10px rgba(98,215,154,.42); will-change:transform; }
-  @media (max-width:1240px){ .site-nav-link{ padding-inline:9px; font-size:.76rem; } }
-  @media (max-width:1030px){
+  @media (max-width:1240px){ .site-nav{ gap:10px; }.site-nav-link{ font-size:.8rem; }.site-nav-link i{ font-size:.88rem; } }
+  @media (max-width:1180px){
     .nav-toggle{ display:grid; }
     .site-nav{ position:fixed; z-index:110; top:calc(76px + 10px); right:14px; left:14px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:0; padding:14px; border-radius:20px; background:rgba(9,14,18,.96); box-shadow:0 26px 65px rgba(0,0,0,.5); opacity:0; visibility:hidden; transform:translateY(-12px) scale(.975); transform-origin:top; transition:opacity .24s ease,transform .24s ease,visibility 0s linear .24s; }
     .site-nav.is-open{ opacity:1; visibility:visible; transform:translateY(0) scale(1); transition-delay:0s; }
-    .site-nav-link{ min-height:50px; padding:0 12px; font-size:.8rem; }
+    .site-nav-link{ justify-content:flex-start; min-height:52px; padding:0 15px; border:1px solid rgba(255,255,255,.08); border-radius:13px; background:rgba(255,255,255,.025); font-size:.8rem; }
+    .site-nav-link::after{ right:14px; bottom:5px; left:14px; }
+    .site-nav-link.is-active{ border-color:rgba(98,215,154,.25); background:rgba(98,215,154,.09); }
   }
   @media (max-width:820px){ .site-nav{ top:calc(68px + 8px); } }
   @media (max-width:650px){ .site-nav{ grid-template-columns:repeat(2,minmax(0,1fr)); }.site-nav-link{ justify-content:flex-start; padding-left:15px; }.site-nav-link::after{ right:14px; left:14px; }.theme-toggle{ position:absolute; right:69px; width:56px; }.nav-toggle{ position:absolute; right:15px; display:grid !important; }.logo-name{ font-size:.88rem; } }
@@ -1112,38 +1123,59 @@
   html[data-theme="light"] .vignette{ background:radial-gradient(ellipse at 50% 40%,transparent 54%,rgba(197,191,173,.5)); }
   html[data-theme="light"] .topbar{ background:rgba(247,245,238,.84); border-color:rgba(34,59,51,.13); box-shadow:0 10px 34px rgba(43,55,48,.08); }
   html[data-theme="light"] .logo-word{ background:linear-gradient(105deg,#15201c 15%,#15201c 38%,#b66f27 48%,#238b61 53%,#15201c 63%); background-size:260% 100%; -webkit-background-clip:text; background-clip:text; }
-  html[data-theme="light"] .site-nav{ border-color:rgba(37,65,56,.15); background:linear-gradient(135deg,rgba(255,255,252,.94),rgba(239,239,232,.94)); box-shadow:0 14px 32px rgba(38,56,48,.11),inset 0 1px 0 #fff; }
+  html[data-theme="light"] .site-nav{ border-color:transparent; background:transparent; box-shadow:none; }
   html[data-theme="light"] .site-nav-link{ color:#53615c; }
-  html[data-theme="light"] .site-nav-link:hover{ color:#17201d; border-color:rgba(35,139,97,.12); background:rgba(35,139,97,.07); }
-  html[data-theme="light"] .site-nav-link.is-active{ color:#10261e; border-color:rgba(35,139,97,.2); background:linear-gradient(135deg,rgba(35,139,97,.13),rgba(183,108,32,.08)); box-shadow:0 7px 18px rgba(35,74,60,.09); }
+  html[data-theme="light"] .site-nav-link i{ color:#70807a; }
+  html[data-theme="light"] .site-nav-link:hover{ color:#17201d; }
+  html[data-theme="light"] .site-nav-link:hover i{ color:#238b61; }
+  html[data-theme="light"] .site-nav-link.is-active{ color:#167653; text-shadow:none; }
+  html[data-theme="light"] .site-nav-link.is-active i{ color:#1689a1; }
   html[data-theme="light"] .theme-toggle,html[data-theme="light"] .nav-toggle{ border-color:rgba(37,65,56,.17); background:#fffefa; color:#18241f; }
   html[data-theme="light"] .theme-toggle-track{ background:#e7e5dd; }
   html[data-theme="light"] .nav-progress span{ background:linear-gradient(90deg,#238b61,#c57a2d); }
-  html[data-theme="light"] .hero{ border-color:rgba(40,70,60,.15); background:linear-gradient(90deg,#f7f3ea 0%,#f5f1e8 42%,rgba(245,241,232,.8) 62%,rgba(245,241,232,.08) 100%); }
-  html[data-theme="light"] .hero::before{ background:radial-gradient(circle at 0 0,rgba(205,139,69,.18),transparent 20%),linear-gradient(90deg,transparent 64%,rgba(52,139,103,.1)); }
-  html[data-theme="light"] .hero::after{ border-color:rgba(35,139,97,.16); box-shadow:0 0 0 76px rgba(35,139,97,.025),0 0 0 152px rgba(183,108,32,.018); }
-  html[data-theme="light"] .hero-copy{ padding:clamp(24px,3vw,38px); border:1px solid rgba(54,82,72,.18); border-radius:24px; background:rgba(250,248,241,.9); box-shadow:0 24px 60px rgba(16,31,26,.18),inset 0 1px 0 #fff; backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
-  html[data-theme="light"] .hero h1{ color:#16221e; }
-  html[data-theme="light"] .hero-intro{ color:#2d3b36; }
-  html[data-theme="light"] .hero-quote{ color:#754311; }
-  html[data-theme="light"] .hero p.blurb{ color:#4d5d57; }
-  html[data-theme="light"] .hero .rank-tag{ border-color:rgba(166,94,28,.28); background:rgba(255,251,243,.72); color:#945314; }
-  html[data-theme="light"] .hero .avatar-frame img{ filter:contrast(1.02) saturate(.94) brightness(1.02); }
-  html[data-theme="light"] .hero .avatar-frame::after{ background:linear-gradient(90deg,#f5f1e8 0%,rgba(245,241,232,.62) 16%,transparent 50%),linear-gradient(0deg,rgba(245,241,232,.35),transparent 34%); }
+  html[data-theme="light"] .chat-panel{ border-color:rgba(35,116,83,.23); background:radial-gradient(circle at 90% 0,rgba(45,154,177,.1),transparent 36%),linear-gradient(155deg,#fffefa,#f2f3ed 66%); box-shadow:0 28px 80px rgba(38,55,47,.24),inset 0 1px 0 #fff; }
+  html[data-theme="light"] .chat-header{ border-color:rgba(38,72,60,.13); background:rgba(247,248,242,.93); }
+  html[data-theme="light"] .chat-avatar,html[data-theme="light"] .chat-message-avatar{ border-color:rgba(183,108,32,.25); background:#eef2ec; color:#9a5718; }
+  html[data-theme="light"] .chat-identity strong,html[data-theme="light"] .chat-answer-title{ color:#17231f; }
+  html[data-theme="light"] .chat-status{ color:#1d7c57; }
+  html[data-theme="light"] .chat-close{ color:#66736e; }
+  html[data-theme="light"] .chat-close:hover{ background:rgba(35,139,97,.08); color:#17231f; }
+  html[data-theme="light"] .chat-bubble{ border-color:rgba(39,72,61,.14); background:#fff; color:#3f4e49; box-shadow:0 10px 24px rgba(44,64,55,.08); }
+  html[data-theme="light"] .chat-message.user .chat-bubble{ border-color:rgba(183,108,32,.25); background:#f5e9da; color:#573619; }
+  html[data-theme="light"] .chat-source{ border-color:rgba(39,72,61,.13); color:#74817c; }
+  html[data-theme="light"] .chat-source a,html[data-theme="light"] .chat-bubble a{ color:#197753; }
+  html[data-theme="light"] .chat-suggestions,html[data-theme="light"] .chat-form{ border-color:rgba(39,72,61,.12); background:rgba(238,241,235,.86); }
+  html[data-theme="light"] .chat-suggestion{ border-color:rgba(38,72,60,.14); background:#fff; color:#3f4d48; }
+  html[data-theme="light"] .chat-suggestion:hover{ border-color:rgba(35,139,97,.35); background:#eef7f1; color:#176e4c; }
+  html[data-theme="light"] .chat-input{ border-color:rgba(39,72,61,.17); background:#fff; color:#17231f; }
+  html[data-theme="light"] .chat-input::placeholder{ color:#89958f; }
+  html[data-theme="light"] .chat-send{ background:#c9823b; color:#fff; }
+  html[data-theme="light"] .hero{ border-color:rgba(98,215,154,.16); background:#080a0d; }
+  html[data-theme="light"] .hero::before{ background:linear-gradient(90deg,#080a0d 0%,rgba(8,10,13,.98) 28%,rgba(8,10,13,.8) 48%,rgba(8,10,13,.34) 63%,rgba(8,10,13,.08) 82%),linear-gradient(0deg,rgba(8,10,13,.42),transparent 46%); }
+  html[data-theme="light"] .hero::after{ display:none; }
+  html[data-theme="light"] .hero-copy{ padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; }
+  html[data-theme="light"] .hero h1{ color:#f5f7f7; }
+  html[data-theme="light"] .hero-intro{ color:#f0f1f3; }
+  html[data-theme="light"] .hero-quote{ color:#f0bd8b; }
+  html[data-theme="light"] .hero p.blurb{ color:#c7cbd1; }
+  html[data-theme="light"] .hero .rank-tag{ border-color:rgba(232,176,123,.28); background:rgba(232,176,123,.08); color:#e8b07b; }
+  html[data-theme="light"] .hero .avatar-frame img{ filter:contrast(1.025) saturate(.88) brightness(.9); }
+  html[data-theme="light"] .hero .avatar-frame::after{ background:linear-gradient(90deg,#080a0d 0%,rgba(8,10,13,.62) 13%,transparent 38%),linear-gradient(0deg,rgba(8,10,13,.42),transparent 28%); }
   html[data-theme="light"] .page > section:not(.hero){ background:#f3f1e9 !important; border-color:rgba(32,59,50,.13); box-shadow:none; }
-  html[data-theme="light"] .page > section:not(.hero) .sec-title h2{ color:#18231f; }
-  html[data-theme="light"] .page > section.hero + section.skill-showcase{ background:#e5ede8 !important; }
-  html[data-theme="light"] .skill-showcase::before{ background:linear-gradient(90deg,rgba(231,239,234,.74),rgba(238,242,237,.47) 52%,rgba(226,235,230,.68)),linear-gradient(0deg,rgba(228,236,231,.76),transparent 52%); }
-  html[data-theme="light"] .skill-showcase-video{ opacity:.5; filter:saturate(.68) contrast(1.02) brightness(1.06); }
+  html[data-theme="light"] .page > section:not(.hero) .sec-title h2{ color:#101512; background:none; -webkit-background-clip:border-box; background-clip:border-box; -webkit-text-fill-color:currentColor; text-shadow:none; animation:none; }
+  html[data-theme="light"] .page > section.hero + section.skill-showcase{ background:#dbe9e3 !important; }
+  html[data-theme="light"] .skill-showcase::before{ background:linear-gradient(118deg,rgba(38,166,122,.3),rgba(72,174,194,.14) 46%,rgba(219,145,70,.28)),linear-gradient(0deg,rgba(244,241,230,.32),rgba(246,248,241,.06) 48%,rgba(235,244,239,.22)); box-shadow:inset 0 70px 90px rgba(237,244,239,.2),inset 0 -45px 70px rgba(50,111,91,.08); }
+  html[data-theme="light"] .skill-showcase-video{ opacity:.74; filter:saturate(1.2) contrast(1.16) brightness(.91); }
   html[data-theme="light"] .tool-marquee{ border-color:rgba(29,72,58,.18); background:rgba(255,255,252,.8); box-shadow:0 12px 28px rgba(42,62,54,.08); }
   html[data-theme="light"] .tool-marquee::before{ background:linear-gradient(90deg,#f4f5ef,transparent); }
   html[data-theme="light"] .tool-marquee::after{ background:linear-gradient(-90deg,#f4f5ef,transparent); }
   html[data-theme="light"] .tool-marquee-item{ color:#25332e; }
   html[data-theme="light"] .skill-tile{ border-color:rgba(42,84,69,.24); background:rgba(255,255,252,.88); box-shadow:0 14px 28px rgba(41,62,53,.1); }
-  html[data-theme="light"] .skill-tile:hover{ background:#fff; }
+  html[data-theme="light"] .skill-tile:nth-child(4n+1){ border-top-color:#2aa978; }html[data-theme="light"] .skill-tile:nth-child(4n+2){ border-top-color:#278da6; }html[data-theme="light"] .skill-tile:nth-child(4n+3){ border-top-color:#a06ac0; }html[data-theme="light"] .skill-tile:nth-child(4n){ border-top-color:#d18a3e; }
+  html[data-theme="light"] .skill-tile:hover{ background:#fff; box-shadow:0 20px 42px rgba(33,121,91,.16),0 0 30px rgba(62,157,184,.1); }
   html[data-theme="light"] .skill-tile h3{ color:#17231f; }
   html[data-theme="light"] .skill-tile p{ color:#56635f; }
-  html[data-theme="light"] .projects-section{ background:linear-gradient(180deg,#f7f4ec,#f0eee7) !important; }
+  html[data-theme="light"] .projects-section{ background:linear-gradient(135deg,#f7f2e8 0%,#e8f4ee 42%,#e9f1f7 72%,#f6eadf 100%) !important; background-size:180% 180% !important; animation:lightSectionFlow 16s ease-in-out infinite alternate; }
   html[data-theme="light"] .projects-section .quest-card{ border-color:rgba(38,76,63,.2) !important; background:#fffefa !important; box-shadow:0 14px 34px rgba(47,65,57,.1); }
   html[data-theme="light"] .projects-section .quest-card h3{ color:#17231f; }
   html[data-theme="light"] .projects-section .quest-card li{ color:#55635f; }
@@ -1153,30 +1185,34 @@
   html[data-theme="light"] .projects-section .project-media{ filter:brightness(1.04) contrast(1.02) saturate(.96); }
   html[data-theme="light"] .experience-section{ background:linear-gradient(135deg,#dcece4,#dbe9ec 52%,#eee2d6) !important; }
   html[data-theme="light"] .experience-section .sec-title h2{ color:#17231f; text-shadow:none; }
-  html[data-theme="light"] .experience-section::before{ opacity:.38; }
-  html[data-theme="light"] .experience-section::after{ background-image:linear-gradient(rgba(35,77,61,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(35,77,61,.05) 1px,transparent 1px); }
-  html[data-theme="light"] .experience-weather{ opacity:.28; }
+  html[data-theme="light"] .experience-section::before{ opacity:.68; }
+  html[data-theme="light"] .experience-section::after{ background-image:linear-gradient(rgba(35,77,61,.085) 1px,transparent 1px),linear-gradient(90deg,rgba(35,77,61,.085) 1px,transparent 1px); }
+  html[data-theme="light"] .experience-weather{ opacity:.9; filter:saturate(1.35) contrast(1.12); }
   html[data-theme="light"] .experience-intro{ color:#425b52; text-shadow:none; }
   html[data-theme="light"] .experience-card{ border-color:rgba(42,109,83,.24); background:rgba(255,255,252,.78); box-shadow:0 24px 64px rgba(41,69,57,.12),inset 0 1px 0 #fff; }
   html[data-theme="light"] .experience-card h3,html[data-theme="light"] .experience-card strong{ color:#17231f; }
   html[data-theme="light"] .experience-card li,html[data-theme="light"] .experience-company{ color:#465b53; }
   html[data-theme="light"] .experience-date{ border-color:rgba(35,139,97,.28); background:rgba(35,139,97,.07); color:#1e7954; }
   html[data-theme="light"] .experience-tags span{ border-color:rgba(35,89,69,.17); background:rgba(255,255,255,.5); color:#3e564d; }
-  html[data-theme="light"] .leadership-section{ background:#edf0e9 !important; }
+  html[data-theme="light"] .leadership-section{ background:linear-gradient(135deg,#edf5ef,#edf0f8 52%,#f6eadf) !important; }
   html[data-theme="light"] .leadership-photo{ filter:brightness(1.05) contrast(1.01) saturate(.94); }
   html[data-theme="light"] .leadership-gallery{ border-color:rgba(35,74,60,.2); box-shadow:0 24px 62px rgba(43,58,51,.18); }
-  html[data-theme="light"] .education-section{ background:linear-gradient(180deg,#f7f4ec,#eeeee7) !important; }
+  html[data-theme="light"] .education-section{ background:linear-gradient(145deg,#f7f3e9,#e9f3f4 48%,#f0ebf7) !important; }
   html[data-theme="light"] .education-section .level-item{ border-color:rgba(37,72,60,.17); background:#fffefa; box-shadow:0 16px 34px rgba(47,65,57,.08); }
   html[data-theme="light"] .education-section .level-item h3{ color:#17231f; }
   html[data-theme="light"] .education-section .level-item :is(.lv-org,.lv-mods){ color:#5c6864; }
   html[data-theme="light"] .education-section .lv-date{ color:#267b59; }
+  html[data-theme="light"] .education-section .level-logo{ border-color:rgba(87,84,63,.2); background:linear-gradient(145deg,#eeece4,#dddcd3); box-shadow:0 10px 24px rgba(42,55,50,.16),inset 0 1px 0 #fff; }
   html[data-theme="light"] .education-section .level-list::before{ background:linear-gradient(#2f9a6e,#bd7a35); opacity:.65; }
-  html[data-theme="light"] .certifications-section{ background-image:linear-gradient(110deg,rgba(244,246,239,.82),rgba(235,241,235,.67) 48%,rgba(244,241,233,.82)),url("cer1.png") !important; background-size:cover,112%; }
-  html[data-theme="light"] .certifications-section::before,html[data-theme="light"] .certifications-section::after{ opacity:.27; filter:saturate(.78) contrast(1.02) brightness(1.03); }
-  html[data-theme="light"] .certifications-section .ach{ border-color:rgba(38,76,63,.21); background:rgba(255,255,252,.9); box-shadow:0 16px 38px rgba(47,65,57,.11); }
+  html[data-theme="light"] .certifications-section{ background-image:linear-gradient(110deg,rgba(239,244,236,.4),rgba(248,241,226,.22) 48%,rgba(232,241,237,.4)),url("cer1.png") !important; background-size:cover,108%; background-position:center; }
+  html[data-theme="light"] .certifications-section::before,html[data-theme="light"] .certifications-section::after{ opacity:.7; filter:saturate(1.08) contrast(1.12) brightness(.98); box-shadow:0 24px 58px rgba(45,61,53,.18); }
+  html[data-theme="light"] .certifications-section::before{ background-image:linear-gradient(rgba(244,248,241,.08),rgba(236,241,234,.2)),url("cer2.png"); }
+  html[data-theme="light"] .certifications-section::after{ background-image:linear-gradient(rgba(244,248,241,.08),rgba(236,241,234,.2)),url("cer3.png"); }
+  html[data-theme="light"] .certifications-section .sec-title h2{ color:#101512; text-shadow:none; }
+  html[data-theme="light"] .certifications-section .ach{ border-color:rgba(38,76,63,.21); background:rgba(255,255,252,.93); box-shadow:0 16px 38px rgba(47,65,57,.13); }
   html[data-theme="light"] .certifications-section .ach strong{ color:#18231f; }
   html[data-theme="light"] .certifications-section .ach small{ color:#5c6864; }
-  html[data-theme="light"] .page > section.project-rescue{ background:linear-gradient(145deg,#e4eee9,#edf0e8 58%,#eee8dd) !important; }
+  html[data-theme="light"] .page > section.project-rescue{ background:linear-gradient(145deg,#dff1e8,#e5eff5 48%,#f2e4d5 78%,#eee6f4) !important; background-size:180% 180% !important; animation:lightSectionFlow 18s ease-in-out infinite alternate-reverse; }
   html[data-theme="light"] .rescue-bg-word{ color:#275e4a; opacity:.065; }
   html[data-theme="light"] .rescue-title,html[data-theme="light"] .rescue-subtitle{ color:#17231f; }
   html[data-theme="light"] .rescue-description{ color:#596661; }
@@ -1186,7 +1222,7 @@
   html[data-theme="light"] .rescue-panel{ border-color:rgba(35,75,61,.14); background:#fff; }
   html[data-theme="light"] .rescue-ready-title,html[data-theme="light"] .rescue-result-title,html[data-theme="light"] .rescue-scenario{ color:#17231f; }
   html[data-theme="light"] .rescue-ready-copy,html[data-theme="light"] .rescue-result-copy,html[data-theme="light"] .rescue-instruction{ color:#5a6762; }
-  html[data-theme="light"] .contact-final{ background:#f2eee5 !important; }
+  html[data-theme="light"] .contact-final{ background:linear-gradient(125deg,#f5ecdf,#e8f3ee 56%,#e8f1f6) !important; }
   html[data-theme="light"] .contact-final h2 span:first-child{ color:#17231f; }
   html[data-theme="light"] .contact-final-description,html[data-theme="light"] .contact-final-detail a,html[data-theme="light"] .contact-final-detail span{ color:#53605c; }
   html[data-theme="light"] .contact-final-btn.secondary{ border-color:rgba(37,65,56,.2); background:rgba(255,255,255,.52); color:#17231f; }
@@ -1195,8 +1231,18 @@
   html[data-theme="light"] .portfolio-footer{ background:#e9e5dc; }
   html[data-theme="light"] .portfolio-footer-inner{ border-color:rgba(37,65,56,.15); color:#60706a; }
   html[data-theme="light"] .footer-positioning,html[data-theme="light"] .footer-details a{ color:#33443e; }
-  @media (max-width:1030px){ html[data-theme="light"] .site-nav{ background:rgba(250,249,244,.97); } }
+  html[data-theme="light"] .page > section:not(.hero) h2,html[data-theme="light"] .page > section:not(.hero) h2 span{ color:#101512 !important; background:none !important; -webkit-text-fill-color:#101512 !important; text-shadow:none !important; animation:none !important; }
+  html[data-theme="light"] .blob{ opacity:.42; filter:blur(86px) saturate(1.35); }
+  html[data-theme="light"] .blob:nth-child(1){ background:#40c98e; }html[data-theme="light"] .blob:nth-child(2){ background:#45a9d0; }html[data-theme="light"] .blob:nth-child(3){ background:#d5964c; }
+  @keyframes lightTitleFlow{ 0%,100%{ background-position:0 50%; }50%{ background-position:100% 50%; } }
+  @keyframes lightSectionFlow{ 0%{ background-position:0 20%; }100%{ background-position:100% 80%; } }
+  @media (max-width:1180px){ html[data-theme="light"] .site-nav{ border-color:rgba(37,65,56,.15); background:rgba(250,249,244,.97); box-shadow:0 26px 65px rgba(45,60,53,.16); }html[data-theme="light"] .site-nav-link{ border-color:rgba(35,72,59,.1); background:rgba(255,255,255,.55); }html[data-theme="light"] .site-nav-link.is-active{ border-color:rgba(35,139,97,.24); background:rgba(35,139,97,.09); } }
+  @media (max-width:820px){ html[data-theme="light"] .hero .avatar-frame::after{ background:linear-gradient(0deg,rgba(8,10,13,.76),transparent 62%); } }
+  @media (max-width:800px){ html[data-theme="light"] .certifications-section::before,html[data-theme="light"] .certifications-section::after{ opacity:.5; } }
   @media (max-width:760px){ html[data-theme="light"] .contact-final-portrait::after{ background:linear-gradient(0deg,#f2eee5 0%,transparent 22%),linear-gradient(180deg,#f2eee5 0%,transparent 16%); } }
+  @media (prefers-reduced-motion:reduce){ html[data-theme="light"] .page > section:not(.hero) .sec-title h2,html[data-theme="light"] .projects-section,html[data-theme="light"] .page > section.project-rescue{ animation:none; } }
+  /* Seamless transitions: no divider bars or artificial gaps between main sections. */
+  .page > section:not(.hero){ margin-top:0 !important; border-top:0 !important; border-bottom:0 !important; box-shadow:none; }
   #home,#skills,#projects-pm,#experience,#leadership,#education,#certifications,#project-rescue,#contact{ scroll-margin-top:86px; }
 </style>
 </head>
@@ -1232,15 +1278,15 @@
   <div class="topbar">
     <div class="logo" aria-label="Anul Methnula"><span class="crest" aria-hidden="true">AM</span><span class="logo-name" aria-hidden="true"><span class="logo-word">ANUL</span><span class="logo-word">METHNULA</span></span></div>
     <nav class="site-nav" id="siteNav" aria-label="Portfolio sections">
-      <a class="site-nav-link is-active" href="#home" data-nav-target="home">Home</a>
-      <a class="site-nav-link" href="#skills" data-nav-target="skills">Skills</a>
-      <a class="site-nav-link" href="#projects-pm" data-nav-target="projects-pm">Projects</a>
-      <a class="site-nav-link" href="#experience" data-nav-target="experience">Experience</a>
-      <a class="site-nav-link" href="#leadership" data-nav-target="leadership">Leadership</a>
-      <a class="site-nav-link" href="#education" data-nav-target="education">Education</a>
-      <a class="site-nav-link" href="#certifications" data-nav-target="certifications">Certifications</a>
-      <a class="site-nav-link" href="#project-rescue" data-nav-target="project-rescue">Challenge</a>
-      <a class="site-nav-link" href="#contact" data-nav-target="contact">Contact</a>
+      <a class="site-nav-link is-active" href="#home" data-nav-target="home"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+      <a class="site-nav-link" href="#skills" data-nav-target="skills"><i class="fa-solid fa-code" aria-hidden="true"></i><span>Skills</span></a>
+      <a class="site-nav-link" href="#projects-pm" data-nav-target="projects-pm"><i class="fa-solid fa-rocket" aria-hidden="true"></i><span>Projects</span></a>
+      <a class="site-nav-link" href="#experience" data-nav-target="experience"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><span>Experience</span></a>
+      <a class="site-nav-link" href="#leadership" data-nav-target="leadership"><i class="fa-solid fa-people-group" aria-hidden="true"></i><span>Leadership</span></a>
+      <a class="site-nav-link" href="#education" data-nav-target="education"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span>Education</span></a>
+      <a class="site-nav-link" href="#certifications" data-nav-target="certifications"><i class="fa-solid fa-award" aria-hidden="true"></i><span>Certifications</span></a>
+      <a class="site-nav-link" href="#project-rescue" data-nav-target="project-rescue"><i class="fa-solid fa-gamepad" aria-hidden="true"></i><span>Challenge</span></a>
+      <a class="site-nav-link" href="#contact" data-nav-target="contact"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span>Contact</span></a>
     </nav>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
       <span class="theme-toggle-track" aria-hidden="true"><i class="fa-solid fa-sun theme-sun"></i><i class="fa-solid fa-moon theme-moon"></i><span class="theme-toggle-thumb"></span></span>
@@ -1261,10 +1307,10 @@
 
   <nav class="connect-rail" aria-label="Contact links">
     <a class="connect-link linkedin" href="https://www.linkedin.com/in/anul-methnula/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" data-tooltip="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-    <a class="connect-link github" href="https://github.com/anulmethnula/my-protofilo" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" data-tooltip="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+    <a class="connect-link github" href="https://github.com/anulmethnula" target="_blank" rel="noopener noreferrer" aria-label="Open Anul Methnula on GitHub" title="GitHub Profile" data-tooltip="GitHub Profile"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
     <a class="connect-link email" href="mailto:anulmethnula@gmail.com" aria-label="Send Email" title="Send Email" data-tooltip="Send Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
     <a class="connect-link whatsapp" href="https://wa.me/94740529061" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp" data-tooltip="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
-    <a class="connect-link cv" id="connectCv" href="Anul_Methnula_PM_Resume.pdf" download aria-label="Download PM CV" title="Download PM CV" data-tooltip="Download PM CV"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i></a>
+    <a class="connect-link cv" id="connectCv" href="Anul%20Methnula-%20BA%20Resume.pdf" download="Anul Methnula - Business Analyst Resume.pdf" aria-label="Download updated Business Analyst CV" title="Download BA CV" data-tooltip="Download BA CV"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i></a>
     <a class="connect-link phone" href="tel:+94740529061" aria-label="Call Me" title="Call Me" data-tooltip="Call Me"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
   </nav>
 
@@ -1272,7 +1318,7 @@
     <section class="chat-panel" id="chatPanel" aria-hidden="true" aria-label="Chat with Anul AI">
       <header class="chat-header">
         <div class="chat-avatar" aria-hidden="true">AM</div>
-        <div class="chat-identity"><strong>Anul AI</strong><span class="chat-status">Portfolio + live web answers</span></div>
+        <div class="chat-identity"><strong>Anul AI</strong><span class="chat-status">Portfolio + sourced knowledge</span></div>
         <button class="chat-close" id="chatClose" type="button" aria-label="Close chat"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
       </header>
       <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions"></div>
@@ -1445,10 +1491,10 @@
     <section class="education-section" id="education">
       <div class="sec-title"><span class="bracket">[06]</span><h2>Academic Journey</h2></div>
       <div class="level-list reveal">
-        <div class="level-item"><div class="level-badge">L4</div><div class="level-logo"><img src="nibm logo.png" alt="NIBM logo"></div><div><span class="lv-date">2026 – Present</span><h3>BSc (Hons) IT for Business</h3><div class="lv-org">Coventry University, UK (via NIBM)</div><div class="lv-mods">Project Management, IT Service & Infrastructure Management, Operational Research.</div></div></div>
-        <div class="level-item"><div class="level-badge">L3</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Apr 2025 – Apr 2026</span><h3>HND in Information Systems</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Agile & DevOps, Business Analysis, IT Management Practices.</div></div></div>
-        <div class="level-item"><div class="level-badge">L2</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Sep 2023 – Sep 2024</span><h3>Diploma in Software Engineering</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Software Engineering, OOP, Web Development.</div></div></div>
-        <div class="level-item"><div class="level-badge">L1</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Dec 2022 – May 2023</span><h3>Certificate in Computer Science</h3><div class="lv-org">NIBM, Sri Lanka</div></div></div>
+        <div class="level-item"><div class="level-badge">04</div><div class="level-logo"><img src="nibm logo.png" alt="NIBM logo"></div><div><span class="lv-date">2026 – Present</span><h3>BSc (Hons) IT for Business</h3><div class="lv-org">Coventry University, UK (via NIBM)</div><div class="lv-mods">Project Management, IT Service & Infrastructure Management, Operational Research.</div></div></div>
+        <div class="level-item"><div class="level-badge">03</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Apr 2025 – Apr 2026</span><h3>HND in Information Systems</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Agile & DevOps, Business Analysis, IT Management Practices.</div></div></div>
+        <div class="level-item"><div class="level-badge">02</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Sep 2023 – Sep 2024</span><h3>Diploma in Software Engineering</h3><div class="lv-org">NIBM, Sri Lanka</div><div class="lv-mods">Software Engineering, OOP, Web Development.</div></div></div>
+        <div class="level-item"><div class="level-badge">01</div><div class="level-logo"><img src="nibm%20logo.png" alt="NIBM logo"></div><div><span class="lv-date">Dec 2022 – May 2023</span><h3>Certificate in Computer Science</h3><div class="lv-org">NIBM, Sri Lanka</div></div></div>
       </div>
     </section>
 
@@ -1715,7 +1761,6 @@
 
 </div>
 
-<script src="https://js.puter.com/v2/"></script>
 <script>
   // particles
   const pWrap = document.getElementById('particles');
@@ -1740,11 +1785,10 @@
   let animating = false;
 
   function syncConnectCv(role){
-    const isPM = role === 'pm';
-    const file = isPM ? 'Anul_Methnula_PM_Resume.pdf' : 'Anul_Methnula_BA_Resume.pdf';
-    const label = isPM ? 'Download PM CV' : 'Download BA CV';
+    const file = 'Anul Methnula- BA Resume.pdf';
+    const label = 'Download updated Business Analyst CV';
     connectCv.href = file;
-    connectCv.download = file;
+    connectCv.download = 'Anul Methnula - Business Analyst Resume.pdf';
     connectCv.setAttribute('aria-label', label);
     connectCv.title = label;
     connectCv.dataset.tooltip = label;
@@ -2043,25 +2087,6 @@
   const botFace = document.getElementById('botFace');
   let chatStarted = false;
   let chatReplying = false;
-  let aiChatHistory = [];
-  const portfolioSystemPrompt = `You are Anul AI, a friendly portfolio and general-purpose assistant. The visitor's current date is ${new Date().toISOString().slice(0,10)}.
-For portfolio questions, use only the verified facts below. Never invent achievements, dates, employers, qualifications, contact details, or project results. If a portfolio fact is unavailable, say so and suggest contacting Anul.
-For general questions, answer in simple, friendly language. Use web search for current or changeable information such as political leaders, news, laws, prices, schedules, weather, and public officeholders. Do not guess. If reliable confirmation is unavailable, clearly say that instead of inventing an answer.
-Keep the response easy to scan: give the direct answer first, use short paragraphs, add no more than three bullets when helpful, and avoid unnecessary jargon. For current factual answers, briefly name the source and when it was checked. Do not claim certainty beyond the evidence.
-
-VERIFIED PORTFOLIO FACTS:
-- Name: Anul Methnula.
-- Current positioning: Business Analyst Intern and aspiring Project Manager.
-- Professional statement: He turns business needs into clear requirements, practical plans, and well-coordinated digital solutions.
-- Current experience: Business Analyst Intern at Supun Group of Companies, Sri Lanka, August 2026 to Present.
-- Experience duties: gathering and analyzing requirements across departments; reviewing processes and identifying digital improvements; documenting requirements, workflows, process maps, and functional needs; supporting ERP planning and communication between business and technical teams.
-- Skills: Business Analysis, Requirements Gathering, Process Mapping, Stakeholder Communication, ERP Systems, Project Planning and Coordination, Agile and Scrum, Requirements Analysis, Process Modeling, BA and PM Documentation, Jira, Trello, Microsoft Project, Excel, Figma, Draw.io, UAT and Delivery Support.
-- Projects: QR-Based E-Ticketing System; Online Gas Delivery System; Queue Management System; Guest and Resident Feedback System; Hotel Management System; Advanced Enterprise Resource Planning analysis.
-- Education: BSc (Hons) IT for Business, Coventry University via NIBM, 2026 to Present; HND in Information Systems, NIBM, Apr 2025 to Apr 2026; Diploma in Software Engineering, NIBM, Sep 2023 to Sep 2024; Certificate in Computer Science, NIBM, Dec 2022 to May 2023.
-- Certifications: Cloud 101 Powered by AWS; LeanPM Yellow Belt; Certificate in Computer Science; Diplomat's Mun 45-Day English Course; British Council Spoken English Level A2.
-- Email: anulmethnula@gmail.com. Phone and WhatsApp: +94 740 529 061. LinkedIn: linkedin.com/in/anul-methnula/.
-- Two downloadable resumes exist on the site: Anul_Methnula_PM_Resume.pdf and Anul_Methnula_BA_Resume.pdf.`;
-
   function setChatOpen(open, focusInput = false){
     portfolioChat.classList.toggle('is-open', open);
     chatPanel.setAttribute('aria-hidden', String(!open));
@@ -2114,7 +2139,8 @@ VERIFIED PORTFOLIO FACTS:
   }
 
   function chatAnswer(title,body){
-    return `<span class="chat-answer-title">${title}</span><div class="chat-answer-body">${body}</div>`;
+    const content = /^\s*<(?:p|ul|ol|div)\b/i.test(body) ? body : `<p>${body}</p>`;
+    return `<span class="chat-answer-title">${title}</span><div class="chat-answer-body">${content}</div>`;
   }
 
   function getPortfolioReply(question){
@@ -2134,50 +2160,109 @@ VERIFIED PORTFOLIO FACTS:
     if(/\b(experiences?|internship|intern|supun|employment|industry|roles?|job)\b/.test(q)) return chatAnswer('Professional experience','<p><strong>Business Analyst Intern</strong><br>Supun Group of Companies, Sri Lanka<br>August 2026–Present</p><ul><li>Requirements and process analysis</li><li>Workflow and functional documentation</li><li>ERP planning and team communication</li></ul><p><a href="#experience">View experience</a></p>');
     if(/\b(education|degrees?|study|studies|academic|university|nibm|coventry|hnd|diploma)\b/.test(q)) return chatAnswer('Education','<ul><li>BSc (Hons) IT for Business — in progress</li><li>HND in Information Systems</li><li>Diploma in Software Engineering</li><li>Certificate in Computer Science</li></ul><p>Coventry University through NIBM. <a href="#education">View education</a></p>');
     if(/\b(certifications?|certificates?|aws|leanpm|english course|british council)\b/.test(q)) return chatAnswer('Certifications','<ul><li>Cloud 101 — AWS</li><li>LeanPM Yellow Belt</li><li>Certificate in Computer Science</li><li>English qualifications and courses</li></ul><p><a href="#certifications">View certifications</a></p>');
-    if(/\b(cv|cvs|resumes?|download)\b/.test(q)) return chatAnswer('Choose a CV','Download the <a href="Anul_Methnula_BA_Resume.pdf" download>Business Analysis CV</a> or the <a href="Anul_Methnula_PM_Resume.pdf" download>Project Management CV</a>.');
+    if(/\b(cv|cvs|resumes?|download)\b/.test(q)) return chatAnswer('Download Anul’s CV','Download the updated <a href="Anul%20Methnula-%20BA%20Resume.pdf" download="Anul Methnula - Business Analyst Resume.pdf">Business Analyst CV</a>.');
     if(/\b(available|availability|start|opportunit(?:y|ies)|hire|recruit)\b/.test(q)) return chatAnswer('Open to opportunities','Anul is open to suitable <strong>Business Analyst, Project Coordinator, and junior Project Management opportunities</strong>. <a href="#contact">Contact Anul</a> to discuss a role.');
     if(/\b(contact|email|phone|call|whatsapp|linkedin|reach|location)\b/.test(q)) return chatAnswer('Contact Anul','Email <a href="mailto:anulmethnula@gmail.com">anulmethnula@gmail.com</a>, call <a href="tel:+94740529061">+94 740 529 061</a>, message through <a href="https://wa.me/94740529061" target="_blank" rel="noopener noreferrer">WhatsApp</a>, or connect on <a href="https://www.linkedin.com/in/anul-methnula/" target="_blank" rel="noopener noreferrer">LinkedIn</a>. He is based in Sri Lanka.');
-    if((/\b(who|about|profile|tell me)\b/.test(q) && /\b(anul|him|candidate)\b/.test(q)) || /why (hire|choose) (anul|him)/.test(q)) return chatAnswer('Anul Methnula','A <strong>Business Analyst Intern</strong> and aspiring <strong>Project Manager</strong> who turns business needs into clear requirements, practical plans, and coordinated digital solutions. His portfolio combines industry experience, delivery-focused projects, leadership, and a solid technical foundation.');
-    if(/\b(ai|bot|assistant|human|real person)\b/.test(q) || /what can you do/.test(q)) return chatAnswer('How I can help','<ul><li>Verified answers about Anul’s portfolio</li><li>General knowledge questions</li><li>Web-checked answers for changing information</li></ul><p>I’ll say clearly when reliable confirmation is unavailable.</p>');
+    if((/\b(who|about|profile|tell me)\b/.test(q) && /\b(anuls?|him|candidate)\b/.test(q)) || /^(tell me )?about me$|who am i|tell me about myself/.test(q) || /why (hire|choose) (anul|him)/.test(q)) return chatAnswer('About Anul Methnula','<p>Anul is a <strong>Business Analyst Intern</strong> and aspiring <strong>Project Manager</strong> based in Sri Lanka. He turns business needs into clear requirements, practical plans, and coordinated digital solutions.</p><p><strong>What he brings</strong></p><ul><li>Requirements gathering and process analysis</li><li>Stakeholder communication and documentation</li><li>Agile planning, coordination, UAT, and delivery support</li><li>Industry experience, project work, and AIESEC leadership</li></ul><p>He currently works with <strong>Supun Group of Companies</strong> and is open to suitable BA, project coordination, and junior PM opportunities. <a href="#contact">Contact Anul</a></p>');
+    if(/\b(ai|bot|assistant|human|real person)\b/.test(q) || /what can you do/.test(q)) return chatAnswer('How I can help','<ul><li>Verified answers about Anul’s portfolio</li><li>Concise general-knowledge lookups</li><li>A visible source for factual lookup answers</li></ul><p>Everything stays inside this chat—no account or external sign-in is required.</p>');
     if(/\b(thank|thanks|cheers)\b/.test(q)) return 'You’re welcome! I can also show you Anul’s projects, CVs, or direct contact details.';
     return chatAnswer('I don’t have a verified answer for that yet.','Try asking about Anul’s skills, projects, experience, leadership, education, certifications, CV, availability, or contact details—or <a href="#contact">ask Anul directly</a>.');
   }
 
   function isPortfolioQuestion(question){
     const q = normalizeChatQuestion(question);
-    const namesAnul=/\b(anul|his|him|candidate|portfolio)\b/.test(q);
+    const namesAnul=/\b(anuls?|his|him|candidate|portfolio)\b/.test(q);
+    const firstPersonPortfolio=/^(tell me )?about me$|who am i|tell me about myself|\bmy (skills?|projects?|experience|education|certifications?|cv|resume)\b/.test(q);
     const siteSpecific=/\b(supun|aiesec|ocvp|nibm|coventry|leanpm|ticketing|e-ticketing|project rescue|christmas oem)\b/.test(q);
     const shortCommand=q.split(' ').length<=3 && /\b(skills?|projects?|experience|leadership|education|certifications?|cv|resumes?|contact|availability)\b/.test(q);
     const casual=/^(hi|hello|hey|thanks|thank you|good morning|good afternoon|good evening)$/.test(q);
-    return namesAnul || siteSpecific || shortCommand || casual || /what can you do|who are you|are you (an ai|a bot)/.test(q) || /why (hire|choose) (anul|him)/.test(q);
+    return namesAnul || firstPersonPortfolio || siteSpecific || shortCommand || casual || /what can you do|who are you|are you (an ai|a bot)/.test(q) || /why (hire|choose) (anul|him)/.test(q);
+  }
+
+  function showSourcedChatAnswer(summary, sourceTitle, sourceUrl, typingRow){
+    if(typingRow.isConnected) typingRow.remove();
+    const responseRow = addChatMessage(summary, 'bot');
+    const bubble = responseRow.querySelector('.chat-bubble');
+    bubble.classList.add('chat-general-answer');
+    const source = document.createElement('span');
+    source.className = 'chat-source';
+    source.append('Source: ');
+    const link = document.createElement('a');
+    link.href = sourceUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = sourceTitle;
+    source.append(link, document.createElement('br'), `Checked ${new Intl.DateTimeFormat('en', {dateStyle:'medium'}).format(new Date())}`);
+    bubble.appendChild(source);
+  }
+
+  async function lookupCurrentOfficeHolder(question){
+    const q = normalizeChatQuestion(question);
+    const match = q.match(/\b(president|head of state|prime minister|head of government)\b(?:\s+of|\s+in)?\s+(.+)$/);
+    if(!match) return null;
+    const office = match[1];
+    const countryName = match[2].replace(/\b(today|currently|right now|current)\b/g,'').trim();
+    if(!countryName) return null;
+    const searchParams = new URLSearchParams({action:'wbsearchentities',format:'json',origin:'*',language:'en',type:'item',limit:'5',search:countryName});
+    const countryResponse = await fetch(`https://www.wikidata.org/w/api.php?${searchParams}`);
+    if(!countryResponse.ok) return null;
+    const countryData = await countryResponse.json();
+    const country = countryData.search?.find(item=>/country|sovereign state|island nation/i.test(item.description || '')) || countryData.search?.[0];
+    if(!country?.id) return null;
+    const property = /prime minister|head of government/.test(office) ? 'P6' : 'P35';
+    const claimsParams = new URLSearchParams({action:'wbgetentities',format:'json',origin:'*',ids:country.id,props:'claims'});
+    const claimsResponse = await fetch(`https://www.wikidata.org/w/api.php?${claimsParams}`);
+    if(!claimsResponse.ok) return null;
+    const claimsData = await claimsResponse.json();
+    const claims = claimsData.entities?.[country.id]?.claims?.[property] || [];
+    const activeClaims = claims.filter(claim=>claim.rank!=='deprecated'&&!claim.qualifiers?.P582&&claim.mainsnak?.datavalue?.value?.id);
+    const claim = activeClaims.sort((a,b)=>(b.rank==='preferred')-(a.rank==='preferred'))[0];
+    const personId = claim?.mainsnak?.datavalue?.value?.id;
+    if(!personId) return null;
+    const personParams = new URLSearchParams({action:'wbgetentities',format:'json',origin:'*',ids:personId,props:'labels|descriptions|sitelinks',languages:'en',sitefilter:'enwiki'});
+    const personResponse = await fetch(`https://www.wikidata.org/w/api.php?${personParams}`);
+    if(!personResponse.ok) return null;
+    const person = (await personResponse.json()).entities?.[personId];
+    const articleTitle = person?.sitelinks?.enwiki?.title;
+    const name = articleTitle || person?.labels?.en?.value;
+    if(!name) return null;
+    const countryLabel = country.label || countryName.replace(/\b\w/g,letter=>letter.toUpperCase());
+    const officeLabel = property==='P6' ? 'prime minister' : 'president';
+    return {
+      summary:`The current ${officeLabel} of ${countryLabel} is ${name}.${person.descriptions?.en?.value ? ` ${person.descriptions.en.value.replace(/^./,letter=>letter.toUpperCase())}.` : ''}`,
+      sourceTitle:articleTitle || `${name} on Wikidata`,
+      sourceUrl:articleTitle ? `https://en.wikipedia.org/wiki/${encodeURIComponent(articleTitle.replace(/ /g,'_'))}` : `https://www.wikidata.org/wiki/${personId}`
+    };
   }
 
   async function streamAIReply(question, typingRow){
-    if(!window.puter?.ai?.chat) throw new Error('AI service unavailable');
-    const conversation = [
-      { role:'system', content:portfolioSystemPrompt },
-      ...aiChatHistory,
-      { role:'user', content:question }
-    ];
-    const response = await puter.ai.chat(conversation, {
-      model:'openai/gpt-5.6-luna',
-      tools:[{type:'web_search'}],
-      normalize:true,
-      max_tokens:650,
-      temperature:.15,
-      reasoning_effort:'low',
-      verbosity:'low'
-    });
-    let answer = typeof response === 'string' ? response : response?.message?.content || response?.text || response?.content || '';
-    if(Array.isArray(answer)) answer=answer.map(part=>part?.text||part?.content||'').join('\n');
-    if(!answer.trim()){
-      throw new Error('Empty AI response');
+    const officeHolder = await lookupCurrentOfficeHolder(question);
+    if(officeHolder){
+      showSourcedChatAnswer(officeHolder.summary, officeHolder.sourceTitle, officeHolder.sourceUrl, typingRow);
+      return;
     }
-    typingRow.remove();
-    const responseRow = addChatMessage(answer.trim(), 'bot');
-    responseRow.querySelector('.chat-bubble')?.classList.add('chat-general-answer');
-    aiChatHistory.push({role:'user',content:question},{role:'assistant',content:answer});
-    aiChatHistory = aiChatHistory.slice(-10);
+    const params = new URLSearchParams({
+      action:'query',
+      format:'json',
+      origin:'*',
+      generator:'search',
+      gsrsearch:question,
+      gsrlimit:'3',
+      prop:'extracts|info',
+      exintro:'1',
+      explaintext:'1',
+      exsentences:'4',
+      inprop:'url'
+    });
+    const response = await fetch(`https://en.wikipedia.org/w/api.php?${params.toString()}`, {headers:{Accept:'application/json'}});
+    if(!response.ok) throw new Error('Knowledge service unavailable');
+    const data = await response.json();
+    const pages = Object.values(data?.query?.pages || {}).sort((a,b)=>(a.index ?? 999)-(b.index ?? 999));
+    const page = pages.find(item=>item.extract?.trim());
+    if(!page) throw new Error('No reliable result');
+    const summary = page.extract.replace(/\s+/g,' ').trim();
+    const sourceUrl = page.fullurl || `https://en.wikipedia.org/wiki/${encodeURIComponent(page.title.replace(/ /g,'_'))}`;
+    showSourcedChatAnswer(summary, page.title, sourceUrl, typingRow);
   }
 
   function showChatTyping(){
@@ -2212,7 +2297,7 @@ VERIFIED PORTFOLIO FACTS:
       await streamAIReply(cleanQuestion, typing);
     } catch(error){
       if(typing.isConnected) typing.remove();
-      addChatMessage('I couldn’t reach live web search just now. Please try again shortly. Verified questions about Anul’s portfolio still work normally.', 'bot');
+      addChatMessage('I couldn’t find a reliable in-chat source for that question. Try a shorter factual question, or ask about Anul’s portfolio, skills, projects, experience, or contact details.', 'bot');
     } finally {
       chatReplying = false;
       portfolioChat.classList.remove('is-thinking');
@@ -2425,19 +2510,21 @@ VERIFIED PORTFOLIO FACTS:
       frame=0; context.clearRect(0,0,width,height);
       const px=pointerX*12,py=pointerY*6;
       for(const particle of particles){
-        const particleColor=weatherPalettes[document.documentElement.dataset.theme==='light'?'light':'dark'][particle.colorIndex];
+        const lightWeather=document.documentElement.dataset.theme==='light';
+        const particleColor=weatherPalettes[lightWeather?'light':'dark'][particle.colorIndex];
+        const particleAlpha=Math.min(1,particle.alpha*(lightWeather?1.4:1));
         particle.phase+=.018; particle.y+=particle.speed; particle.x+=particle.drift+pointerX*particle.depth*.14;
         if(particle.y>height+particle.length||particle.x < -50||particle.x>width+50) Object.assign(particle,makeParticle(false));
         context.beginPath();
         if(!particle.flake){
           const gradient=context.createLinearGradient(particle.x,particle.y,particle.x+5,particle.y+particle.length);
-          gradient.addColorStop(0,`rgba(${particleColor},0)`); gradient.addColorStop(1,`rgba(${particleColor},${particle.alpha})`);
-          context.strokeStyle=gradient; context.lineWidth=.7+particle.depth*1.45;
+          gradient.addColorStop(0,`rgba(${particleColor},0)`); gradient.addColorStop(1,`rgba(${particleColor},${particleAlpha})`);
+          context.strokeStyle=gradient; context.lineWidth=.7+particle.depth*1.45+(lightWeather ? .35 : 0);
           context.moveTo(particle.x+px*particle.depth,particle.y+py*particle.depth);
           context.lineTo(particle.x+5+px*particle.depth,particle.y+particle.length+py*particle.depth); context.stroke();
         }else{
           const radius=1.4+particle.depth*3.1;
-          context.fillStyle=`rgba(${particleColor},${particle.alpha*.88})`;
+          context.fillStyle=`rgba(${particleColor},${particleAlpha*.94})`;
           context.shadowColor=`rgba(${particleColor},.8)`; context.shadowBlur=13*particle.depth;
           context.arc(particle.x+Math.sin(particle.phase)*9+px*particle.depth,particle.y+py*particle.depth,radius,0,Math.PI*2); context.fill(); context.shadowBlur=0;
         }
