@@ -745,11 +745,17 @@
   }
   /* The portfolio now uses one combined BA/PM view. */
   .class-select,#page-ba{ display:none !important; }
-  .cursor-glow{ position:fixed; z-index:120; left:0; top:0; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(98,215,154,.12) 0%,rgba(232,176,123,.06) 34%,transparent 70%); transform:translate3d(-50%,-50%,0); pointer-events:none; opacity:0; transition:opacity .25s ease; will-change:transform; }
+  .cursor-glow{ position:fixed; z-index:125; left:0; top:0; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle,rgba(255,205,116,.25),rgba(98,215,154,.12) 28%,rgba(101,200,223,.055) 48%,transparent 72%); mix-blend-mode:screen; transform:translate3d(-200px,-200px,0); pointer-events:none; opacity:0; transition:opacity .18s ease; will-change:transform; }
   body.has-pointer .cursor-glow{ opacity:1; }
+  .cursor-glow::before{ content:""; position:absolute; inset:64px; border:1px solid rgba(255,211,135,.85); border-radius:50%; box-shadow:0 0 12px rgba(240,178,98,.75),0 0 28px rgba(98,215,154,.4),inset 0 0 8px rgba(255,255,255,.35); animation:cursorRing 1.4s ease-in-out infinite; }
+  .cursor-glow::after{ content:""; position:absolute; left:50%; top:50%; width:5px; height:5px; border-radius:50%; background:#fff1cf; box-shadow:0 0 7px #fff,0 0 15px #efb66e,0 0 24px #62d79a; transform:translate(-50%,-50%); }
+  .cursor-dust{ position:fixed; z-index:124; left:0; top:0; width:var(--size); height:var(--size); border-radius:50%; background:var(--color); box-shadow:0 0 5px var(--color),0 0 12px var(--color); pointer-events:none; transform:translate3d(var(--x),var(--y),0); animation:cursorDust var(--life) cubic-bezier(.12,.62,.2,1) forwards; will-change:transform,opacity; }
+  .cursor-burst{ animation-timing-function:ease-out; }
+  @keyframes cursorRing{ 0%,100%{ transform:scale(.65) rotate(0deg); opacity:.42; } 50%{ transform:scale(1.25) rotate(180deg); opacity:1; } }
+  @keyframes cursorDust{ from{ opacity:1; transform:translate3d(var(--x),var(--y),0) scale(1); } to{ opacity:0; transform:translate3d(calc(var(--x) + var(--dx)),calc(var(--y) + var(--dy)),0) scale(.08); } }
   .avatar-frame img{ opacity:0; }
   .avatar-frame img.is-ready{ opacity:1; transition:opacity .32s ease !important; }
-  @media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){ .cursor-glow{ display:none; } }
+  @media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){ .cursor-glow,.cursor-dust{ display:none; } }
   @media (max-width:720px){
     .hero{ min-height:calc(100svh - 68px); padding:40px clamp(20px,6vw,32px) !important; }
     .hero::before{ background:linear-gradient(90deg,rgba(8,10,13,.97) 0%,rgba(8,10,13,.84) 58%,rgba(8,10,13,.28) 100%),linear-gradient(0deg,#080a0d 0%,transparent 46%,rgba(8,10,13,.34) 100%); }
@@ -1137,11 +1143,6 @@
       </div>
     </section>
 
-    <div class="contact-cta">
-      <h2>READY TO ADD A PM TO YOUR PARTY?</h2>
-      <a class="big-btn" href="mailto:anulmethnula@gmail.com">SEND MESSAGE â†’</a>
-      <div class="foot-meta">ANUL METHNULA &middot; PORTFOLIO</div>
-    </div>
   </div>
 
   <!-- ================= BA PAGE ================= -->
@@ -1320,11 +1321,6 @@
       </div>
     </section>
 
-    <div class="contact-cta">
-      <h2>READY TO ADD A BA TO YOUR PARTY?</h2>
-      <a class="big-btn" href="mailto:anulmethnula@gmail.com">SEND MESSAGE â†’</a>
-      <div class="foot-meta">ANUL METHNULA &middot; PORTFOLIO</div>
-    </div>
   </div>
 
 </div>
@@ -1469,12 +1465,36 @@
     if(photo.complete) revealPhoto();
   });
 
-  // Subtle pointer-following ambient light for mouse/trackpad visitors.
+  // Neon cursor aura, comet dust trail, and click burst for mouse visitors.
   const cursorGlow = document.getElementById('cursorGlow');
   if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    let lastDustAt = 0;
+    const makeDust = (x,y,burst=false)=>{
+      const dust = document.createElement('span');
+      const angle = Math.random() * Math.PI * 2;
+      const distance = burst ? 24 + Math.random() * 52 : 10 + Math.random() * 25;
+      dust.className = `cursor-dust${burst ? ' cursor-burst' : ''}`;
+      dust.style.setProperty('--x', `${x + (Math.random() - .5) * 12}px`);
+      dust.style.setProperty('--y', `${y + (Math.random() - .5) * 12}px`);
+      dust.style.setProperty('--dx', `${Math.cos(angle) * distance}px`);
+      dust.style.setProperty('--dy', `${Math.sin(angle) * distance + (burst ? 0 : 18)}px`);
+      dust.style.setProperty('--size', `${burst ? 3 + Math.random() * 5 : 2 + Math.random() * 4}px`);
+      dust.style.setProperty('--life', `${burst ? 480 + Math.random() * 260 : 620 + Math.random() * 360}ms`);
+      dust.style.setProperty('--color', Math.random() > .48 ? '#f2b76f' : '#62d79a');
+      document.body.appendChild(dust);
+      dust.addEventListener('animationend', ()=>dust.remove(), {once:true});
+    };
     window.addEventListener('pointermove', event=>{
       document.body.classList.add('has-pointer');
-      cursorGlow.style.transform = `translate3d(${event.clientX - 110}px,${event.clientY - 110}px,0)`;
+      cursorGlow.style.transform = `translate3d(${event.clientX - 90}px,${event.clientY - 90}px,0)`;
+      const now = performance.now();
+      if(now - lastDustAt >= 28){
+        lastDustAt = now;
+        makeDust(event.clientX,event.clientY);
+      }
+    }, {passive:true});
+    window.addEventListener('pointerdown', event=>{
+      for(let i=0;i<14;i++) makeDust(event.clientX,event.clientY,true);
     }, {passive:true});
     document.documentElement.addEventListener('mouseleave', ()=>document.body.classList.remove('has-pointer'));
   }
